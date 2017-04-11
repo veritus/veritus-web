@@ -8,7 +8,15 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "babel-eslint": "^7.2.1",
+    "eslint": "^3.19.0",
+    "eslint-config-prettier": "^1.6.0",
+    "eslint-plugin-flowtype": "^2.30.4",
+    "eslint-plugin-prettier": "^2.0.1",
     "flow-bin": "^0.43.1",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
+    "prettier": "^0.22.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {
@@ -19,6 +27,12 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "flow": "flow"
+    "flow": "flow",
+    "precommit": "lint-staged",
+    "lint": "eslint --ignore-path .gitignore --fix *.js src",
+    "lint-bail": "eslint --ignore-path .gitignore *.js src"
+  },
+  "lint-staged": {
+    "*.js": "lint"
   }
 }

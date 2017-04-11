@@ -1,0 +1,43 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "plugins": [
+    "flowtype",
+    "react",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2016,
+    "sourceType": "module",
+    "ecmaFeatures": {
+    "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    // Flow
+    "flowtype/boolean-style": [
+    2,
+    "boolean"
+    ],
+    "flowtype/define-flow-type": 1,
+    "flowtype/no-weak-types": 2,
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/type-id-match": [
+    2,
+    "^([A-Z][a-z0-9]+)+Type|Props$"
+    ],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1,
+    "prettier/prettier": ["error", {"trailingComma": "es5", "singleQuote": true, "parser": "flow", "printWidth": 90} ]
+  }
+}
