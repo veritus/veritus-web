@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Button from 'react-toolbox/lib/button/Button';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export const VButton = children => {
-  return <Button raised>heyo</Button>;
+  return <RaisedButton primary label="heyo" />;
 };
 
 export default VButton;
