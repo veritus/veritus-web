@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "react": "^15.5.3",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
@@ -16,8 +17,11 @@
     "flow-bin": "^0.43.1",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
+    "material-ui": "^0.17.4",
     "prettier": "^0.22.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "react-split-pane": "^0.1.63",
+    "storybook-addon-material-ui": "^0.7.7"
   },
   "scripts": {
     "check": "yarn run flow && CI=true yarn run test",
