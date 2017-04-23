@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
 import PromiseList from '../PromiseList';
-import type { PromiseType } from '../PromiseList';
+import type { PromiseType } from '../../types';
 
 export type Props = {
   name: string,
@@ -23,7 +23,7 @@ const PoliticianCard = (props: Props) => {
         showExpandableButton={true}
         avatar="http://lorempixel.com/200/200/"
       >
-        {progress}% - {party}
+        {progress}%
         <LinearProgress mode="determinate" value={progress} />
       </CardHeader>
       <CardText expandable={true}>

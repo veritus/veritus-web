@@ -2,12 +2,7 @@
 import React from 'react';
 import { List } from 'material-ui/List';
 import PromiseItem from '../PromiseItem';
-
-export type PromiseType = {
-  id: number,
-  title: string,
-  fulfilled: boolean,
-};
+import type { PromiseType } from '../../types';
 
 export type Props = {
   promises: Array<PromiseType>,
@@ -16,7 +11,12 @@ export type Props = {
 const PromiseList = (props: Props) => {
   const { promises } = props;
   const promiseList = promises.map(promise => (
-    <PromiseItem id={promise.id} title={promise.title} fulfilled={promise.fulfilled} />
+    <PromiseItem
+      key={promise.id}
+      id={promise.id}
+      title={promise.title}
+      fulfilled={promise.fulfilled}
+    />
   ));
 
   return <List> {promiseList} </List>;

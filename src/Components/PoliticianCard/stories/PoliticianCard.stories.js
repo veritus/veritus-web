@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf, action, linkTo, addDecorator } from '@kadira/storybook';
 import { muiTheme } from 'storybook-addon-material-ui';
 import PoliticianCard from '../index';
-import type { PromiseType } from '../../PromiseList';
+import type { PromiseType } from '../../../types';
 
 const promises: Array<PromiseType> = [
   {

@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "formsy-material-ui": "^0.6.0",
+    "formsy-react": "^0.19.2",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
+    "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
