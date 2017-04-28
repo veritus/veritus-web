@@ -1,24 +1,15 @@
 /* @flow */
 
-export type ResponseType = {
-  status: number,
-  statusText: string,
-  json: JSON,
-};
-
-export const checkStatus = (response: ResponseType) => {
-  console.log(response);
+export const checkStatus = (response: Response) => {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
   const error = new Error(`HTTP Error ${response.statusText}`);
   error.message = response.statusText;
-  console.log('error > ', error); // eslint-disable-line no-console
-  console.log('body > ', response.body);
   throw error;
 };
 
-export const parseJSON = (response: ResponseType) => {
+export const parseJSON = (response: Response) => {
   return response.json();
 };
 
