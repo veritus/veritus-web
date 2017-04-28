@@ -4,20 +4,20 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import { login } from '../../utils/api';
 import { saveToken } from '../../utils/tokenStorage';
+import type { LoginType } from '../../Containers/LoginContainer';
 
-export type LoginType = {
-  email: string,
-  password: string,
+export type PropTypes = {
+  onSubmit: (data: LoginType) => void,
 };
 
 export class LoginForm extends React.Component {
   state: {
     canSubmit: boolean,
   };
-  constructor() {
-    super();
+
+  constructor(props: PropTypes) {
+    super(props);
 
     this.state = {
       canSubmit: false,
@@ -35,17 +35,6 @@ export class LoginForm extends React.Component {
     });
   }
 
-  submit = (data: LoginType) => {
-    login(data.email, data.password).then(data => {
-      const token = data.key;
-      if (token) {
-        saveToken(token);
-      } else {
-        console.log('Login error');
-      }
-    });
-  };
-
   render() {
     return (
       <div>
@@ -53,7 +42,7 @@ export class LoginForm extends React.Component {
           <Formsy.Form
             onValid={() => this.enableButton()}
             onInvalid={() => this.disableButton()}
-            onSubmit={this.submit}
+            onSubmit={this.props.onSubmit}
           >
             <FormsyText
               name="email"

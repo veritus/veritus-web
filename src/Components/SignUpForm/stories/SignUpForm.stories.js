@@ -2,8 +2,8 @@
 import React from 'react';
 import { storiesOf, action, linkTo, addDecorator } from '@kadira/storybook';
 import { muiTheme } from 'storybook-addon-material-ui';
-import LoginForm from '../index';
+import SignUpForm from '../index';
 
-storiesOf('Log in form', module)
+storiesOf('Sign up form', module)
   .addDecorator(muiTheme())
-  .add('Default', () => <LoginForm />);
+  .add('Default', () => <SignUpForm onSubmit={action('submit-called')} />);
