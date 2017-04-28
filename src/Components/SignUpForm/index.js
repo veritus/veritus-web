@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import { saveToken } from '../../utils/tokenStorage';
 import type { SignUpType } from '../../Containers/SignUpContainer';
 
 export type PropTypes = {

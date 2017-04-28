@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import { saveToken } from '../../utils/tokenStorage';
 import type { LoginType } from '../../Containers/LoginContainer';
 
 export type PropTypes = {
@@ -53,7 +52,6 @@ export class LoginForm extends React.Component {
             <br />
             <FormsyText
               name="password"
-              validations="isWords"
               required
               floatingLabelText="Password"
               type="password"
