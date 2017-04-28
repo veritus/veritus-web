@@ -8,6 +8,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Politicians from './Containers/Politicians';
 import PromiseForm from './Containers/PromiseForm';
+import SignUpForm from './Containers/SignUpForm';
+import LoginForm from './Containers/LoginForm';
+
 injectTapEventPlugin();
 
 class App extends Component {
@@ -19,6 +22,8 @@ class App extends Component {
             <NavBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseForm} />
+            <Route path="/sign-up" component={SignUpForm} />
+            <Route path="/login" component={LoginForm} />
           </div>
         </Router>
       </MuiThemeProvider>
