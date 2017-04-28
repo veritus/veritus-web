@@ -4,8 +4,8 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import TextField from 'material-ui/TextField';
 import { login } from '../../utils/api';
+import { saveToken } from '../../utils/tokenStorage';
 
 export type LoginType = {
   email: string,
@@ -36,7 +36,14 @@ export class LoginForm extends React.Component {
   }
 
   submit = (data: LoginType) => {
-    login(data.email, data.password);
+    login(data.email, data.password).then(data => {
+      const token = data.key;
+      if (token) {
+        saveToken(token);
+      } else {
+        console.log('Login error');
+      }
+    });
   };
 
   render() {
@@ -46,8 +53,6 @@ export class LoginForm extends React.Component {
           <Formsy.Form
             onValid={() => this.enableButton()}
             onInvalid={() => this.disableButton()}
-            onValidSubmit={console.log('valid submit')}
-            onInvalidSubmit={console.log('invalid submit')}
             onSubmit={this.submit}
           >
             <FormsyText
@@ -59,7 +64,7 @@ export class LoginForm extends React.Component {
             <br />
             <FormsyText
               name="password"
-              validations="minLength:8"
+              validations="isWords"
               required
               floatingLabelText="Password"
               type="password"

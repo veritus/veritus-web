@@ -42,7 +42,9 @@ export const signUp = (username: string, password: string) => {
       password1: password,
       password2: password,
     }),
-  });
+  })
+    .then(checkStatus)
+    .then(parseJSON);
 };
 
 export const login = (username: string, password: string) => {
@@ -56,5 +58,7 @@ export const login = (username: string, password: string) => {
       email: username,
       password: password,
     }),
-  });
+  })
+    .then(checkStatus)
+    .then(parseJSON);
 };
