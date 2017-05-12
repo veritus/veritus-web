@@ -28,3 +28,8 @@ export type CaseType = {
   created: date,
   modified: date,
 };
+
+export type CaseType = {
+  id: number,
+  name: string,
+};
