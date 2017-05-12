@@ -18,11 +18,13 @@ describe('Login Form', () => {
     const passwordInput = wrapper.find('.qa-login-password input').first();
     const submitButton = wrapper.find('.qa-login-submit button').first();
 
-    emailInput.simulate('change', { target: { value: 'foo@bar.com' } });
-    passwordInput.simulate('change', { target: { value: 'strongpassword1' } });
-
-    submitButton.simulate('click');
-    console.log(submitButton.debug());
+    emailInput.node.value = 'foo@bar.com';
+    passwordInput.node.value = 'strongpassword1';
+    emailInput.simulate('change', emailInput);
+    passwordInput.simulate('change', passwordInput);
+    //submitButton.simulate('change', submitButton);
+    wrapper.find('[type="submit"]').get(0).click();
+    //submitButton.simulate('click');
 
     expect(submitMock).toBeCalled();
   });
