@@ -32,7 +32,7 @@
     "browser": true,
     "es6": true,
     "node": true,
-    "mocha": true
+    "jest": true
   },
   "rules": {
     // Flow
@@ -106,13 +106,13 @@
     "no-labels": 1,
     "no-lone-blocks": 1,
     "no-loop-func": 2,
-    /*"no-magic-numbers": [ // Reinstate this rule after the styles have been moved into seperate files
+    "no-magic-numbers": [ // Reinstate this rule after the styles have been moved into seperate files
       2,
       { 
         "ignoreArrayIndexes": true,
         "ignore": [-1, 0, 1, 2] 
         }
-    ],*/
+    ],
     "no-multi-spaces": 1,
     "no-multi-str": 1,
     "no-new-func": 2,
@@ -177,7 +177,7 @@
       1
     ],
     "no-array-constructor": 2,
-    // "no-bitwise": 1, Reinstate this rule if we ever move from the enum / bitwise fields
+    "no-bitwise": 1,
     "no-continue": 2,
     "no-lonely-if": 2,
     "no-mixed-operators": 2,
