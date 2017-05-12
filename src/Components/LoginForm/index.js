@@ -48,6 +48,7 @@ export class LoginForm extends React.Component {
               validations="isEmail"
               required
               floatingLabelText="Email"
+              className="qa-login-email"
             />
             <br />
             <FormsyText
@@ -55,9 +56,16 @@ export class LoginForm extends React.Component {
               required
               floatingLabelText="Password"
               type="password"
+              className="qa-login-password"
             />
             <br />
-            <RaisedButton type="submit" label="Login" disabled={!this.state.canSubmit} />
+            <RaisedButton
+              type="submit"
+              label="Login"
+              onClick={() => console.log('Ive been clicked')}
+              disabled={!this.state.canSubmit}
+              className="qa-login-submit"
+            />
           </Formsy.Form>
         </Paper>
       </div>
