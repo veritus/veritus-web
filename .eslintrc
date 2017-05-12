@@ -1,5 +1,14 @@
 {
   "parser": "babel-eslint",
+  "extends": [
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
   "plugins": [
     "flowtype",
     "react",
@@ -7,10 +16,6 @@
     "jsx-a11y",
     "babel",
     "import"
-  ],
-  "extends": [
-    "plugin:import/errors",
-    "plugin:import/warnings"
   ],
   "ecmaFeatures": {
     "modules": true,
