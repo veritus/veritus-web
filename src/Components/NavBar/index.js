@@ -49,6 +49,11 @@ export class NavBar extends React.Component {
               Add Promise
             </MenuItem>
           </NavLink>
+          <NavLink to="/cases" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>
+              Cases
+            </MenuItem>
+          </NavLink>
         </Drawer>
       </div>
     );

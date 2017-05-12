@@ -24,6 +24,7 @@ class App extends Component {
             <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/sign-up" component={SignUpContainer} />
             <Route path="/login" component={LoginContainer} />
+            <Route path="/cases" component={CaseList} />
           </div>
         </Router>
       </MuiThemeProvider>
