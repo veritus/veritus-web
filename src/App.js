@@ -10,6 +10,7 @@ import Politicians from './Containers/Politicians';
 import PromiseFormContainer from './Containers/PromiseFormContainer';
 import SignUpContainer from './Containers/SignUpContainer';
 import LoginContainer from './Containers/LoginContainer';
+import CaseList from './Components/CaseList';
 
 injectTapEventPlugin();
 

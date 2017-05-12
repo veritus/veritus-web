@@ -9,7 +9,7 @@ export type Props = {
 
 const CaseList = (props: Props) => {
   const { cases } = props;
-  const caseList = [];
+  const caseList = cases.map(one_case => <div key={one_case.id}><p>{one_case.name}</p></div> );
 
   return <List> {caseList} </List>;
 };
