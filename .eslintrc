@@ -35,29 +35,6 @@
     "jest": true
   },
   "rules": {
-    // Flow
-    "flowtype/boolean-style": [
-      2,
-      "boolean"
-    ],
-    "flowtype/define-flow-type": 1,
-    "flowtype/no-weak-types": 2,
-    "flowtype/require-valid-file-annotation": 2,
-    "flowtype/type-id-match": [
-      2,
-      "^([A-Z][a-z0-9]+)+Type|Props$"
-    ],
-    "flowtype/use-flow-type": 1,
-    "flowtype/valid-syntax": 1,
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "parser": "flow",
-        "printWidth": 90
-      }
-    ],
     "no-cond-assign": 2,
     "no-constant-condition": 2,
     "no-debugger": 2,
@@ -198,6 +175,30 @@
     ],
     "babel/new-cap": 1,
     "babel/semi": 2,
-    "import/no-named-as-default": 0
+    "import/no-named-as-default": 0,
+     // Flow
+    "flowtype/boolean-style": [
+      2,
+      "boolean"
+    ],
+    "flowtype/define-flow-type": 1,
+    "flowtype/no-weak-types": 2,
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/type-id-match": [
+      2,
+      "^([A-Z][a-z0-9]+)+Type|Props$"
+    ],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1,
+    // Prettier
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "parser": "flow",
+        "printWidth": 90
+      }
+    ]
   }
 }
