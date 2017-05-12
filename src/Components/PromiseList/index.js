@@ -1,8 +1,8 @@
 /* @flow */
-import React from 'react';
-import { List } from 'material-ui/List';
-import PromiseItem from '../PromiseItem';
-import type { PromiseType } from '../../types';
+import React from "react";
+import { List } from "material-ui/List";
+import PromiseItem from "../PromiseItem";
+import type { PromiseType } from "../../types";
 
 export type Props = {
   promises: Array<PromiseType>,
@@ -10,7 +10,7 @@ export type Props = {
 
 const PromiseList = (props: Props) => {
   const { promises } = props;
-  const promiseList = promises.map(promise => (
+  const promiseList = promises.map((promise) => (
     <PromiseItem
       key={promise.id}
       id={promise.id}

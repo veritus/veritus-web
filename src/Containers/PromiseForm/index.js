@@ -1,9 +1,9 @@
 /* @flow */
-import React from 'react';
-import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import Formsy from 'formsy-react';
-import { FormsyText } from 'formsy-material-ui/lib';
+import React from "react";
+import Paper from "material-ui/Paper";
+import RaisedButton from "material-ui/RaisedButton";
+import Formsy from "formsy-react";
+import { FormsyText } from "formsy-material-ui/lib";
 export class PromiseForm extends React.Component {
   state: {
     canSubmit: boolean,
@@ -32,8 +32,8 @@ export class PromiseForm extends React.Component {
         <Formsy.Form
           onValid={() => this.enableButton()}
           onInvalid={() => this.disableButton()}
-          onValidSubmit={console.log('valid submit')}
-          onInvalidSubmit={console.log('invalid submit')}
+          // onValidSubmit={ () => {}}
+          // onInvalidSubmit={ () => {} }
         >
           <FormsyText
             name="Politican name"

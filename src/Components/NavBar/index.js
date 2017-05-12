@@ -1,9 +1,9 @@
 /* @flow */
-import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import AppBar from "material-ui/AppBar";
+import Drawer from "material-ui/Drawer";
+import MenuItem from "material-ui/MenuItem";
+import { NavLink } from "react-router-dom";
 
 export class NavBar extends React.Component {
   state: {
@@ -14,7 +14,7 @@ export class NavBar extends React.Component {
     this.state = { open: false };
   }
 
-  handleToggle = () => this.setState(prevState => ({ open: !prevState.open }));
+  handleToggle = () => this.setState((prevState) => ({ open: !prevState.open }));
 
   render() {
     return (
