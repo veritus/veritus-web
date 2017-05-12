@@ -1,13 +1,13 @@
 /* @flow */
-import React from "react";
-import PoliticianCard from "../../Components/PoliticianCard";
-import { politicians, promises } from "../../utils/testFixtures";
+import React from 'react';
+import PoliticianCard from '../../Components/PoliticianCard';
+import { politicians, promises } from '../../utils/testFixtures';
 
 export class Politicians extends React.Component {
   render() {
     return (
       <div>
-        {politicians.map((politician) => (
+        {politicians.map(politician => (
           <PoliticianCard
             key={politician.id}
             name={`${politician.first_name} ${politician.last_name}`}
