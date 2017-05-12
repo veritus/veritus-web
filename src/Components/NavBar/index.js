@@ -25,7 +25,7 @@ export class NavBar extends React.Component {
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
           <MenuItem><NavLink to="/add-promise">Add Promise</NavLink></MenuItem>
-          <MenuItem>Placeholder</MenuItem>
+          <MenuItem><NavLink to="/cases">Cases</NavLink></MenuItem>
           <MenuItem>Placeholder</MenuItem>
         </Drawer>
       </div>

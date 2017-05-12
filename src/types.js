@@ -17,3 +17,8 @@ export type PartyType = {
   id: number,
   name: string,
 };
+
+export type CaseType = {
+  id: number,
+  name: string,
+};

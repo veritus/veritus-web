@@ -19,6 +19,7 @@ class App extends Component {
             <NavBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseForm} />
+            <Route path="/cases" component={CaseList} />
           </div>
         </Router>
       </MuiThemeProvider>
