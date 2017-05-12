@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Politicians from './Containers/Politicians';
 import PromiseForm from './Containers/PromiseForm';
+import CaseList from './Components/CaseList';
 injectTapEventPlugin();
 
 class App extends Component {
