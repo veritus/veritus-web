@@ -13,6 +13,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "babel-eslint": "^7.2.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-prettier": "^1.6.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -30,6 +31,7 @@
     "prettier": "^1.2.2",
     "react-scripts": "0.9.5",
     "react-split-pane": "^0.1.63",
+    "react-test-renderer": "^15.5.4",
     "storybook-addon-material-ui": "^0.7.7"
   },
   "scripts": {
