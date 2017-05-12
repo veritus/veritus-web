@@ -104,7 +104,7 @@
     "no-labels": 1,
     "no-lone-blocks": 1,
     "no-loop-func": 2,
-    "no-magic-numbers": [ // Reinstate this rule after the styles have been moved into seperate files
+    "no-magic-numbers": [
       2,
       { 
         "ignoreArrayIndexes": true,
