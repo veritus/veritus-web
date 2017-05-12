@@ -1,12 +1,14 @@
 {
   "parser": "babel-eslint",
   "plugins": [
+    "flowtype",
     "react",
+    "prettier",
     "jsx-a11y",
     "babel",
     "import"
   ],
-  "extends":[
+  "extends": [
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
@@ -27,6 +29,29 @@
     "node": true
   },
   "rules": {
+    // Flow
+    "flowtype/boolean-style": [
+      2,
+      "boolean"
+    ],
+    "flowtype/define-flow-type": 1,
+    "flowtype/no-weak-types": 2,
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/type-id-match": [
+      2,
+      "^([A-Z][a-z0-9]+)+Type|Props$"
+    ],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "parser": "flow",
+        "printWidth": 90
+      }
+    ],
     "no-cond-assign": 2,
     "no-constant-condition": 2,
     "no-debugger": 2,
@@ -135,12 +160,16 @@
     "lines-around-directive": 1,
     "max-depth": [
       1,
-      { "max": 7 }
+      {
+        "max": 7
+      }
     ],
     "max-nested-callbacks": 1,
     "max-statements-per-line": 1,
     "new-parens": 2,
-    "newline-per-chained-call": [1],
+    "newline-per-chained-call": [
+      1
+    ],
     "no-array-constructor": 2,
     // "no-bitwise": 1, Reinstate this rule if we ever move from the enum / bitwise fields
     "no-continue": 2,
@@ -156,7 +185,7 @@
     "no-whitespace-before-property": 2,
     "one-var-declaration-per-line": 1,
     "operator-assignment": 1,
-    "quote-props":[
+    "quote-props": [
       2,
       "as-needed"
     ],
@@ -219,7 +248,7 @@
     "react/jsx-uses-vars": 1,
     "react/jsx-uses-react": 1,
     "babel/no-invalid-this": 1,
-    "babel/object-curly-spacing":[
+    "babel/object-curly-spacing": [
       1,
       "always"
     ],
