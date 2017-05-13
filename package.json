@@ -13,6 +13,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
     "babel-eslint": "^7.2.1",
+    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-prettier": "^1.6.0",
     "eslint-plugin-babel": "^4.1.1",
@@ -21,17 +22,20 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^7.0.0",
+    "fetch-mock": "^5.10.0",
     "flow-bin": "^0.43.1",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
-    "material-ui": "^0.17.4",
-    "prettier": "^0.22.0",
+    "localStorage": "^1.0.3",
+    "material-ui": "^0.18.0",
+    "prettier": "^1.2.2",
     "react-scripts": "0.9.5",
     "react-split-pane": "^0.1.63",
+    "react-test-renderer": "^15.5.4",
     "storybook-addon-material-ui": "^0.7.7"
   },
   "scripts": {
-    "check": "yarn run flow && CI=true yarn run test",
+    "check": "yarn run flow && yarn run lint-bail && CI=true yarn run test",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -45,5 +49,6 @@
   },
   "lint-staged": {
     "*.js": "lint"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
