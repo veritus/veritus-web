@@ -64,7 +64,6 @@ export class LoginForm extends React.Component {
               label="Login"
               onClick={() => console.log('Ive been clicked')}
               disabled={!this.state.canSubmit}
-              className="qa-login-submit"
             />
           </Formsy.Form>
         </Paper>
