@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import { FormsyText } from 'formsy-material-ui/lib';
-import type { LoginType } from '../../Containers/LoginContainer';
+import type { LoginType } from '../../utils/api';
 
 export type PropTypes = {
   onSubmit: (data: LoginType) => void,

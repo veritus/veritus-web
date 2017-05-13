@@ -24,9 +24,9 @@ export class NavBar extends React.Component {
           onLeftIconButtonTouchTap={this.handleToggle}
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
+          <MenuItem><NavLink to="/login">Login</NavLink></MenuItem>
+          <MenuItem><NavLink to="/sign-up">Sign up</NavLink></MenuItem>
           <MenuItem><NavLink to="/add-promise">Add Promise</NavLink></MenuItem>
-          <MenuItem>Placeholder</MenuItem>
-          <MenuItem>Placeholder</MenuItem>
         </Drawer>
       </div>
     );
