@@ -59,12 +59,7 @@ export class LoginForm extends React.Component {
               className="qa-login-password"
             />
             <br />
-            <RaisedButton
-              type="submit"
-              label="Login"
-              onClick={() => console.log('Ive been clicked')}
-              disabled={!this.state.canSubmit}
-            />
+            <RaisedButton type="submit" label="Login" disabled={!this.state.canSubmit} />
           </Formsy.Form>
         </Paper>
       </div>
