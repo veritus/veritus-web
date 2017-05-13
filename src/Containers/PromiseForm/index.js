@@ -32,8 +32,8 @@ export class PromiseForm extends React.Component {
         <Formsy.Form
           onValid={() => this.enableButton()}
           onInvalid={() => this.disableButton()}
-          onValidSubmit={console.log('valid submit')}
-          onInvalidSubmit={console.log('invalid submit')}
+          // onValidSubmit={ () => {}}
+          // onInvalidSubmit={ () => {} }
         >
           <FormsyText
             name="Politican name"

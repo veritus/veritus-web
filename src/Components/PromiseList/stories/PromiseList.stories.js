@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import { storiesOf, action, linkTo, addDecorator } from '@kadira/storybook';
+import { storiesOf } from '@kadira/storybook';
 import { muiTheme } from 'storybook-addon-material-ui';
 import PromiseList from '../index';
 import type { PromiseType } from '../../../types';
