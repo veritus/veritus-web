@@ -10,12 +10,12 @@ export type SignUpType = {
 };
 
 const submit = (data: SignUpType) => {
-  signUp(data.email, data.password).then(data => {
-    const token = data.key;
+  signUp(data.email, data.password).then(resp => {
+    const token = resp.key;
     if (token) {
       saveToken(token);
     } else {
-      console.log('Login error');
+      throw new Error('Sign up failed');
     }
   });
 };

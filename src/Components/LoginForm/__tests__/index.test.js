@@ -23,7 +23,6 @@ describe('Login Form', () => {
   it('should call onSubmit', () => {
     const emailInput = wrapper.find('.qa-login-email input').first();
     const passwordInput = wrapper.find('.qa-login-password input').first();
-    const submitButton = wrapper.find('.qa-login-submit button').first();
 
     emailInput.node.value = 'foo@bar.com';
     passwordInput.node.value = 'strongpassword1';
@@ -36,8 +35,6 @@ describe('Login Form', () => {
   });
 
   it('should not call onSubmit with invalid input', () => {
-    const submitButton = wrapper.find('.qa-login-submit button').first();
-
     wrapper.find('[type="submit"]').get(0).click();
 
     expect(submitMock).toHaveBeenCalledTimes(0);

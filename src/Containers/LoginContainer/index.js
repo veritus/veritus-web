@@ -10,12 +10,12 @@ export type LoginType = {
 };
 
 const submit = (data: LoginType) => {
-  login(data.email, data.password).then(data => {
-    const token = data.key;
+  login(data.email, data.password).then(resp => {
+    const token = resp.key;
     if (token) {
       saveToken(token);
     } else {
-      console.log('Login error');
+      throw new Error('Login failed');
     }
   });
 };

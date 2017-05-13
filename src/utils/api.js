@@ -1,7 +1,7 @@
 /* @flow */
 
 export const checkStatus = (response: Response) => {
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 200 && response.status < 300) { //eslint-disable-line
     return response;
   }
   const error = new Error(`HTTP Error ${response.statusText}`);

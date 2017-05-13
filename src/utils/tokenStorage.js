@@ -10,4 +10,4 @@ export const getToken = () => localStorage.getItem(TOKEN_KEY);
 
 export const deleteToken = () => localStorage.removeItem(TOKEN_KEY);
 
-export const isAuthenticated = () => !!localStorage.getItem(TOKEN_KEY);
+export const isAuthenticated = () => Boolean(localStorage.getItem(TOKEN_KEY));
