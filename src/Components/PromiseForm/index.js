@@ -5,13 +5,13 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
-import type { LoginType } from '../../Containers/LoginContainer';
+import type { PromiseFormType } from '../../utils/api';
 
 export type PropTypes = {
-  onSubmit: (data: LoginType) => void,
+  onSubmit: (data: PromiseFormType) => void,
 };
 
-export class LoginForm extends React.Component {
+export class PromiseForm extends React.Component {
   state: {
     canSubmit: boolean,
   };
@@ -49,6 +49,7 @@ export class LoginForm extends React.Component {
               validations="isWords"
               required
               floatingLabelText="Name"
+              className="qa-promise-name"
             />
             <br />
             <FormsyText
@@ -56,6 +57,7 @@ export class LoginForm extends React.Component {
               validations="isWords"
               required
               floatingLabelText="Short Description"
+              className="qa-promise-short-description"
             />
             <br />
             <FormsyText
@@ -66,9 +68,15 @@ export class LoginForm extends React.Component {
               rowsMax={4}
               required
               floatingLabelText="Long Description"
+              className="qa-promise-long-description"
             />
             <br />
-            <FormsySelect name="parliamentId" required floatingLabelText="Parliament">
+            <FormsySelect
+              name="parliamentId"
+              required
+              floatingLabelText="Parliament"
+              className="qa-promise-parliament-id"
+            >
               <MenuItem value={1} primaryText="Test parliament" />
             </FormsySelect>
             <br />
@@ -84,4 +92,4 @@ export class LoginForm extends React.Component {
     );
   }
 }
-export default LoginForm;
+export default PromiseForm;
