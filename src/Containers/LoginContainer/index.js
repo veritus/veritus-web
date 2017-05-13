@@ -2,12 +2,8 @@
 import React from 'react';
 import { LoginForm } from '../../Components/LoginForm';
 import { login } from '../../utils/api';
+import type { LoginType } from '../../utils/api';
 import { saveToken } from '../../utils/tokenStorage';
-
-export type LoginType = {
-  email: string,
-  password: string,
-};
 
 const submit = (data: LoginType) => {
   login(data.email, data.password).then(resp => {
