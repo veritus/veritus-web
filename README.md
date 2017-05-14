@@ -8,6 +8,6 @@ There is alot of reading material to be found in their guide [here](https://gith
 
 ## Commands
 To run ESLint
-´´´
+```
 yarn run lint
-´´´
+```
