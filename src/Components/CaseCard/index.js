@@ -9,6 +9,18 @@ export type Props = {
   parliament_case: CaseType,
 };
 
+const styles = {
+  container: {
+    width: '100%',
+    overflow: 'auto',
+  },
+  field: {
+    width: '27%',
+    margin: '3%',
+    float: 'left',
+  },
+};
+
 const CaseCard = (props: Props) => {
   const { parliament_case } = props;
   return (
@@ -20,12 +32,33 @@ const CaseCard = (props: Props) => {
         showExpandableButton={true}
       />
       <CardText expandable={true}>
-        <p>Parliament: {parliament_case.parliament_session.parliament.name}</p>
-        <p>Parliament session: {parliament_case.parliament_session.name}</p>
-        <p>Created: {moment(parliament_case.created).format('MMM Mo YYYY')}</p>
-        <p>Modified: {moment(parliament_case.modified).format('MMM Mo YYYY')}</p>
-        <p>Type: {parliament_case.case_type}</p>
-        <p>Status: {parliament_case.case_status}</p>
+
+        <div style={styles.container}>
+          <div style={styles.field}>
+            <span>Parliament: {parliament_case.parliament_session.parliament.name}</span>
+          </div>
+          <div style={styles.field}>
+            <span>Parliament session: {parliament_case.parliament_session.name}</span>
+          </div>
+          <div style={styles.field}>
+            <span>Type: {parliament_case.case_type}</span>
+          </div>
+        </div>
+        <div style={styles.container}>
+          <div style={styles.field}>
+            <span>Status: {parliament_case.case_status}</span>
+          </div>
+          <div style={styles.field}>
+            <span>
+              Created on {moment(parliament_case.created).format('MMM Mo YYYY')}
+            </span>
+          </div>
+          <div style={styles.field}>
+            <span>
+              Last Modified on {moment(parliament_case.modified).format('MMM Mo YYYY')}
+            </span>
+          </div>
+        </div>
       </CardText>
     </Card>
   );
