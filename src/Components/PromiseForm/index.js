@@ -14,6 +14,7 @@ export type PropTypes = {
 export class PromiseForm extends React.Component {
   state: {
     canSubmit: boolean,
+    validMappings: boolean,
   };
 
   constructor(props: PropTypes) {
@@ -21,6 +22,7 @@ export class PromiseForm extends React.Component {
 
     this.state = {
       canSubmit: false,
+      validMappings: false,
     };
   }
   enableButton() {
@@ -35,6 +37,16 @@ export class PromiseForm extends React.Component {
     });
   }
 
+  validateMappings() {
+    this.setState({
+      validMappings: true,
+    });
+  }
+
+  validMap() {
+    return this.state.validMappings;
+  }
+
   render() {
     return (
       <div>
@@ -42,13 +54,37 @@ export class PromiseForm extends React.Component {
           <Formsy.Form
             onValid={() => this.enableButton()}
             onInvalid={() => this.disableButton()}
-            onSubmit={this.props.onSubmit}
+            onSubmit={() => this.props.onSubmit}
           >
+            <FormsySelect
+              name="politicianId"
+              floatingLabelText="Politician"
+              className="qa-promise-politician-id"
+              validations={{
+                mappings: () => this.validMap(),
+              }}
+              onChange={() => this.validateMappings()}
+            >
+              <MenuItem value={1} primaryText="Test policitican 1" />
+            </FormsySelect>
+            <br />
+            <FormsySelect
+              name="partyId"
+              floatingLabelText="Party"
+              className="qa-promise-party-id"
+              validations={{
+                mappings: () => this.validMap(),
+              }}
+              onChange={() => this.validateMappings()}
+            >
+              <MenuItem value={1} primaryText="Test party 1" />
+            </FormsySelect>
+            <br />
             <FormsyText
               name="name"
               validations="isWords"
               required
-              floatingLabelText="Name"
+              floatingLabelText="Promise title"
               className="qa-promise-name"
             />
             <br />
