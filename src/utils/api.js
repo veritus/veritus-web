@@ -28,6 +28,14 @@ export const parseJSON = (response: Response) => {
   return response.json();
 };
 
+export const getParliamentCases = () => {
+  return fetch('/api/v1/cases/', {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON);
+};
+
 export const getPromises = () => {
   return fetch('/api/v1/promises/', {
     accept: 'application/json',
