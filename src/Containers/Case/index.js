@@ -2,18 +2,15 @@
 import React from 'react';
 import CaseCard from '../../Components/CaseCard';
 export class CaseContainer extends React.Component {
-
   state = {
     cases: [],
-  }
-
-  componentWillMount(){
+  };
+  componentWillMount() {
     fetch('/api/v1/cases/', {
       accept: 'application/json',
-    })
-    .then(response => this.setState({cases: response.json()}) );
+    }).then(response => this.setState({ cases: response.json() }));
   }
-  
+
   render() {
     const cases = [
       {
