@@ -2,7 +2,6 @@
 import React from 'react';
 import CaseCard from '../../Components/CaseCard';
 export class Case extends React.Component {
-
   render() {
     const cases = [
       {
