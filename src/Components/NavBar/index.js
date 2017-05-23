@@ -28,6 +28,7 @@ export class NavBar extends React.Component {
           <MenuItem><NavLink to="/sign-up">Sign up</NavLink></MenuItem>
           <MenuItem><NavLink to="/add-promise">Add Promise</NavLink></MenuItem>
           <MenuItem><NavLink to="/cases">Cases</NavLink></MenuItem>
+          <MenuItem><NavLink to="/parties">Party</NavLink></MenuItem>
         </Drawer>
       </div>
     );

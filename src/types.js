@@ -16,6 +16,7 @@ export type PoliticianType = {
 export type PartyType = {
   id: number,
   name: string,
+  website: string,
 };
 
 export type CaseType = {
