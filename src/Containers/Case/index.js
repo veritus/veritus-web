@@ -1,23 +1,20 @@
 /* @flow */
 import React from 'react';
 import CaseCard from '../../Components/CaseCard';
-import { getParliamentCases } from '../../utils/api';
+
 export class CaseContainer extends React.Component {
   state = {
     cases: [],
   };
-  componentDidMount() {
-    getParliamentCases().then(cases => {
-      this.setState({ cases });
-    });
+  componentWillMount() {
+    fetch('/api/v1/cases/', {
+      accept: 'application/json',
+    }).then(response => this.setState({ cases: response.json() }));
   }
-
   render() {
     return (
       <div>
-        {this.state.cases.map(parliament_case => (
-          <CaseCard key={parliament_case.id} parliament_case={parliament_case} />
-        ))}
+        {cases.map(parliament_case => <CaseCard parliament_case={parliament_case} />)}
       </div>
     );
   }
