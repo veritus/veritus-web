@@ -1,7 +1,19 @@
 /* @flow */
 import React from 'react';
 import CaseCard from '../../Components/CaseCard';
-export class Case extends React.Component {
+export class CaseContainer extends React.Component {
+
+  state = {
+    cases: [],
+  }
+
+  componentWillMount(){
+    fetch('/api/v1/cases/', {
+      accept: 'application/json',
+    })
+    .then(response => this.setState({cases: response.json()}) );
+  }
+  
   render() {
     const cases = [
       {
@@ -24,4 +36,4 @@ export class Case extends React.Component {
     );
   }
 }
-export default Case;
+export default CaseContainer;

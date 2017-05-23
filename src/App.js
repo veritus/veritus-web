@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Politicians from './Containers/Politicians';
 import PromiseForm from './Containers/PromiseForm';
-import CaseList from './Containers/CaseList';
+import CaseContainer from './Containers/Case';
 injectTapEventPlugin();
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
             <NavBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseForm} />
-            <Route path="/cases" component={CaseList} />
+            <Route path="/cases" component={CaseContainer} />
           </div>
         </Router>
       </MuiThemeProvider>
