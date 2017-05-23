@@ -10,7 +10,7 @@ import Politicians from './Containers/Politicians';
 import PromiseFormContainer from './Containers/PromiseFormContainer';
 import SignUpContainer from './Containers/SignUpContainer';
 import LoginContainer from './Containers/LoginContainer';
-import CaseList from './Containers/CaseList';
+import CaseContainer from './Containers/Case';
 
 injectTapEventPlugin();
 
@@ -25,7 +25,7 @@ class App extends Component {
             <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/sign-up" component={SignUpContainer} />
             <Route path="/login" component={LoginContainer} />
-            <Route path="/cases" component={CaseList} />
+            <Route path="/cases" component={CaseContainer} />
           </div>
         </Router>
       </MuiThemeProvider>
