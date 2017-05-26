@@ -7,6 +7,16 @@ import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
 import type { PromiseFormType } from '../../utils/api';
 
+const styles = {
+  container: {
+    padding: '12px 24px',
+  },
+  submitButton: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+};
+
 export type PropTypes = {
   onSubmit: (data: PromiseFormType) => void,
 };
@@ -50,7 +60,7 @@ export class PromiseForm extends React.Component {
   render() {
     return (
       <div>
-        <Paper zDepth={2}>
+        <Paper zDepth={2} style={styles.container}>
           <Formsy.Form
             onValid={() => this.enableButton()}
             onInvalid={() => this.disableButton()}
@@ -64,6 +74,7 @@ export class PromiseForm extends React.Component {
                 mappings: () => this.validMap(),
               }}
               onChange={() => this.validateMappings()}
+              fullWidth
             >
               <MenuItem value={1} primaryText="Test policitican 1" />
             </FormsySelect>
@@ -76,6 +87,7 @@ export class PromiseForm extends React.Component {
                 mappings: () => this.validMap(),
               }}
               onChange={() => this.validateMappings()}
+              fullWidth
             >
               <MenuItem value={1} primaryText="Test party 1" />
             </FormsySelect>
@@ -86,6 +98,7 @@ export class PromiseForm extends React.Component {
               required
               floatingLabelText="Promise title"
               className="qa-promise-name"
+              fullWidth
             />
             <br />
             <FormsyText
@@ -94,6 +107,7 @@ export class PromiseForm extends React.Component {
               required
               floatingLabelText="Short Description"
               className="qa-promise-short-description"
+              fullWidth
             />
             <br />
             <FormsyText
@@ -105,6 +119,7 @@ export class PromiseForm extends React.Component {
               required
               floatingLabelText="Long Description"
               className="qa-promise-long-description"
+              fullWidth
             />
             <br />
             <FormsySelect
@@ -112,16 +127,19 @@ export class PromiseForm extends React.Component {
               required
               floatingLabelText="Parliament"
               className="qa-promise-parliament-id"
+              fullWidth
             >
               <MenuItem value={1} primaryText="Test parliament" />
             </FormsySelect>
             <br />
             <br />
-            <RaisedButton
-              type="submit"
-              label="Create Promise"
-              disabled={!this.state.canSubmit}
-            />
+            <div style={styles.submitButton}>
+              <RaisedButton
+                type="submit"
+                label="Create Promise"
+                disabled={!this.state.canSubmit}
+              />
+            </div>
           </Formsy.Form>
         </Paper>
       </div>
