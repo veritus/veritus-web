@@ -11,14 +11,11 @@ const PartyCard = (props: Props) => {
   const { party } = props;
   return (
     <Card key={party.id}>
-      <CardHeader
-        title={party.name}
-        actAsExpander={true}
-        subtitle={party.website}
-        showExpandableButton={true}
-      />
+      <CardHeader title={party.name} actAsExpander={true} showExpandableButton={true} />
       <CardText expandable={true}>
-        {party.name}
+        <a href={party.website} rel="noopener noreferrer" target="_blank">
+          {party.website}
+        </a>
       </CardText>
     </Card>
   );
