@@ -7,16 +7,16 @@ import { red500, green500 } from 'material-ui/styles/colors';
 
 export type Props = {
   id: number,
-  title: string,
+  promise: object,
   fulfilled: boolean,
 };
 
 const PromiseItem = (props: Props) => {
-  const { title, fulfilled } = props;
+  const { promise, fulfilled } = props;
   const icon = fulfilled
     ? <CompleteIcon color={green500} />
     : <InCompleteIcon color={red500} />;
-  return <ListItem primaryText={title} rightIcon={icon} />;
+  return <ListItem primaryText={promise.name} rightIcon={icon} />;
 };
 
 export default PromiseItem;

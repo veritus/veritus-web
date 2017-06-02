@@ -22,11 +22,6 @@ export type PropTypes = {
 };
 
 export class PromiseForm extends React.Component {
-  state: {
-    canSubmit: boolean,
-    validMappings: boolean,
-  };
-
   constructor(props: PropTypes) {
     super(props);
 
@@ -35,6 +30,7 @@ export class PromiseForm extends React.Component {
       validMappings: false,
     };
   }
+
   enableButton() {
     this.setState({
       canSubmit: true,

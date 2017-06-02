@@ -6,9 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import { NavLink } from 'react-router-dom';
 
 export class NavBar extends React.Component {
-  state: {
-    open: boolean,
-  };
   constructor() {
     super();
     this.state = { open: false };
@@ -27,6 +24,8 @@ export class NavBar extends React.Component {
           <MenuItem><NavLink to="/login">Login</NavLink></MenuItem>
           <MenuItem><NavLink to="/sign-up">Sign up</NavLink></MenuItem>
           <MenuItem><NavLink to="/add-promise">Add Promise</NavLink></MenuItem>
+          <MenuItem><NavLink to="/cases">Cases</NavLink></MenuItem>
+          <MenuItem><NavLink to="/parties">Party</NavLink></MenuItem>
         </Drawer>
       </div>
     );
