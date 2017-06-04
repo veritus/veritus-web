@@ -13,6 +13,8 @@ export type PromiseFormType = {
   parliamentId: number,
 };
 
+export type PartyIdType = number;
+
 export const checkStatus = (response: Response) => {
   /* eslint-disable no-magic-numbers */
   if (response.status >= 200 && response.status < 300) {
@@ -30,6 +32,14 @@ export const parseJSON = (response: Response) => {
 
 export const getPoliticalParties = () => {
   return fetch('/api/v1/parties/', {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON);
+};
+
+export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
+  return fetch(`/api/v1/promises?parliament=${partyId}`, {
     accept: 'application/json',
   })
     .then(checkStatus)
