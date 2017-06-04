@@ -34,21 +34,21 @@ export class NavBar extends React.Component {
           onLeftIconButtonTouchTap={this.handleToggle}
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
-          <MenuItem>
-            <NavLink to="/login" onClick={this.handleToggle} style={styles.link}>
+          <NavLink to="/login" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>
               Login
-            </NavLink>
-          </MenuItem>
-          <MenuItem>
-            <NavLink to="/sign-up" onClick={this.handleToggle} style={styles.link}>
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/sign-up" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>
               Sign up
-            </NavLink>
-          </MenuItem>
-          <MenuItem>
-            <NavLink to="/add-promise" onClick={this.handleToggle} style={styles.link}>
+            </MenuItem>
+          </NavLink>
+          <NavLink to="/add-promise" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>
               Add Promise
-            </NavLink>
-          </MenuItem>
+            </MenuItem>
+          </NavLink>
         </Drawer>
       </div>
     );
