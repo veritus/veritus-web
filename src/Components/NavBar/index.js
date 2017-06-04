@@ -5,6 +5,16 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { NavLink } from 'react-router-dom';
 
+const styles = {
+  header: {
+    textDecoration: 'none',
+    color: '#fff',
+  },
+  link: {
+    textDecoration: 'none',
+  },
+};
+
 export class NavBar extends React.Component {
   state: {
     open: boolean,
@@ -20,11 +30,13 @@ export class NavBar extends React.Component {
     return (
       <div>
         <AppBar
-          title={<NavLink to="/">Veritus</NavLink>}
+          title={<NavLink to="/" style={styles.header}>Veritus</NavLink>}
           onLeftIconButtonTouchTap={this.handleToggle}
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
-          <MenuItem><NavLink to="/add-promise">Add Promise</NavLink></MenuItem>
+          <NavLink to="/add-promise" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>Add Promise</MenuItem>
+          </NavLink>
           <MenuItem>Placeholder</MenuItem>
           <MenuItem>Placeholder</MenuItem>
         </Drawer>
