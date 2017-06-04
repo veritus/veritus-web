@@ -10,6 +10,8 @@ import Politicians from './Containers/Politicians';
 import PromiseFormContainer from './Containers/PromiseFormContainer';
 import SignUpContainer from './Containers/SignUpContainer';
 import LoginContainer from './Containers/LoginContainer';
+import CaseContainer from './Containers/Case';
+import PartyContainer from './Containers/Party';
 
 injectTapEventPlugin();
 
@@ -21,6 +23,8 @@ class App extends Component {
           <div>
             <NavBar />
             <Route exact path="/" component={Politicians} />
+            <Route path="/cases" component={CaseContainer} />
+            <Route path="/parties" component={PartyContainer} />
             <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/sign-up" component={SignUpContainer} />
             <Route path="/login" component={LoginContainer} />
