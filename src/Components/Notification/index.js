@@ -24,6 +24,7 @@ export class Notification extends React.Component {
       overflowText: 'joe@gmail.com',
       timestamp: moment().format('h:mm A'),
       zDepth: 3,
+      autoHide: 1000,
     });
     // update notifications count
     this.setState({
