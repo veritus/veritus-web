@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import type { CaseType } from '../../types';
+import { CaseType } from '../../types';
 
 const moment = require('moment');
 
@@ -32,7 +32,6 @@ const CaseCard = (props: Props) => {
         showExpandableButton={true}
       />
       <CardText expandable={true}>
-
         <div style={styles.container}>
           <div style={styles.field}>
             <span>Parliament: {parliament_case.parliament_session.parliament.name}</span>

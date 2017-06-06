@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
-import type { PromiseFormType } from '../../utils/api';
+import { PromiseFormType } from '../../utils/api';
 
 const styles = {
   container: {
@@ -30,7 +30,6 @@ export class PromiseForm extends React.Component {
       validMappings: false,
     };
   }
-
   enableButton() {
     this.setState({
       canSubmit: true,

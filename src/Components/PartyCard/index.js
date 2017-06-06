@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import type { PartyType } from '../../types';
+import { PartyType } from '../../types';
 import PartyPromisesContainer from '../../Containers/PartyPromises';
 
 export type Props = {

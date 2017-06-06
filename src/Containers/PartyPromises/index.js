@@ -1,28 +1,34 @@
 /* @flow */
 import React from 'react';
-import PromiseItem from '../../Components/PromiseItem';
+import { Match } from 'react-router-dom';
+import PromiseList from '../../Components/PromiseList';
 import { getPromisesByPoliticalParty } from '../../utils/api';
-export class CaseContainer extends React.Component {
-  propTypes = {
-    partyId: PropTypes.number.isRequired,
-  };
-  state = {
-    partyPromises: [],
-  };
+
+export type Props = {
+  match: Match,
+};
+
+export class PartyPromises extends React.Component {
+  props: Props;
+
+  constructor() {
+    super();
+    this.state = { promises: [] };
+  }
+
   componentDidMount() {
-    /* getPromisesByPoliticalParty(this.props.partyId).then(partyPromises => {
-      this.setState({ partyPromises });
-    }); */
+    getPromisesByPoliticalParty(this.props.match.params.partyId).then(promises => {
+      this.setState({ promises });
+    });
   }
 
   render() {
     return (
       <div>
-        {this.state.partyPromises.map(promise => (
-          <PromiseItem key={promise.id} promise={promise} />
-        ))}
+        <PromiseList promises={this.state.promises} />
       </div>
     );
   }
 }
-export default CaseContainer;
+
+export default PartyPromises;
