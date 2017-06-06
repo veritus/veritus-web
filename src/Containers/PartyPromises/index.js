@@ -1,15 +1,19 @@
 /* @flow */
 import React from 'react';
-import { Match } from 'react-router-dom';
 import PromiseList from '../../Components/PromiseList';
 import { getPromisesByPoliticalParty } from '../../utils/api';
+import type { PartyIdType, PromiseType } from '../../types';
 
 export type Props = {
-  match: Match,
+  partyId: PartyIdType,
 };
 
 export class PartyPromises extends React.Component {
   props: Props;
+
+  state: {
+    promises: Array<PromiseType>,
+  };
 
   constructor() {
     super();
@@ -17,7 +21,7 @@ export class PartyPromises extends React.Component {
   }
 
   componentDidMount() {
-    getPromisesByPoliticalParty(this.props.match.params.partyId).then(promises => {
+    getPromisesByPoliticalParty(this.props.partyId).then(promises => {
       this.setState({ promises });
     });
   }

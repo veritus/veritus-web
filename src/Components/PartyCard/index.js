@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import { PartyType } from '../../types';
-import PartyPromisesContainer from '../../Containers/PartyPromises';
+import type { PartyType } from '../../types';
+import PartyPromises from '../../Containers/PartyPromises';
 
 export type Props = {
   party: PartyType,
@@ -18,7 +18,7 @@ const PartyCard = (props: Props) => {
           {party.website}
         </a>
         <h2>Promises</h2>
-        <PartyPromisesContainer partyId={party.id} />
+        <PartyPromises partyId={party.id} />
       </CardText>
     </Card>
   );

@@ -1,8 +1,10 @@
 /* @flow */
 export type PromiseType = {
   id: number,
-  title: string,
+  name: string,
   fulfilled: boolean,
+  small_description: string,
+  long_description: string,
 };
 
 export type PoliticianType = {
@@ -18,6 +20,8 @@ export type PartyType = {
   name: string,
   website: string,
 };
+
+export type PartyIdType = number;
 
 export type CaseType = {
   id: number,
