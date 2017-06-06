@@ -35,8 +35,5 @@ export type CaseType = {
   case_status: string,
   case_type: string,
   created: string,
-  name: string,
-  number: number,
   modified: string,
-  parliament_session: ParliamentSessionType,
 };
