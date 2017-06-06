@@ -10,6 +10,9 @@ export type Props = {
 
 const PromiseList = (props: Props) => {
   const { promises } = props;
+  if (!promises) {
+    return null;
+  }
   const promiseList = promises.map(promise =>
     <PromiseItem
       key={promise.id}
