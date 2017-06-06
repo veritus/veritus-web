@@ -5,18 +5,16 @@ export type PromiseType = {
   fulfilled: boolean,
 };
 
-export type PoliticianType = {
-  id: number,
-  first_name: string,
-  last_name: string,
-  party_name: string,
-  promise_completion: number,
-};
-
 export type PartyType = {
   id: number,
   name: string,
   website: string,
+};
+
+export type PoliticianType = {
+  id: number,
+  name: string,
+  party: PartyType,
 };
 
 export type ParliamentSessionType = {
