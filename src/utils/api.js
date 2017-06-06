@@ -36,6 +36,14 @@ export const getPoliticalParties = () => {
     .then(parseJSON);
 };
 
+export const getPoliticans = () => {
+  return fetch('/api/v1/politicians/', {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON);
+};
+
 export const getParliamentCases = () => {
   return fetch('/api/v1/cases/', {
     accept: 'application/json',
