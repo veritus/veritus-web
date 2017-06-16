@@ -46,9 +46,11 @@ export const Parties: Array<PartyType> = [
   {
     id: 2,
     name: 'Vinsti Grænir',
+    website: 'https://vg.is',
   },
   {
     id: 1,
     name: 'Framsókn',
+    website: 'https://framsokn.is',
   },
 ];
