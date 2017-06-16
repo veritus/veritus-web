@@ -6,6 +6,8 @@ cache:
     - node_modules
 script:
   - npm test
+  - npm run lint-bail
+  - npm run flow
   - npm run build
 branches: 
   only:
