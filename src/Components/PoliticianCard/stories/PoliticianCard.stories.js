@@ -20,11 +20,11 @@ const promises: Array<PromiseType> = [
 
 storiesOf('Politican Card', module)
   .addDecorator(muiTheme())
-  .add('Default', () => (
+  .add('Default', () =>
     <PoliticianCard
       name="Bjarni Ben"
       party="Framsokn"
       progress={53}
       promises={promises}
     />
-  ));
+  );
