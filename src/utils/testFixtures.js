@@ -3,19 +3,34 @@ import type { PromiseType, PoliticianType, PartyType } from '../types';
 
 export const promises: Array<PromiseType> = [
   {
-    id: 1,
-    title: 'Longer workdays',
+    name: 'Some title',
+    small_description: 'Another title',
+    long_description: 'Yet another title',
+    parliament: {
+      name: 'Test-Parliament',
+      id: 1,
+    },
+    id: 4,
+    created: '2017-06-06T19:36:10.404869Z',
+    modified: '2017-06-06T19:36:10.404898Z',
+    politician: 2,
+    party: 1,
     fulfilled: false,
   },
   {
-    id: 2,
-    title: '3 day weekends',
-    fulfilled: true,
-  },
-  {
-    id: 3,
-    title: 'Protecting nature',
-    fulfilled: true,
+    name: 'Raise taxes',
+    small_description: 'Short description',
+    long_description: 'long\ndescription\nexplaining the entire thing',
+    parliament: {
+      name: 'Test-Parliament',
+      id: 1,
+    },
+    id: 5,
+    created: '2017-06-06T19:38:33.526074Z',
+    modified: '2017-06-06T19:38:33.526105Z',
+    politician: 2,
+    party: 1,
+    fulfilled: false,
   },
 ];
 
@@ -39,6 +54,38 @@ export const politicians: Array<PoliticianType> = [
       created: '2017-04-25T17:41:28Z',
       modified: '2017-04-25T17:41:28Z',
     },
+    promises: [
+      {
+        name: 'Some title',
+        small_description: 'Another title',
+        long_description: 'Yet another title',
+        parliament: {
+          name: 'Test-Parliament',
+          id: 1,
+        },
+        id: 4,
+        created: '2017-06-06T19:36:10.404869Z',
+        modified: '2017-06-06T19:36:10.404898Z',
+        politician: 2,
+        party: 1,
+        fulfilled: false,
+      },
+      {
+        name: 'Raise taxes',
+        small_description: 'Short description',
+        long_description: 'long\ndescription\nexplaining the entire thing',
+        parliament: {
+          name: 'Test-Parliament',
+          id: 1,
+        },
+        id: 5,
+        created: '2017-06-06T19:38:33.526074Z',
+        modified: '2017-06-06T19:38:33.526105Z',
+        politician: 2,
+        party: 1,
+        fulfilled: false,
+      },
+    ],
   },
   {
     name: 'Óttarr Proppé',
@@ -59,6 +106,38 @@ export const politicians: Array<PoliticianType> = [
       created: '2017-04-25T17:41:28Z',
       modified: '2017-04-25T17:41:28Z',
     },
+    promises: [
+      {
+        name: 'Some title',
+        small_description: 'Another title',
+        long_description: 'Yet another title',
+        parliament: {
+          name: 'Test-Parliament',
+          id: 1,
+        },
+        id: 4,
+        created: '2017-06-06T19:36:10.404869Z',
+        modified: '2017-06-06T19:36:10.404898Z',
+        politician: 2,
+        party: 1,
+        fulfilled: false,
+      },
+      {
+        name: 'Raise taxes',
+        small_description: 'Short description',
+        long_description: 'long\ndescription\nexplaining the entire thing',
+        parliament: {
+          name: 'Test-Parliament',
+          id: 1,
+        },
+        id: 5,
+        created: '2017-06-06T19:38:33.526074Z',
+        modified: '2017-06-06T19:38:33.526105Z',
+        politician: 2,
+        party: 1,
+        fulfilled: false,
+      },
+    ],
   },
   {
     name: 'Unnur Brá Konráðsdóttir',
@@ -79,6 +158,7 @@ export const politicians: Array<PoliticianType> = [
       created: '2017-04-25T17:41:28Z',
       modified: '2017-04-25T17:41:28Z',
     },
+    promises: [],
   },
 ];
 

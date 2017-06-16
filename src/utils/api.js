@@ -11,6 +11,8 @@ export type PromiseFormType = {
   shortDescription: string,
   longDescription: string,
   parliamentId: number,
+  politicianId: number,
+  partyId: number,
 };
 
 export const checkStatus = (response: Response) => {
@@ -64,7 +66,9 @@ export const createPromise = (
   name: string,
   small_description: string,
   long_description: string,
-  parliament: number
+  parliament: number,
+  politician_id?: number,
+  party_id?: number
 ) => {
   const token = getToken();
   if (!token) {
@@ -81,6 +85,8 @@ export const createPromise = (
       small_description,
       long_description,
       parliament,
+      politician: politician_id,
+      party: party_id,
     }),
   })
     .then(checkStatus)

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
 import PoliticianCard from '../index';
 import type { PromiseType } from '../../../types';
+import { politicians } from '../../../utils/testFixtures';
 
 const promises: Array<PromiseType> = [
   {
@@ -22,9 +23,9 @@ storiesOf('Politican Card', module)
   .addDecorator(muiTheme())
   .add('Default', () =>
     <PoliticianCard
-      name="Bjarni Ben"
-      party="Framsokn"
+      name={politicians[0].name}
+      party={politicians[0].party.name}
       progress={53}
-      promises={promises}
+      promises={politicians[0].promises}
     />
   );

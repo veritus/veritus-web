@@ -9,7 +9,9 @@ const submit = (data: PromiseFormType) => {
     data.name,
     data.shortDescription,
     data.longDescription,
-    data.parliamentId
+    data.parliamentId,
+    data.politicianId,
+    data.partyId
   ).then(resp => {
     alert(`Promise with ID:${resp.id} created`); // eslint-disable-line no-alert
   });
