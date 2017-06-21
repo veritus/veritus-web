@@ -19,12 +19,24 @@ export type PartyType = {
   website: string,
 };
 
-export type CaseType = {
+export type ParliamentSessionType = {
   id: number,
   name: string,
-  number: number,
+  parliament: ParliamentType,
+};
+
+export type ParliamentType = {
+  id: number,
+  name: string,
+};
+
+export type CaseType = {
+  id: number,
   case_status: string,
   case_type: string,
-  created: date,
-  modified: date,
+  created: string,
+  name: string,
+  number: number,
+  modified: string,
+  parliament_session: ParliamentSessionType,
 };

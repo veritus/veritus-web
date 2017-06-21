@@ -6,9 +6,9 @@ import PromiseItem from '../index';
 
 storiesOf('Promise Item', module)
   .addDecorator(muiTheme())
-  .add('Unfulfilled promise', () => (
+  .add('Unfulfilled promise', () =>
     <PromiseItem id={1} title="Save the whales" fulfilled={false} />
-  ))
-  .add('Fulfilled promise', () => (
+  )
+  .add('Fulfilled promise', () =>
     <PromiseItem id={1} title="Higher politician salary" fulfilled={true} />
-  ));
+  );

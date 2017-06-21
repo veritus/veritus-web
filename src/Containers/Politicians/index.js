@@ -7,7 +7,7 @@ export class Politicians extends React.Component {
   render() {
     return (
       <div>
-        {politicians.map(politician => (
+        {politicians.map(politician =>
           <PoliticianCard
             key={politician.id}
             name={`${politician.first_name} ${politician.last_name}`}
@@ -15,7 +15,7 @@ export class Politicians extends React.Component {
             progress={politician.promise_completion}
             promises={promises}
           />
-        ))}
+        )}
       </div>
     );
   }
