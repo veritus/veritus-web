@@ -1,6 +1,6 @@
 /* @flow */
 
-export type PoliticanIdType = number;
+export type PoliticianIdType = number;
 export type DistrictIdType = number;
 
 export type PromiseType = {
@@ -15,8 +15,8 @@ export type PartyType = {
   website: string,
 };
 
-export type PoliticanType = {
-  'id': PoliticanIdType,
+export type PoliticianType = {
+  'id': PoliticianIdType,
   'name': string,
   'initials': string,
   'districtNumber': number,
