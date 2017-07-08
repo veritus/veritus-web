@@ -17,7 +17,7 @@ const PromiseList = (props: Props) => {
     <PromiseItem
       key={promise.id}
       id={promise.id}
-      title={promise.title}
+      title={promise.name}
       fulfilled={promise.fulfilled}
     />
   );
