@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import PoliticianCard from '../../Components/PoliticianCard';
-import { promises } from '../../utils/testFixtures';
 import { getPoliticans } from '../../utils/api';
 import type { PoliticianType, PromiseType } from '../../types';
 
@@ -40,7 +39,7 @@ export class Politicians extends React.Component {
             name={politician.name}
             party={politician.party.name}
             progress={this.promiseCompletionPercentage(politician.promises)}
-            promises={promises}
+            promises={politician.promises}
           />
         )}
       </div>
