@@ -28,7 +28,7 @@ export class Politicians extends React.Component {
 
     const fulfilledPromises = promiseList.filter(promise => promise.fulfilled);
     /* eslint-disable no-magic-numbers */
-    return Math.floor(totalPromises / fulfilledPromises.length * 100);
+    return Math.floor(fulfilledPromises.length / totalPromises * 100);
   }
 
   render() {
