@@ -30,6 +30,8 @@ export class PromiseForm extends React.Component {
     validMappings: boolean,
   };
 
+  props: PropTypes;
+
   constructor(props: PropTypes) {
     super(props);
 
