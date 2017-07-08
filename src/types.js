@@ -1,4 +1,8 @@
 /* @flow */
+
+export type PoliticanIdType = number;
+export type DistrictIdType = number;
+
 export type PromiseType = {
   id: number,
   title: string,
@@ -11,10 +15,14 @@ export type PartyType = {
   website: string,
 };
 
-export type PoliticianType = {
-  id: number,
-  name: string,
-  party: PartyType,
+export type PoliticanType = {
+  'id': PoliticanIdType,
+  'name': string,
+  'initials': string,
+  'districtNumber': number,
+  'party': PartyType,
+  'district': DistrictType,
+  'promises': Array<PromiseType>,
 };
 
 export type ParliamentSessionType = {
@@ -32,6 +40,14 @@ export type CaseType = {
   id: number,
   case_status: string,
   case_type: string,
+  created: string,
+  modified: string,
+};
+
+export type DistrictType = {
+  id: DistrictIdType,
+  name: string,
+  abbreviation: string,
   created: string,
   modified: string,
 };
