@@ -1,17 +1,26 @@
 /* @flow */
 
+export type PartyIdType = number;
+export type PromiseIdType = number;
 export type PoliticianIdType = number;
 export type DistrictIdType = number;
 export type CaseIdType = number;
 
 export type PromiseType = {
-  id: number,
-  title: string,
-  fulfilled: boolean,
+  'id': PromiseIdType,
+  'name': string,
+  'small_description': string,
+  'long_description': string,
+  'parliament': ParliamentType,
+  'created': string,
+  'modified': string,
+  'politician': PoliticianIdType,
+  'party': PartyIdType,
+  'fulfilled': boolean,
 };
 
 export type PartyType = {
-  id: number,
+  id: PartyIdType,
   name: string,
   website: string,
 };
