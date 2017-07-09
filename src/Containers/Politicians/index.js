@@ -1,19 +1,35 @@
 /* @flow */
 import React from 'react';
 import PoliticianCard from '../../Components/PoliticianCard';
-import { politicians, promises } from '../../utils/testFixtures';
+import { getPoliticans } from '../../utils/api';
+import { promiseCompletionPercentage } from '../../utils/promises';
+import type { PoliticianType } from '../../types';
 
 export class Politicians extends React.Component {
+  state: {
+    politicians: Array<PoliticianType>,
+  };
+
+  state = {
+    politicians: [],
+  };
+
+  componentDidMount() {
+    getPoliticans().then(politicians => {
+      this.setState({ politicians });
+    });
+  }
+
   render() {
     return (
       <div>
-        {politicians.map(politician =>
+        {this.state.politicians.map((politician: PoliticianType) =>
           <PoliticianCard
             key={politician.id}
-            name={`${politician.first_name} ${politician.last_name}`}
-            party={politician.party_name}
-            progress={politician.promise_completion}
-            promises={promises}
+            name={politician.name}
+            party={politician.party.name}
+            progress={promiseCompletionPercentage(politician.promises)}
+            promises={politician.promises}
           />
         )}
       </div>
