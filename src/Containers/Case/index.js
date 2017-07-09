@@ -15,9 +15,9 @@ export class CaseContainer extends React.Component {
   render() {
     return (
       <div>
-        {this.state.cases.map(parliament_case => (
+        {this.state.cases.map(parliament_case =>
           <CaseCard key={parliament_case.id} parliament_case={parliament_case} />
-        ))}
+        )}
       </div>
     );
   }

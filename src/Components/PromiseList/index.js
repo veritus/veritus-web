@@ -10,14 +10,17 @@ export type Props = {
 
 const PromiseList = (props: Props) => {
   const { promises } = props;
-  const promiseList = promises.map(promise => (
+  if (!promises) {
+    return null;
+  }
+  const promiseList = promises.map(promise =>
     <PromiseItem
       key={promise.id}
       id={promise.id}
-      name={promise.name}
+      title={promise.name}
       fulfilled={promise.fulfilled}
     />
-  ));
+  );
 
   return <List> {promiseList} </List>;
 };

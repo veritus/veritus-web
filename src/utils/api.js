@@ -11,6 +11,8 @@ export type PromiseFormType = {
   shortDescription: string,
   longDescription: string,
   parliamentId: number,
+  politicianId: number,
+  partyId: number,
 };
 
 export type PartyIdType = number;
@@ -46,6 +48,14 @@ export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
     .then(parseJSON);
 };
 
+export const getPoliticans = () => {
+  return fetch('/api/v1/politicians/', {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON);
+};
+
 export const getParliamentCases = () => {
   return fetch('/api/v1/cases/', {
     accept: 'application/json',
@@ -66,7 +76,9 @@ export const createPromise = (
   name: string,
   small_description: string,
   long_description: string,
-  parliament: number
+  parliament: number,
+  politician_id?: number,
+  party_id?: number
 ) => {
   const token = getToken();
   if (!token) {
@@ -83,6 +95,8 @@ export const createPromise = (
       small_description,
       long_description,
       parliament,
+      politician: politician_id,
+      party: party_id,
     }),
   })
     .then(checkStatus)

@@ -6,6 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
 import type { PromiseFormType } from '../../utils/api';
+import type { PartyType, PoliticianType } from '../../types';
 
 const styles = {
   container: {
@@ -19,9 +20,18 @@ const styles = {
 
 export type PropTypes = {
   onSubmit: (data: PromiseFormType) => void,
+  parties: Array<PartyType>,
+  politicians: Array<PoliticianType>,
 };
 
 export class PromiseForm extends React.Component {
+  state: {
+    canSubmit: boolean,
+    validMappings: boolean,
+  };
+
+  props: PropTypes;
+
   constructor(props: PropTypes) {
     super(props);
 
@@ -53,6 +63,7 @@ export class PromiseForm extends React.Component {
   }
 
   render() {
+    const { parties, politicians } = this.props;
     return (
       <div>
         <Paper zDepth={2} style={styles.container}>
@@ -71,7 +82,13 @@ export class PromiseForm extends React.Component {
               onChange={() => this.validateMappings()}
               fullWidth
             >
-              <MenuItem value={1} primaryText="Test policitican 1" />
+              {politicians.map(politician =>
+                <MenuItem
+                  key={politician.id}
+                  value={politician.id}
+                  primaryText={politician.name}
+                />
+              )}
             </FormsySelect>
             <br />
             <FormsySelect
@@ -84,7 +101,9 @@ export class PromiseForm extends React.Component {
               onChange={() => this.validateMappings()}
               fullWidth
             >
-              <MenuItem value={1} primaryText="Test party 1" />
+              {parties.map(party =>
+                <MenuItem key={party.id} value={party.id} primaryText={party.name} />
+              )}
             </FormsySelect>
             <br />
             <FormsyText

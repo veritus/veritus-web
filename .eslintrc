@@ -115,7 +115,6 @@
     "no-undef-init": 2,
     "no-undef": 1,
     "no-unused-vars": 1,
-    "no-use-before-define": 1,
     "no-with": 1,
     "no-label-var": 1,
     "require-await": 2,
