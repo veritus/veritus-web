@@ -2,7 +2,8 @@
 import React from 'react';
 import PoliticianCard from '../../Components/PoliticianCard';
 import { getPoliticans } from '../../utils/api';
-import type { PoliticianType, PromiseType } from '../../types';
+import { promiseCompletionPercentage } from '../../utils/promises';
+import type { PoliticianType } from '../../types';
 
 export class Politicians extends React.Component {
   state: {
@@ -19,17 +20,6 @@ export class Politicians extends React.Component {
     });
   }
 
-  promiseCompletionPercentage(promiseList: Array<PromiseType>): number {
-    const totalPromises = promiseList.length;
-    if (totalPromises === 0) {
-      return 0;
-    }
-
-    const fulfilledPromises = promiseList.filter(promise => promise.fulfilled);
-    /* eslint-disable no-magic-numbers */
-    return Math.floor(fulfilledPromises.length / totalPromises * 100);
-  }
-
   render() {
     return (
       <div>
@@ -38,7 +28,7 @@ export class Politicians extends React.Component {
             key={politician.id}
             name={politician.name}
             party={politician.party.name}
-            progress={this.promiseCompletionPercentage(politician.promises)}
+            progress={promiseCompletionPercentage(politician.promises)}
             promises={politician.promises}
           />
         )}
