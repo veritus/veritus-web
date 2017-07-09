@@ -65,13 +65,13 @@ export type DistrictType = {
   modified: string,
 };
 
-type DistrictPromiseType = {
+export type DistrictPromiseType = {
   id: PromiseIdType,
   name: string,
   fulfilled: boolean,
 };
 
-type DistrictPoliticianType = {
+export type DistrictPoliticianType = {
   id: PoliticianIdType,
   name: string,
   initials: string,
