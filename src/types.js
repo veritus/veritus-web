@@ -64,3 +64,12 @@ export type DistrictType = {
   created: string,
   modified: string,
 };
+
+export type DetailedDistrictType = {
+  id: DistrictIdType,
+  name: string,
+  abbreviation: string,
+  politicians: Array<PoliticianType>,
+  created: string,
+  modified: string,
+};
