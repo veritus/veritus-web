@@ -16,6 +16,9 @@ const styles = {
 };
 
 export class NavBar extends React.Component {
+  state: {
+    open: boolean,
+  };
   constructor() {
     super();
     this.state = { open: false };
