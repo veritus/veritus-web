@@ -1,7 +1,12 @@
 /* @flow */
-import type { DistrictType, PromiseType, PoliticianType, PartyType } from '../types';
+import type {
+  DetailedDistrictType,
+  PromiseType,
+  PoliticianType,
+  PartyType,
+} from '../types';
 
-export const districts: Array<DistrictType> = [
+export const districts: Array<DetailedDistrictType> = [
   {
     name: 'Reykjavik Norður’',
     id: 1,
