@@ -32,7 +32,6 @@ const CaseCard = (props: Props) => {
         showExpandableButton={true}
       />
       <CardText expandable={true}>
-
         <div style={styles.container}>
           <div style={styles.field}>
             <span>Parliament: {parliament_case.parliament_session.parliament.name}</span>

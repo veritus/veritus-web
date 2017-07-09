@@ -2,6 +2,7 @@
 import React from 'react';
 import CaseCard from '../../Components/CaseCard';
 import { getParliamentCases } from '../../utils/api';
+
 export class CaseContainer extends React.Component {
   state = {
     cases: [],
@@ -11,7 +12,6 @@ export class CaseContainer extends React.Component {
       this.setState({ cases });
     });
   }
-
   render() {
     return (
       <div>
