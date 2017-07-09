@@ -65,11 +65,25 @@ export type DistrictType = {
   modified: string,
 };
 
+type DistrictPromiseType = {
+  id: PromiseIdType,
+  name: string,
+  fulfilled: boolean,
+};
+
+type DistrictPoliticianType = {
+  id: PoliticianIdType,
+  name: string,
+  initials: string,
+  party: PartyType,
+  promises: Array<DistrictPromiseType>,
+};
+
 export type DetailedDistrictType = {
   id: DistrictIdType,
   name: string,
   abbreviation: string,
-  politicians: Array<PoliticianType>,
+  politicians: Array<DistrictPoliticianType>,
   created: string,
   modified: string,
 };
