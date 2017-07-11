@@ -24,12 +24,12 @@ class App extends Component {
           <div>
             <NavBar />
             <Route exact path="/" component={Politicians} />
+            <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/cases" component={CaseContainer} />
+            <Route path="/login" component={LoginContainer} />
             <Route path="/parties" component={PartyContainer} />
             <Route path="/party/:partyId" component={PartyPromisesContainer} />
-            <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/sign-up" component={SignUpContainer} />
-            <Route path="/login" component={LoginContainer} />
           </div>
         </Router>
       </MuiThemeProvider>
