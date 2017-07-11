@@ -32,6 +32,14 @@ export const parseJSON = (response: Response) => {
   return response.json();
 };
 
+export const getDistricts = () => {
+  return fetch('/api/v1/districts/', {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON);
+};
+
 export const getPoliticalParties = () => {
   return fetch('/api/v1/parties/', {
     accept: 'application/json',
