@@ -1,5 +1,5 @@
 /* @flow */
-import type { PromiseType, PoliticianType, PartyType } from '../types';
+import type { PromiseType, PoliticianType, PartyType, SubjectType } from '../types';
 
 export const promises: Array<PromiseType> = [
   {
@@ -183,5 +183,48 @@ export const parties: Array<PartyType> = [
     website: 'https://piratar.is/',
     created: '2017-04-25T17:41:28Z',
     modified: '2017-04-25T17:41:28Z',
+  },
+];
+
+export const subjects: Array<SubjectType> = [
+  {
+    id: 1,
+    name: 'Example subject',
+    created: '2017-07-11T15:54:01.421417Z',
+    modified: '2017-07-11T15:54:01.421451Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+  {
+    id: 2,
+    name: 'Yet another example',
+    created: '2017-07-11T16:12:01.471068Z',
+    modified: '2017-07-11T16:12:01.471105Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+  {
+    id: 3,
+    name: 'Green example',
+    created: '2017-07-11T16:12:11.348622Z',
+    modified: '2017-07-11T16:12:11.348653Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+  {
+    id: 4,
+    name: 'Example of cake',
+    created: '2017-07-11T16:12:19.216714Z',
+    modified: '2017-07-11T16:12:19.216747Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
   },
 ];

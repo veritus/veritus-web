@@ -5,6 +5,7 @@ export type PromiseIdType = number;
 export type PoliticianIdType = number;
 export type DistrictIdType = number;
 export type CaseIdType = number;
+export type SubjectIdType = number;
 
 export type PromiseType = {
   'id': PromiseIdType,
@@ -63,4 +64,15 @@ export type DistrictType = {
   abbreviation: string,
   created: string,
   modified: string,
+};
+
+export type SubjectType = {
+  id: SubjectIdType,
+  name: string,
+  created: string,
+  modified: string,
+  description: ?string,
+  parliament_session: ?string,
+  number: ?number,
+  parent: ?parent,
 };
