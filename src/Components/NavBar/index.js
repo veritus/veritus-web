@@ -59,6 +59,11 @@ export class NavBar extends React.Component {
               Party
             </MenuItem>
           </NavLink>
+          <NavLink to="/districts" onClick={this.handleToggle} style={styles.link}>
+            <MenuItem>
+              Districts
+            </MenuItem>
+          </NavLink>
         </Drawer>
       </div>
     );
