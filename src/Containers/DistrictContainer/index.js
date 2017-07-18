@@ -9,10 +9,9 @@ export class DistrictContainer extends React.Component {
     districts: Array<DetailedDistrictType>,
   };
 
-  constructor() {
-    super();
-    this.state = { districts: [] };
-  }
+  state = {
+    districts: [],
+  };
 
   componentDidMount() {
     getDistricts().then(districts => {
