@@ -28,8 +28,13 @@ const PromiseTable = (props: Props) => {
   );
 
   return (
-    <Table>
+    <Table fixedHeader={true} multiSelectable={true}>
       <TableHeader>
+        <TableRow>
+          <TableHeaderColumn colSpan="3">
+            Here be buttons
+          </TableHeaderColumn>
+        </TableRow>
         <TableRow>
           <TableHeaderColumn>Name</TableHeaderColumn>
           <TableHeaderColumn>Politician id</TableHeaderColumn>
