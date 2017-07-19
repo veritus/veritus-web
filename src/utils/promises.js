@@ -1,7 +1,8 @@
 /* @flow */
-import type { PromiseType } from '../types';
 
-export const promiseCompletionPercentage = (promiseList: Array<PromiseType>): number => {
+export const promiseCompletionPercentage = <T: { fulfilled: boolean }>(
+  promiseList: Array<T>
+): number => {
   const totalPromises = promiseList.length;
   if (totalPromises === 0) {
     return 0;

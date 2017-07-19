@@ -7,16 +7,16 @@ export type DistrictIdType = number;
 export type CaseIdType = number;
 
 export type PromiseType = {
-  'id': PromiseIdType,
-  'name': string,
-  'small_description': string,
-  'long_description': string,
-  'parliament': ParliamentType,
-  'created': string,
-  'modified': string,
-  'politician': PoliticianIdType,
-  'party': PartyIdType,
-  'fulfilled': boolean,
+  id: PromiseIdType,
+  name: string,
+  small_description: string,
+  long_description: string,
+  parliament: ParliamentType,
+  created: string,
+  modified: string,
+  politician: PoliticianIdType,
+  party: PartyIdType,
+  fulfilled: boolean,
 };
 
 export type PartyType = {
@@ -26,13 +26,13 @@ export type PartyType = {
 };
 
 export type PoliticianType = {
-  'id': PoliticianIdType,
-  'name': string,
-  'initials': string,
-  'districtNumber': number,
-  'party': PartyType,
-  'district': DistrictType,
-  'promises': Array<PromiseType>,
+  id: PoliticianIdType,
+  name: string,
+  initials: string,
+  districtNumber: number,
+  party: PartyType,
+  district: DistrictType,
+  promises: Array<PromiseType>,
 };
 
 export type ParliamentSessionType = {
@@ -47,20 +47,43 @@ export type ParliamentType = {
 };
 
 export type CaseType = {
-  'id': CaseIdType,
-  'name': string,
-  'number': number,
-  'case_type': string,
-  'case_status': string,
-  'parliament_session': ParliamentSessionType,
-  'created': string,
-  'modified': string,
+  id: CaseIdType,
+  name: string,
+  number: number,
+  case_type: string,
+  case_status: string,
+  parliament_session: ParliamentSessionType,
+  created: string,
+  modified: string,
 };
 
 export type DistrictType = {
   id: DistrictIdType,
   name: string,
   abbreviation: string,
+  created: string,
+  modified: string,
+};
+
+export type DistrictPromiseType = {
+  id: PromiseIdType,
+  name: string,
+  fulfilled: boolean,
+};
+
+export type DistrictPoliticianType = {
+  id: PoliticianIdType,
+  name: string,
+  initials: string,
+  party: PartyType,
+  promises: Array<DistrictPromiseType>,
+};
+
+export type DetailedDistrictType = {
+  id: DistrictIdType,
+  name: string,
+  abbreviation: string,
+  politicians: Array<DistrictPoliticianType>,
   created: string,
   modified: string,
 };
