@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import PromiseForm from '../index';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { parties, politicians } from '../../../utils/testFixtures';
+import { parties, politicians } from '../../../../utils/testFixtures';
 
 describe('Promise Form', () => {
   const muiTheme = getMuiTheme();

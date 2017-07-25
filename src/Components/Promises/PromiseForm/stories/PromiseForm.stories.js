@@ -4,7 +4,7 @@ import { storiesOf, action } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
 import PromiseForm from '../index';
 
-import { parties, politicians } from '../../../utils/testFixtures';
+import { parties, politicians } from '../../../../utils/testFixtures';
 
 storiesOf('Promise Form', module)
   .addDecorator(muiTheme())

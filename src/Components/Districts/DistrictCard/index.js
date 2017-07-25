@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import type { DistrictPoliticianType } from '../../types';
-import PoliticianItem from '../PoliticianItem';
-import { promiseCompletionPercentage } from '../../utils/promises';
+import type { DistrictPoliticianType } from '../../../types';
+import PoliticianItem from '../../Politicians/PoliticianItem';
+import { promiseCompletionPercentage } from '../../../utils/promises';
 
 export type Props = {
   name: string,

@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
-import PoliticianCard from '../../Components/PoliticianCard';
-import { getPoliticans } from '../../utils/api';
-import { promiseCompletionPercentage } from '../../utils/promises';
-import type { PoliticianType } from '../../types';
+import PoliticianCard from '../PoliticianCard';
+import { getPoliticans } from '../../../utils/api';
+import { promiseCompletionPercentage } from '../../../utils/promises';
+import type { PoliticianType } from '../../../types';
 
 export class Politicians extends React.Component {
   state: {

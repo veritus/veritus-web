@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
-import PromiseList from '../../Components/PromiseList';
-import { getPromisesByPoliticalParty } from '../../utils/api';
-import type { PartyIdType, PromiseType } from '../../types';
+import PromiseList from '../../Promises/PromiseList';
+import { getPromisesByPoliticalParty } from '../../../utils/api';
+import type { PartyIdType, PromiseType } from '../../../types';
 
 export type Props = {
   partyId: PartyIdType,

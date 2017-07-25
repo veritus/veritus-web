@@ -5,8 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MenuItem from 'material-ui/MenuItem';
 import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
-import type { PromiseFormType } from '../../utils/api';
-import type { PartyType, PoliticianType } from '../../types';
+import type { PromiseFormType } from '../../../utils/api';
+import type { PartyType, PoliticianType } from '../../../types';
 
 const styles = {
   container: {

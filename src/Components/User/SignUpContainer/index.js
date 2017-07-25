@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
-import { signUp } from '../../utils/api';
-import { saveToken } from '../../utils/tokenStorage';
-import { SignUpForm } from '../../Components/SignUpForm';
+import { signUp } from '../../../utils/api';
+import { saveToken } from '../../../utils/tokenStorage';
+import { SignUpForm } from '../SignUpForm';
 
 export type SignUpType = {
   email: string,

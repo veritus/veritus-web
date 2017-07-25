@@ -2,8 +2,8 @@
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
-import PromiseList from '../PromiseList';
-import type { PromiseType } from '../../types';
+import PromiseList from '../../Promises/PromiseList';
+import type { PromiseType } from '../../../types';
 
 export type Props = {
   name: string,

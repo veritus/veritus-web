@@ -1,8 +1,8 @@
 /* @flow */
 import React from 'react';
-import DistrictCard from '../../Components/DistrictCard';
-import { getDistricts } from '../../utils/api';
-import type { DetailedDistrictType } from '../../types';
+import DistrictCard from '../DistrictCard';
+import { getDistricts } from '../../../utils/api';
+import type { DetailedDistrictType } from '../../../types';
 
 export class DistrictContainer extends React.Component {
   state: {

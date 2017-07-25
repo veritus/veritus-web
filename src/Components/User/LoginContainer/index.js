@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
-import { LoginForm } from '../../Components/LoginForm';
-import { login } from '../../utils/api';
-import type { LoginType } from '../../utils/api';
-import { saveToken } from '../../utils/tokenStorage';
+import { LoginForm } from '../LoginForm';
+import { login } from '../../../utils/api';
+import type { LoginType } from '../../../utils/api';
+import { saveToken } from '../../../utils/tokenStorage';
 
 const submit = (data: LoginType) => {
   login(data.email, data.password).then(resp => {
