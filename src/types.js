@@ -87,3 +87,16 @@ export type DetailedDistrictType = {
   created: string,
   modified: string,
 };
+
+// Redux
+
+export type Dispatch = (action: Action | ThunkAction | PromiseAction) => *;
+type GetState = () => State;
+export type ThunkAction = (dispatch: Dispatch, getState: GetState) => *;
+type PromiseAction = Promise<Action>;
+
+export type State = {
+  promises: Array<PromiseType>,
+};
+
+export type Action = *;
