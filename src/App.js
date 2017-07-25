@@ -6,14 +6,14 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from './Components/NavBar';
-import Politicians from './Containers/Politicians';
-import CaseContainer from './Containers/Case';
-import PromiseFormContainer from './Containers/PromiseFormContainer';
-import SignUpContainer from './Containers/SignUpContainer';
-import LoginContainer from './Containers/LoginContainer';
-import PartyContainer from './Containers/Party';
-import PartyPromisesContainer from './Containers/PartyPromises';
-import DistrictContainer from './Containers/DistrictContainer';
+import Politicians from './Components/Politicians/Politicians';
+import CaseContainer from './Components/Cases/Case';
+import PromiseFormContainer from './Components/Promises/PromiseFormContainer';
+import SignUpContainer from './Components/User/SignUpContainer';
+import LoginContainer from './Components/User/LoginContainer';
+import PartyContainer from './Components/Parties/Party';
+import PartyPromisesContainer from './Components/Parties/PartyPromises';
+import DistrictContainer from './Components/Districts/DistrictContainer';
 
 injectTapEventPlugin();
 
