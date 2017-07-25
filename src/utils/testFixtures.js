@@ -324,7 +324,7 @@ export const promises: Array<PromiseType> = [
     modified: '2017-06-06T19:36:10.404898Z',
     politician: 2,
     party: 1,
-    fulfilled: false,
+    fulfilled: true,
   },
   {
     name: 'Raise taxes',
