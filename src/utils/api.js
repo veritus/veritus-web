@@ -56,7 +56,7 @@ export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
     .then(parseJSON);
 };
 
-export const getPoliticans = () => {
+export const getPoliticians = () => {
   return fetch('/api/v1/politicians/', {
     accept: 'application/json',
   })
