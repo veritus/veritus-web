@@ -96,6 +96,10 @@ export type ThunkAction = (dispatch: Dispatch, getState: GetState) => *;
 type PromiseAction = Promise<Action>;
 
 export type State = {
+  politicians: {
+    error: ?string,
+    politicians: Array<PoliticianType>,
+  },
   promises: {
     error: ?string,
     promises: Array<PromiseType>,
