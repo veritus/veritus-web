@@ -1,5 +1,6 @@
 /* @flow */
 import type {
+  State,
   DetailedDistrictType,
   PromiseType,
   PoliticianType,
@@ -538,3 +539,18 @@ export const parties: Array<PartyType> = [
     modified: '2017-04-25T17:41:28Z',
   },
 ];
+
+// Redux
+
+export const initialState: State = {
+  politicians: {
+    politicians,
+    error: null,
+    loading: false,
+  },
+  promises: {
+    promises,
+    error: null,
+    loading: false,
+  },
+};
