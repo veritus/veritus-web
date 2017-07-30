@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import PoliticianCard from '../PoliticianCard';
-import { getPoliticans } from '../../../utils/api';
+import { getPoliticians } from '../../../utils/api';
 import { promiseCompletionPercentage } from '../../../utils/promises';
 import type { PoliticianType } from '../../../types';
 
@@ -15,7 +15,7 @@ export class Politicians extends React.Component {
   };
 
   componentDidMount() {
-    getPoliticans().then(politicians => {
+    getPoliticians().then(politicians => {
       this.setState({ politicians });
     });
   }

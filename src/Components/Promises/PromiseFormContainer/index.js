@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import PromiseForm from '../PromiseForm';
-import { createPromise, getPoliticans, getPoliticalParties } from '../../../utils/api';
+import { createPromise, getPoliticians, getPoliticalParties } from '../../../utils/api';
 import type { PromiseFormType } from '../../../utils/api';
 
 const submit = (data: PromiseFormType) => {
@@ -24,7 +24,7 @@ export class PromiseFormContainer extends React.Component {
   };
 
   componentDidMount() {
-    getPoliticans().then(politicians => {
+    getPoliticians().then(politicians => {
       this.setState({ politicians });
     });
 
