@@ -13,7 +13,7 @@ import SignUpContainer from './Components/User/SignUpContainer';
 import LoginContainer from './Components/User/LoginContainer';
 import PartyContainer from './Components/Parties/Party';
 import PartyPromisesContainer from './Components/Parties/PartyPromises';
-import PromiseContainer from './Components/Promises//PromiseContainer';
+import PromiseContainer from './Components/Promises/PromiseContainer';
 import DistrictContainer from './Components/Districts/DistrictContainer';
 
 injectTapEventPlugin();
