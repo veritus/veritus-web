@@ -14,7 +14,7 @@ import { red500, green500 } from 'material-ui/styles/colors';
 import type { PromiseType } from '../../../types';
 
 export type Props = {
-  promises: Array<PromiseType>,
+  promises: ?Array<PromiseType>,
 };
 
 const getIcon = fulfilled =>
