@@ -2,7 +2,7 @@
 import type {
   State,
   DetailedDistrictType,
-  PromiseType,
+  PromiseAPI,
   PoliticianType,
   PartyType,
 } from '../types';
@@ -310,7 +310,7 @@ export const districts: Array<DetailedDistrictType> = [
   },
 ];
 
-export const promises: Array<PromiseType> = [
+export const promises: Array<PromiseAPI> = [
   {
     name: 'Some title',
     small_description: 'Another title',

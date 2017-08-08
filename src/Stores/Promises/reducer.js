@@ -1,8 +1,8 @@
 /* @flow */
-import type { PromiseType, Action } from '../../types';
+import type { Promise, Action } from '../../types';
 
 export type State = {
-  +promises: ?Array<PromiseType>,
+  +promises: ?Array<Promise>,
   +loading: boolean,
   +error: *,
 };

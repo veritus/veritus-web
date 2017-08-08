@@ -11,10 +11,10 @@ import {
 import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
 import CompleteIcon from 'material-ui/svg-icons/navigation/check';
 import { red500, green500 } from 'material-ui/styles/colors';
-import type { PromiseType } from '../../../types';
+import type { Promise } from '../../../types';
 
 export type Props = {
-  promises: ?Array<PromiseType>,
+  promises: ?Array<Promise>,
 };
 
 const getIcon = fulfilled =>

@@ -1,8 +1,8 @@
 /* @flow */
-import type { PoliticianType, Action } from '../../types';
+import type { PoliticianAPI, Action } from '../../types';
 
 export type State = {
-  +politicians: ?Array<PoliticianType>,
+  +politicians: ?Array<PoliticianAPI>,
   +loading: boolean,
   +error: *,
 };

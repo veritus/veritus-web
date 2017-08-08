@@ -1,10 +1,10 @@
 /* @flow */
-import type { Dispatch, PromiseType } from '../../types';
+import type { Dispatch, Promise } from '../../types';
 import { getPromises as apiGetPromises } from '../../utils/api';
 
 const getPromises = () => ({ type: 'PROMISES_LOAD' });
 
-const getPromisesSuccess = (promises: Array<PromiseType>) => ({
+const getPromisesSuccess = (promises: Array<Promise>) => ({
   promises,
   type: 'PROMISES_LOAD_SUCCESS',
 });

@@ -6,7 +6,7 @@ export type PoliticianIdType = number;
 export type DistrictIdType = number;
 export type CaseIdType = number;
 
-export type PromiseType = {
+export type PromiseAPI = {
   id: PromiseIdType,
   name: string,
   small_description: string,
@@ -19,20 +19,43 @@ export type PromiseType = {
   fulfilled: boolean,
 };
 
+export type Promise = {
+  id: PromiseIdType,
+  name: string,
+  small_description: string,
+  long_description: string,
+  parliament: ParliamentType,
+  created: string,
+  modified: string,
+  politician: PoliticianAPI,
+  party: PartyIdType,
+  fulfilled: boolean,
+};
+
 export type PartyType = {
   id: PartyIdType,
   name: string,
   website: string,
 };
 
-export type PoliticianType = {
+export type PoliticianAPI = {
   id: PoliticianIdType,
   name: string,
   initials: string,
   districtNumber: number,
   party: PartyType,
   district: DistrictType,
-  promises: Array<PromiseType>,
+  promises: Array<PromiseIdType>,
+};
+
+export type Politician = {
+  id: PoliticianIdType,
+  name: string,
+  initials: string,
+  districtNumber: number,
+  party: PartyType,
+  district: DistrictType,
+  promises: Array<Promise>,
 };
 
 export type ParliamentSessionType = {
@@ -98,11 +121,11 @@ type PromiseAction = Promise<Action>;
 export type State = {
   politicians: {
     error: ?string,
-    politicians: ?Array<PoliticianType>,
+    politicians: ?Array<PoliticianAPI>,
   },
   promises: {
     error: ?string,
-    promises: ?Array<PromiseType>,
+    promises: ?Array<PromiseAPI>,
   },
 };
 

@@ -2,10 +2,10 @@
 import React from 'react';
 import { List } from 'material-ui/List';
 import PromiseItem from '../PromiseItem';
-import type { PromiseType } from '../../../types';
+import type { Promise } from '../../../types';
 
 export type Props = {
-  promises: Array<PromiseType>,
+  promises: Array<Promise>,
 };
 
 const PromiseList = (props: Props) => {

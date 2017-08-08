@@ -1,10 +1,10 @@
 /* @flow */
-import type { Dispatch, PoliticianType } from '../../types';
+import type { Dispatch, Politician } from '../../types';
 import { getPoliticians as apiGetPoliticians } from '../../utils/api';
 
 const getPoliticians = () => ({ type: 'POLITICIANS_LOAD' });
 
-const getPoliticiansSuccess = (politicians: Array<PoliticianType>) => ({
+const getPoliticiansSuccess = (politicians: Array<Politician>) => ({
   politicians,
   type: 'POLITICIANS_LOAD_SUCCESS',
 });
