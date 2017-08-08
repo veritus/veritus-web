@@ -3,13 +3,13 @@ import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
 import PromiseList from '../../Promises/PromiseList';
-import type { PromiseType } from '../../../types';
+import type { Promise } from '../../../types';
 
 export type Props = {
   name: string,
   party: string,
   progress: number,
-  promises: Array<PromiseType>,
+  promises: Array<Promise>,
 };
 
 const PoliticianCard = (props: Props) => {

@@ -13,6 +13,7 @@ import SignUpContainer from './Components/User/SignUpContainer';
 import LoginContainer from './Components/User/LoginContainer';
 import PartyContainer from './Components/Parties/Party';
 import PartyPromisesContainer from './Components/Parties/PartyPromises';
+import PromiseContainer from './Components/Promises/PromiseContainer';
 import DistrictContainer from './Components/Districts/DistrictContainer';
 
 injectTapEventPlugin();
@@ -31,6 +32,7 @@ class App extends Component {
             <Route path="/login" component={LoginContainer} />
             <Route path="/parties" component={PartyContainer} />
             <Route path="/party/:partyId" component={PartyPromisesContainer} />
+            <Route path="/promises" component={PromiseContainer} />
             <Route path="/sign-up" component={SignUpContainer} />
           </div>
         </Router>

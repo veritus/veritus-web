@@ -1,8 +1,7 @@
-/* @flow */
 import React from 'react';
 import PromiseList from '../../Promises/PromiseList';
 import { getPromisesByPoliticalParty } from '../../../utils/api';
-import type { PartyIdType, PromiseType } from '../../../types';
+import type { PartyIdType, Promise } from '../../../types';
 
 export type Props = {
   partyId: PartyIdType,
@@ -12,7 +11,7 @@ export class PartyPromises extends React.Component {
   props: Props;
 
   state: {
-    promises: Array<PromiseType>,
+    promises: Array<Promise>,
   };
 
   constructor() {

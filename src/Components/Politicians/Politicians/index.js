@@ -1,13 +1,32 @@
 /* @flow */
 import React from 'react';
+import { connect } from 'react-redux';
 import PoliticianCard from '../PoliticianCard';
-import { getPoliticans } from '../../../utils/api';
+import { getPoliticians } from '../../../utils/api';
+import { promisesLoaded } from '../../../Stores/Promises/selectors';
+import { fetchPromises } from '../../../Stores/Promises/actions';
 import { promiseCompletionPercentage } from '../../../utils/promises';
-import type { PoliticianType } from '../../../types';
+import { fetchPoliticians } from '../../../Stores/Politicians/actions';
+import { politiciansLoaded } from '../../../Stores/Politicians/selectors';
+import type { Dispatch, State, Politician } from '../../../types';
+
+type OwnProps = {};
+
+type ReduxProps = {
+  politicians: ?Array<Politician>,
+  hasLoadedPoliticians: boolean,
+  hasLoadedPromises: boolean,
+  error: ?string,
+  fetchPromises: () => void,
+  fetchPoliticians: () => void,
+};
+
+type Props = OwnProps & ReduxProps;
 
 export class Politicians extends React.Component {
+  props: Props;
   state: {
-    politicians: Array<PoliticianType>,
+    politicians: Array<Politician>,
   };
 
   state = {
@@ -15,7 +34,7 @@ export class Politicians extends React.Component {
   };
 
   componentDidMount() {
-    getPoliticans().then(politicians => {
+    getPoliticians().then(politicians => {
       this.setState({ politicians });
     });
   }
@@ -23,7 +42,7 @@ export class Politicians extends React.Component {
   render() {
     return (
       <div>
-        {this.state.politicians.map((politician: PoliticianType) =>
+        {this.state.politicians.map((politician: Politician) =>
           <PoliticianCard
             key={politician.id}
             name={politician.name}
@@ -37,4 +56,23 @@ export class Politicians extends React.Component {
   }
 }
 
-export default Politicians;
+const mapStateToProps = (state: State) => {
+  return {
+    error: state.promises.error,
+    hasLoadedPoliticians: politiciansLoaded(state),
+    promises: state.promises.promises,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    fetchPromises: () => {
+      dispatch(fetchPromises());
+    },
+    fetchPoliticians: () => {
+      dispatch(fetchPoliticians());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Politicians);
