@@ -100,10 +100,6 @@ export type State = {
     error: ?string,
     politicians: ?Array<PoliticianType>,
   },
-  promises: {
-    error: ?string,
-    promises: ?Array<PromiseType>,
-  },
 };
 
 export type Action = *;
