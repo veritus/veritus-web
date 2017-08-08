@@ -42,7 +42,7 @@ export class Politicians extends React.Component {
   render() {
     return (
       <div>
-        {this.state.politicians.map((politician: PoliticianType) =>
+        {this.state.politicians.map((politician: Politician) =>
           <PoliticianCard
             key={politician.id}
             name={politician.name}
