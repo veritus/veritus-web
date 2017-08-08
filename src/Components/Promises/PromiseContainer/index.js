@@ -3,18 +3,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PromiseTable from '../PromiseTable';
 import { fetchPromises } from '../../../Stores/Promises/actions';
+import { promisesLoaded } from '../../../Stores/Promises/selectors';
 import { fetchPoliticians } from '../../../Stores/Politicians/actions';
-import { politiciansSelector } from '../../../Stores/Politicians/selectors';
-import type { Dispatch, State, PoliticianType, PromiseType } from '../../../types';
+import { politiciansLoaded } from '../../../Stores/Politicians/selectors';
+import type { Dispatch, State, Promise } from '../../../types';
 
 type OwnProps = {};
 
 type ReduxProps = {
-  promises: ?Array<PromiseType>,
-  politicians: ?Array<PoliticianType>,
+  hasLoadedPoliticians: boolean,
+  hasLoadedPromises: boolean,
+  promises: ?Array<Promise>,
   error: ?string,
-  fetchPromises: () => void,
-  fetchPoliticians: () => void,
+  loadPromises: () => void,
+  loadPoliticians: () => void,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -23,8 +25,19 @@ export class PromiseContainer extends React.Component {
   props: Props;
 
   componentDidMount() {
-    this.props.fetchPromises();
-    this.props.fetchPoliticians();
+    const {
+      hasLoadedPoliticians,
+      hasLoadedPromises,
+      loadPoliticians,
+      loadPromises,
+    } = this.props;
+
+    if (!hasLoadedPromises) {
+      loadPromises();
+    }
+    if (!hasLoadedPoliticians) {
+      loadPoliticians();
+    }
   }
 
   render() {
@@ -38,17 +51,18 @@ export class PromiseContainer extends React.Component {
 const mapStateToProps = (state: State) => {
   return {
     error: state.promises.error,
-    politicians: politiciansSelector(state),
+    hasLoadedPoliticians: politiciansLoaded(state),
+    hasLoadedPromises: promisesLoaded(state),
     promises: state.promises.promises,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    fetchPromises: () => {
+    loadPromises: () => {
       dispatch(fetchPromises());
     },
-    fetchPoliticians: () => {
+    loadPoliticians: () => {
       dispatch(fetchPoliticians());
     },
   };

@@ -56,4 +56,23 @@ export class Politicians extends React.Component {
   }
 }
 
-export default Politicians;
+const mapStateToProps = (state: State) => {
+  return {
+    error: state.promises.error,
+    hasLoadedPoliticians: politiciansLoaded(state),
+    promises: state.promises.promises,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    fetchPromises: () => {
+      dispatch(fetchPromises());
+    },
+    fetchPoliticians: () => {
+      dispatch(fetchPoliticians());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Politicians);
