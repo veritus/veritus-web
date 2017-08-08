@@ -499,12 +499,12 @@ export const parties: Array<PartyType> = [
 
 export const initialState: State = {
   politicians: {
-    politicians,
+    politicians: null,
     error: null,
     loading: false,
   },
   promises: {
-    promises,
+    promises: null,
     error: null,
     loading: false,
   },
