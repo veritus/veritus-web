@@ -14,7 +14,7 @@ export type PromiseType = {
   parliament: ParliamentType,
   created: string,
   modified: string,
-  politician: PoliticianIdType,
+  politician: *,
   party: PartyIdType,
   fulfilled: boolean,
 };
@@ -99,6 +99,10 @@ export type State = {
   politicians: {
     error: ?string,
     politicians: ?Array<PoliticianType>,
+  },
+  promises: {
+    error: ?string,
+    promises: ?Array<PromiseType>,
   },
 };
 
