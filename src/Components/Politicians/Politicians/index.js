@@ -14,7 +14,6 @@ type ReduxProps = {
   politicians: ?Array<PoliticianType>,
   hasLoadedPoliticians: boolean,
   error: ?string,
-  fetchPromises: () => void,
   fetchPoliticians: () => void,
 };
 
