@@ -1,5 +1,5 @@
 /* @flow */
-import type { State, PromiseType, PoliticianType } from '../../types';
+import type { State, PoliticianType } from '../../types';
 
 export const promisesSelector = (state: State) => {
   const promises = state.promises.promises;
