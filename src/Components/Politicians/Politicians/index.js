@@ -1,6 +1,7 @@
 /* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
 import PoliticianCard from '../PoliticianCard';
 import { promiseCompletionPercentage } from '../../../utils/promises';
 import { fetchPoliticians } from '../../../Stores/Politicians/actions';
@@ -64,4 +65,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Politicians);
+const connector: Connector<OwnProps, Props> = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default connector(Politicians);
