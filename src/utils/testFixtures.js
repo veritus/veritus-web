@@ -1,5 +1,6 @@
 /* @flow */
 import type {
+  State,
   DetailedDistrictType,
   PromiseType,
   PoliticianType,
@@ -323,7 +324,7 @@ export const promises: Array<PromiseType> = [
     modified: '2017-06-06T19:36:10.404898Z',
     politician: 2,
     party: 1,
-    fulfilled: false,
+    fulfilled: true,
   },
   {
     name: 'Raise taxes',
@@ -334,6 +335,51 @@ export const promises: Array<PromiseType> = [
       id: 1,
     },
     id: 5,
+    created: '2017-06-06T19:38:33.526074Z',
+    modified: '2017-06-06T19:38:33.526105Z',
+    politician: 2,
+    party: 1,
+    fulfilled: false,
+  },
+  {
+    name: 'Lower taxes',
+    small_description: 'Short description',
+    long_description: 'long\ndescription\nexplaining the entire thing',
+    parliament: {
+      name: 'Test-Parliament',
+      id: 1,
+    },
+    id: 6,
+    created: '2017-06-06T19:38:33.526074Z',
+    modified: '2017-06-06T19:38:33.526105Z',
+    politician: 2,
+    party: 1,
+    fulfilled: false,
+  },
+  {
+    name: 'More transparancy',
+    small_description: 'Short description',
+    long_description: 'long\ndescription\nexplaining the entire thing',
+    parliament: {
+      name: 'Test-Parliament',
+      id: 1,
+    },
+    id: 7,
+    created: '2017-06-06T19:38:33.526074Z',
+    modified: '2017-06-06T19:38:33.526105Z',
+    politician: 2,
+    party: 1,
+    fulfilled: false,
+  },
+  {
+    name: 'Legalize double parking',
+    small_description: 'Short description',
+    long_description: 'long\ndescription\nexplaining the entire thing',
+    parliament: {
+      name: 'Test-Parliament',
+      id: 1,
+    },
+    id: 8,
     created: '2017-06-06T19:38:33.526074Z',
     modified: '2017-06-06T19:38:33.526105Z',
     politician: 2,
@@ -493,3 +539,13 @@ export const parties: Array<PartyType> = [
     modified: '2017-04-25T17:41:28Z',
   },
 ];
+
+// Redux
+
+export const initialState: State = {
+  politicians: {
+    politicians: null,
+    error: null,
+    loading: false,
+  },
+};
