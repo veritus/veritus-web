@@ -9,7 +9,7 @@ const submit = (data: LoginType) => {
   login(data.email, data.password).then(resp => {
     const token = resp.key;
     if (token) {
-      saveToken(token);
+      saveToken('token', token);
     } else {
       throw new Error('Login failed');
     }

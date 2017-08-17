@@ -39,6 +39,7 @@ export class SignUpForm extends React.Component {
           <Formsy.Form
             onValid={() => this.enableButton()}
             onInvalid={() => this.disableButton()}
+            // eslint-disable-next-line react/prop-types
             onSubmit={this.props.onSubmit}
           >
             <FormsyText

@@ -8,6 +8,7 @@
     "moment": "^2.18.1",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",
+    "react-facebook-login-component": "^0.9.0",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1"
   },
@@ -33,7 +34,8 @@
     "react-scripts": "^1.0.7",
     "react-split-pane": "^0.1.63",
     "react-test-renderer": "^15.5.4",
-    "storybook-addon-material-ui": "^0.7.9"
+    "storybook-addon-material-ui": "^0.7.9",
+    "yarn": "^0.27.5"
   },
   "scripts": {
     "check": "yarn run flow && yarn run lint-bail && CI=true yarn run test",

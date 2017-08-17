@@ -88,7 +88,7 @@ export const createPromise = (
   politician_id?: number,
   party_id?: number
 ) => {
-  const token = getToken();
+  const { type, token } = getToken();
   if (!token) {
     throw new Error('Unauthorized action');
   }
@@ -96,8 +96,10 @@ export const createPromise = (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
+      'X-CSRFToken': type === 'csrf' ? token : null,
+      Authorization: type === 'token' ? `Token ${token}` : null,
     },
+    credentials: 'include',
     body: JSON.stringify({
       name,
       small_description,
