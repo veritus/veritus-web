@@ -36,7 +36,7 @@ export class LoginForm extends React.Component {
   }
 
   responseFacebook(response) {
-    fetch(`/register-by-token/facebook?access_token=${response.accessToken}`, {
+    fetch(`/api/v1/oauth/facebook?access_token=${response.accessToken}`, {
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
