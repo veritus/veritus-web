@@ -98,10 +98,12 @@ type PromiseAction = Promise<Action>;
 export type State = {
   politicians: {
     error: ?string,
+    loading: boolean,
     politicians: ?Array<PoliticianType>,
   },
   promises: {
     error: ?string,
+    loading: boolean,
     promises: ?Array<PromiseType>,
   },
 };
