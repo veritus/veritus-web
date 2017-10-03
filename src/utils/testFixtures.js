@@ -548,4 +548,9 @@ export const initialState: State = {
     error: null,
     loading: false,
   },
+  promises: {
+    promises: null,
+    error: null,
+    loading: false,
+  },
 };

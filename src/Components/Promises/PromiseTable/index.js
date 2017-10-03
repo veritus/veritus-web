@@ -51,7 +51,7 @@ const PromiseTable = (props: Props) => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {promiseRows}lel
+        {promiseRows}
       </TableBody>
     </Table>
   );

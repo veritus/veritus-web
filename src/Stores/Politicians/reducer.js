@@ -16,7 +16,7 @@ const initialState = {
 const politiciansReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case 'POLITICIANS_LOAD':
-      return { ...state, loading: true, politicians: null };
+      return { ...state, loading: true, politicians: null, error: null };
     case 'POLITICIANS_LOAD_SUCCESS':
       return { ...state, loading: false, politicians: action.politicians };
     case 'POLITICIANS_LOAD_FAILURE':
