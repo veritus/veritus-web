@@ -1,5 +1,6 @@
 /* @flow */
 import { getToken } from './tokenStorage';
+import { serverBaseUrl } from '../config';
 
 export type LoginType = {
   email: string,
@@ -33,7 +34,7 @@ export const parseJSON = (response: Response) => {
 };
 
 export const getDistricts = () => {
-  return fetch('/api/v1/districts/', {
+  return fetch(`${serverBaseUrl}/v1/districts/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -41,7 +42,7 @@ export const getDistricts = () => {
 };
 
 export const getPoliticalParties = () => {
-  return fetch('/api/v1/parties/', {
+  return fetch(`${serverBaseUrl}/v1/parties/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -49,7 +50,7 @@ export const getPoliticalParties = () => {
 };
 
 export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
-  return fetch(`/api/v1/promises?parliament=${partyId}`, {
+  return fetch(`${serverBaseUrl}/v1/promises?parliament=${partyId}`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -57,7 +58,7 @@ export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
 };
 
 export const getPoliticians = () => {
-  return fetch('/api/v1/politicians/', {
+  return fetch(`${serverBaseUrl}/v1/politicians/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -65,7 +66,7 @@ export const getPoliticians = () => {
 };
 
 export const getParliamentCases = () => {
-  return fetch('/api/v1/cases/', {
+  return fetch(`${serverBaseUrl}/v1/cases/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -73,7 +74,7 @@ export const getParliamentCases = () => {
 };
 
 export const getPromises = () => {
-  return fetch('/api/v1/promises/', {
+  return fetch(`${serverBaseUrl}/v1/promises/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -92,7 +93,7 @@ export const createPromise = (
   if (!token) {
     throw new Error('Unauthorized action');
   }
-  return fetch('/api/v1/promises/', {
+  return fetch(`${serverBaseUrl}/v1/promises/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -112,7 +113,7 @@ export const createPromise = (
 };
 
 export const signUp = (username: string, password: string) => {
-  return fetch('/api/v1/rest-auth/registration/', {
+  return fetch(`${serverBaseUrl}/v1/rest-auth/registration/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -129,7 +130,7 @@ export const signUp = (username: string, password: string) => {
 };
 
 export const login = (username: string, password: string) => {
-  return fetch('/api/v1/rest-auth/login/', {
+  return fetch(`${serverBaseUrl}/v1/rest-auth/login/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

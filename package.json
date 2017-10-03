@@ -55,6 +55,5 @@
   },
   "lint-staged": {
     "*.js": "lint"
-  },
-  "proxy": "http://localhost:8000"
+  }
 }
