@@ -157,6 +157,49 @@ export const createPromise = (
     .catch(error => ({ error }));
 };
 
+export const linkSubjectPromise = (promiseId: PromiseId, subjectId: SubjectId) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error('Unauthorized action');
+  }
+
+  return fetch(`${serverBaseUrl}/v1/promises/subjects/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({
+      promise: promiseId,
+      subject: subjectId,
+    }),
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
+};
+
+export const createSubject = (subject: string): DataResponse<Subject> => {
+  const token = getToken();
+  if (!token) {
+    throw new Error('Unauthorized action');
+  }
+
+  return fetch(`${serverBaseUrl}/v1/subjects/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+    body: JSON.stringify({
+      name: subject,
+    }),
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
 export const signUp = (username: string, password: string) => {
