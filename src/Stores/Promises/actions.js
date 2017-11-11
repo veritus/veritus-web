@@ -18,7 +18,7 @@ export const fetchPromises = () => (dispatch: Dispatch) => {
   dispatch(getPromises());
 
   return apiGetPromises().then(
-    promises => dispatch(getPromisesSuccess(promises)),
+    resp => resp.data && dispatch(getPromisesSuccess(resp.data)),
     error => dispatch(getPromisesFailure(error.message))
   );
 };

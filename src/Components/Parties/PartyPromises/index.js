@@ -21,8 +21,12 @@ export class PartyPromises extends React.Component {
   }
 
   componentDidMount() {
-    getPromisesByPoliticalParty(this.props.partyId).then(promises => {
-      this.setState({ promises });
+    getPromisesByPoliticalParty(this.props.partyId).then(resp => {
+      if (resp.error) {
+        console.log('getPromisesByPoliticalParty error > ', getPromisesByPoliticalParty); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ promises: resp.data });
+      }
     });
   }
 

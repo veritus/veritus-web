@@ -8,8 +8,12 @@ export class CaseContainer extends React.Component {
     cases: [],
   };
   componentDidMount() {
-    getParliamentCases().then(cases => {
-      this.setState({ cases });
+    getParliamentCases().then(resp => {
+      if (resp.error) {
+        console.log('getParliamentCases error > ', getParliamentCases); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ cases: resp.data });
+      }
     });
   }
   render() {

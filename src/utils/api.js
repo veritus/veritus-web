@@ -2,6 +2,20 @@
 import { getToken } from './tokenStorage';
 import { serverBaseUrl } from '../config';
 
+export type ApiError = {
+  message: string,
+  response: {
+    status: number,
+    statusText: string,
+  },
+};
+
+type BaseApiResponse = {
+  error?: ApiError,
+};
+
+type DataResponse<D> = Promise<BaseApiResponse & { data?: D }>;
+
 export type LoginType = {
   email: string,
   password: string,
@@ -38,7 +52,9 @@ export const getDistricts = () => {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
 export const getPoliticalParties = () => {
@@ -46,23 +62,29 @@ export const getPoliticalParties = () => {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
-export const getPromisesByPoliticalParty = (partyId: PartyIdType) => {
+export const getPromisesByPoliticalParty = (partyId: PartyId) => {
   return fetch(`${serverBaseUrl}/v1/promises?parliament=${partyId}`, {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
-export const getPoliticians = () => {
+export const getPoliticians = (): DataResponse<Array<PoliticianType>> => {
   return fetch(`${serverBaseUrl}/v1/politicians/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
 export const getParliamentCases = () => {
@@ -70,15 +92,29 @@ export const getParliamentCases = () => {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
-export const getPromises = () => {
+export const getPromises = (): DataResponse<Array<PromiseType>> => {
   return fetch(`${serverBaseUrl}/v1/promises/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
+};
+
+export const getSubjects = (): DataResponse<Array<Subject>> => {
+  return fetch(`${serverBaseUrl}/v1/subjects/`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
 export const createPromise = (
@@ -109,7 +145,11 @@ export const createPromise = (
     }),
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
+};
+
 };
 
 export const signUp = (username: string, password: string) => {
@@ -126,7 +166,9 @@ export const signUp = (username: string, password: string) => {
     }),
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };
 
 export const login = (username: string, password: string) => {
@@ -142,5 +184,7 @@ export const login = (username: string, password: string) => {
     }),
   })
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(error => ({ error }));
 };

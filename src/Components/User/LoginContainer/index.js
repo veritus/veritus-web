@@ -7,11 +7,11 @@ import { saveToken } from '../../../utils/tokenStorage';
 
 const submit = (data: LoginType) => {
   login(data.email, data.password).then(resp => {
-    const token = resp.key;
-    if (token) {
+    if (resp.error) {
+      console.log('Login failed ', resp.error); //eslint-disable-line
+    } else if (resp.data) {
+      const token = resp.data.key;
       saveToken(token);
-    } else {
-      throw new Error('Login failed');
     }
   });
 };
