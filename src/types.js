@@ -1,13 +1,15 @@
 /* @flow */
 
-export type PartyIdType = number;
-export type PromiseIdType = number;
-export type PoliticianIdType = number;
-export type DistrictIdType = number;
-export type CaseIdType = number;
+export type PartyId = number;
+export type ParliamentId = number;
+export type PromiseId = number;
+export type PoliticianId = number;
+export type DistrictId = number;
+export type CaseId = number;
+export type SubjectId = number;
 
 export type PromiseType = {
-  id: PromiseIdType,
+  id: PromiseId,
   name: string,
   small_description: string,
   long_description: string,
@@ -15,18 +17,18 @@ export type PromiseType = {
   created: string,
   modified: string,
   politician: *,
-  party: PartyIdType,
+  party: PartyId,
   fulfilled: boolean,
 };
 
 export type PartyType = {
-  id: PartyIdType,
+  id: PartyId,
   name: string,
   website: string,
 };
 
 export type PoliticianType = {
-  id: PoliticianIdType,
+  id: PoliticianId,
   name: string,
   initials: string,
   districtNumber: number,
@@ -36,7 +38,7 @@ export type PoliticianType = {
 };
 
 export type ParliamentSessionType = {
-  id: number,
+  id: ParliamentId,
   name: string,
   parliament: ParliamentType,
 };
@@ -47,7 +49,7 @@ export type ParliamentType = {
 };
 
 export type CaseType = {
-  id: CaseIdType,
+  id: CaseId,
   name: string,
   number: number,
   case_type: string,
@@ -58,7 +60,7 @@ export type CaseType = {
 };
 
 export type DistrictType = {
-  id: DistrictIdType,
+  id: DistrictId,
   name: string,
   abbreviation: string,
   created: string,
@@ -66,13 +68,13 @@ export type DistrictType = {
 };
 
 export type DistrictPromiseType = {
-  id: PromiseIdType,
+  id: PromiseId,
   name: string,
   fulfilled: boolean,
 };
 
 export type DistrictPoliticianType = {
-  id: PoliticianIdType,
+  id: PoliticianId,
   name: string,
   initials: string,
   party: PartyType,
@@ -80,12 +82,23 @@ export type DistrictPoliticianType = {
 };
 
 export type DetailedDistrictType = {
-  id: DistrictIdType,
+  id: DistrictId,
   name: string,
   abbreviation: string,
   politicians: Array<DistrictPoliticianType>,
   created: string,
   modified: string,
+};
+
+export type Subject = {
+  id: SubjectId,
+  name: string,
+  created: string,
+  modified: string,
+  description: ?string,
+  parliament_session: ?ParliamentId,
+  number: ?string,
+  parent: ?string,
 };
 
 // Redux
@@ -105,6 +118,11 @@ export type State = {
     error: ?string,
     loading: boolean,
     promises: ?Array<PromiseType>,
+  },
+  subjects: {
+    error: ?string,
+    loading: boolean,
+    subjects: ?Array<Subject>,
   },
 };
 

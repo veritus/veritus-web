@@ -1,6 +1,13 @@
 /* @flow */
 import { getToken } from './tokenStorage';
 import { serverBaseUrl } from '../config';
+import type {
+  PoliticianType,
+  PromiseType,
+  PromiseId,
+  Subject,
+  SubjectId,
+} from '../types';
 
 export type ApiError = {
   message: string,
@@ -30,7 +37,7 @@ export type PromiseFormType = {
   partyId: number,
 };
 
-export type PartyIdType = number;
+export type PartyId = number;
 
 export const checkStatus = (response: Response) => {
   /* eslint-disable no-magic-numbers */
