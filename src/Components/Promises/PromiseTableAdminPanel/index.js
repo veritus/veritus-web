@@ -36,7 +36,7 @@ export class PromiseTableAdminPanel extends React.Component<void, Props, State> 
   updateSubject = (selectedValue: ?ReactSelectValue) => {
     const subject = selectedValue && selectedValue.value;
 
-    this.setState({ subject: subject });
+    this.setState({ subject });
   };
 
   onLinkSubmit = async (subject: string | SubjectId) => {
