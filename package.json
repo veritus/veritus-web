@@ -35,7 +35,7 @@
     "localStorage": "^1.0.3",
     "material-ui": "0.17",
     "prettier": "^1.2.2",
-    "react-scripts": "1.0.10",
+    "react-scripts": "^1.0.17",
     "react-split-pane": "^0.1.63",
     "react-test-renderer": "^15.5.4",
     "storybook-addon-material-ui": "^0.7.9"
