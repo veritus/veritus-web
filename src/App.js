@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <Router>
-          <div>
+          <div className="App">
             <NavBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseFormContainer} />
