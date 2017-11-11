@@ -9,7 +9,7 @@ export class CaseContainer extends React.Component {
   componentDidMount() {
     getPoliticalParties().then(resp => {
       if (resp.error) {
-        console.log('getPoliticalParties error > ', getPoliticalParties); // eslint-disable-line
+        console.log('getPoliticalParties error > ', resp.error); // eslint-disable-line
       } else if (resp.data) {
         this.setState({ parties: resp.data });
       }

@@ -30,7 +30,7 @@ export class PromiseFormContainer extends React.Component {
   componentDidMount() {
     getPoliticians().then(resp => {
       if (resp.error) {
-        console.log('getPoliticians error > ', getPoliticians); // eslint-disable-line
+        console.log('getPoliticians error > ', resp.error); // eslint-disable-line
       } else if (resp.data) {
         this.setState({ politicians: resp.data });
       }
@@ -38,7 +38,7 @@ export class PromiseFormContainer extends React.Component {
 
     getPoliticalParties().then(resp => {
       if (resp.error) {
-        console.log('getPoliticalParties error > ', getPoliticalParties); // eslint-disable-line
+        console.log('getPoliticalParties error > ', resp.error); // eslint-disable-line
       } else if (resp.data) {
         this.setState({ parties: resp.data });
       }

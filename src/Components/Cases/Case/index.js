@@ -10,7 +10,7 @@ export class CaseContainer extends React.Component {
   componentDidMount() {
     getParliamentCases().then(resp => {
       if (resp.error) {
-        console.log('getParliamentCases error > ', getParliamentCases); // eslint-disable-line
+        console.log('getParliamentCases error > ', resp.error); // eslint-disable-line
       } else if (resp.data) {
         this.setState({ cases: resp.data });
       }
