@@ -1,3 +1,4 @@
-export const serverBaseUrl = process.env.NODE_ENV === 'production'
-  ? 'http://18.194.173.191/api'
-  : 'http://localhost:8000/api';
+export const serverBaseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'http://http://163.172.132.165/api'
+    : 'http://localhost:8000/api';
