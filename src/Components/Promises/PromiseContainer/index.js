@@ -3,8 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import { fetchPromises } from '../../../Stores/Promises/actions';
+import { linkSubjectToPromisesThunk } from '../../../Stores/Subjects/actions';
 import { promisesLoaded } from '../../../Stores/Promises/selectors';
-import type { Dispatch, State, PromiseType } from '../../../types';
+import type { Dispatch, State, PromiseType, PromiseId, SubjectId } from '../../../types';
 import PromiseTable from '../PromiseTable';
 
 type OwnProps = {};
@@ -14,6 +15,7 @@ type ReduxProps = {
   hasLoadedPromises: boolean,
   error: ?string,
   fetchPromises: () => void,
+  linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) => void,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -29,10 +31,12 @@ export class PromiseContainer extends React.Component {
   }
 
   render() {
-    const { promises } = this.props;
+    const { promises, linkSubjectToPromises } = this.props;
     if (!promises) return null;
 
-    return <PromiseTable promises={promises} />;
+    return (
+      <PromiseTable promises={promises} linkSubjectToPromises={linkSubjectToPromises} />
+    );
   }
 }
 
@@ -49,6 +53,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     fetchPromises: () => {
       dispatch(fetchPromises());
     },
+    linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) =>
+      dispatch(linkSubjectToPromisesThunk(promiseIds, subjectId)),
   };
 };
 
