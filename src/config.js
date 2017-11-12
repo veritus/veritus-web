@@ -1,3 +1,3 @@
 export const serverBaseUrl = process.env.NODE_ENV === 'production'
-  ? 'http://18.194.173.191/api'
+  ? 'https:/codebee.me/api'
   : 'http://localhost:8000/api';
