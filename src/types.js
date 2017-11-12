@@ -124,6 +124,9 @@ export type State = {
     loading: boolean,
     subjects: ?Array<Subject>,
   },
+  feedback: {
+    message: ?string,
+  },
 };
 
 export type Action = *;

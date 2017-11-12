@@ -15,6 +15,7 @@ import PartyContainer from './Components/Parties/Party';
 import PartyPromisesContainer from './Components/Parties/PartyPromises';
 import PromiseContainer from './Components/Promises/PromiseContainer';
 import DistrictContainer from './Components/Districts/DistrictContainer';
+import SnackBar from './Components/Utils/SnackBar';
 
 injectTapEventPlugin();
 
@@ -25,6 +26,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <NavBar />
+            <SnackBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseFormContainer} />
             <Route path="/cases" component={CaseContainer} />
