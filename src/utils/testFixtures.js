@@ -592,4 +592,7 @@ export const initialState: State = {
     error: null,
     loading: false,
   },
+  common: {
+    error: null,
+  },
 };

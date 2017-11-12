@@ -124,6 +124,9 @@ export type State = {
     loading: boolean,
     subjects: ?Array<Subject>,
   },
+  common: {
+    error: ?string,
+  },
 };
 
 export type Action = *;
