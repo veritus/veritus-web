@@ -18,7 +18,7 @@ export const fetchPoliticians = () => (dispatch: Dispatch) => {
   dispatch(getPoliticians());
 
   return apiGetPoliticians().then(
-    politicians => dispatch(getPoliticiansSuccess(politicians)),
+    resp => resp.data && dispatch(getPoliticiansSuccess(resp.data)),
     error => dispatch(getPoliticiansFailure(error.message))
   );
 };

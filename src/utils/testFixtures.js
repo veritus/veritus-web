@@ -5,6 +5,7 @@ import type {
   PromiseType,
   PoliticianType,
   PartyType,
+  Subject,
 } from '../types';
 
 export const districts: Array<DetailedDistrictType> = [
@@ -540,6 +541,39 @@ export const parties: Array<PartyType> = [
   },
 ];
 
+export const subjects: Array<Subject> = [
+  {
+    id: 5,
+    name: 'Zubject',
+    created: '2017-06-10T14:06:32.542308Z',
+    modified: '2017-06-10T14:06:32.542331Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+  {
+    id: 7,
+    name: 'Lower taxes',
+    created: '2017-06-10T14:06:32.542308Z',
+    modified: '2017-06-10T14:06:32.542331Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+  {
+    id: 9,
+    name: 'More freedom',
+    created: '2017-06-10T14:06:32.542308Z',
+    modified: '2017-06-10T14:06:32.542331Z',
+    description: null,
+    parliament_session: null,
+    number: null,
+    parent: null,
+  },
+];
+
 // Redux
 
 export const initialState: State = {
@@ -550,6 +584,11 @@ export const initialState: State = {
   },
   promises: {
     promises: null,
+    error: null,
+    loading: false,
+  },
+  subjects: {
+    subjects: null,
     error: null,
     loading: false,
   },

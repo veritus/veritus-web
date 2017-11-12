@@ -13,7 +13,11 @@ const submit = (data: PromiseFormType) => {
     data.politicianId,
     data.partyId
   ).then(resp => {
-    alert(`Promise with ID:${resp.id} created`); // eslint-disable-line no-alert
+    if (resp.data) {
+      alert(`Promise with ID:${resp.data.id} created`); // eslint-disable-line no-alert
+    } else if (resp.error) {
+      alert(`Ooops failed creating promise > ${resp.error}`); // eslint-disable-line no-alert
+    }
   });
 };
 
@@ -24,12 +28,20 @@ export class PromiseFormContainer extends React.Component {
   };
 
   componentDidMount() {
-    getPoliticians().then(politicians => {
-      this.setState({ politicians });
+    getPoliticians().then(resp => {
+      if (resp.error) {
+        console.log('getPoliticians error > ', resp.error); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ politicians: resp.data });
+      }
     });
 
-    getPoliticalParties().then(parties => {
-      this.setState({ parties });
+    getPoliticalParties().then(resp => {
+      if (resp.error) {
+        console.log('getPoliticalParties error > ', resp.error); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ parties: resp.data });
+      }
     });
   }
 

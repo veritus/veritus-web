@@ -14,8 +14,12 @@ export class DistrictContainer extends React.Component {
   };
 
   componentDidMount() {
-    getDistricts().then(districts => {
-      this.setState({ districts });
+    getDistricts().then(resp => {
+      if (resp.error) {
+        console.log('getDistricts error > ', resp.error); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ districts: resp.data });
+      }
     });
   }
 

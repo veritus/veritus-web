@@ -2,10 +2,10 @@
 import React from 'react';
 import PromiseList from '../../Promises/PromiseList';
 import { getPromisesByPoliticalParty } from '../../../utils/api';
-import type { PartyIdType, PromiseType } from '../../../types';
+import type { PartyId, PromiseType } from '../../../types';
 
 export type Props = {
-  partyId: PartyIdType,
+  partyId: PartyId,
 };
 
 export class PartyPromises extends React.Component {
@@ -21,8 +21,12 @@ export class PartyPromises extends React.Component {
   }
 
   componentDidMount() {
-    getPromisesByPoliticalParty(this.props.partyId).then(promises => {
-      this.setState({ promises });
+    getPromisesByPoliticalParty(this.props.partyId).then(resp => {
+      if (resp.error) {
+        console.log('getPromisesByPoliticalParty error > ', resp.error); // eslint-disable-line
+      } else if (resp.data) {
+        this.setState({ promises: resp.data });
+      }
     });
   }
 
