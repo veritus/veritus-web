@@ -1,16 +1,16 @@
 /* @flow */
 import React from 'react';
-import MatieralSnackBar from 'material-ui/Snackbar';
+import MaterialSnackBar from 'material-ui/Snackbar';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
-import { clearError as reduxClearError } from '../../../Stores/Common/actions';
+import { clearMessage as reduxClearMessage } from '../../../Stores/Feedback/actions';
 import type { Dispatch, State } from '../../../types';
 
 type OwnProps = {};
 
 type ReduxProps = {
-  error: ?string,
-  clearError: () => void,
+  message: ?string,
+  clearMessage: () => void,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -19,14 +19,14 @@ class SnackBar extends React.Component {
   props: Props;
 
   render() {
-    const { error, clearError } = this.props;
+    const { message, clearMessage } = this.props;
 
     return (
-      <MatieralSnackBar
-        open={Boolean(error)}
-        message={error}
+      <MaterialSnackBar
+        open={Boolean(message)}
+        message={message}
         autoHideDuration={4000}
-        onRequestClose={clearError}
+        onRequestClose={clearMessage}
       />
     );
   }
@@ -34,14 +34,14 @@ class SnackBar extends React.Component {
 
 const mapStateToProps = (state: State) => {
   return {
-    error: state.common.error,
+    message: state.feedback.message,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    clearError: () => {
-      dispatch(reduxClearError());
+    clearMessage: () => {
+      dispatch(reduxClearMessage());
     },
   };
 };
