@@ -8,6 +8,10 @@ export type DistrictId = number;
 export type CaseId = number;
 export type SubjectId = number;
 
+export type MatchTypeCaseId = {
+  caseId: number,
+};
+
 export type PromiseType = {
   id: PromiseId,
   name: string,

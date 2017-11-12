@@ -1,6 +1,8 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+
 import type { CaseType } from '../../../types';
 
 const moment = require('moment');
@@ -32,32 +34,34 @@ const CaseCard = (props: Props) => {
         showExpandableButton={true}
       />
       <CardText expandable={true}>
-        <div style={styles.container}>
-          <div style={styles.field}>
-            <span>Parliament: {parliament_case.parliament_session.parliament.name}</span>
+        <Paper zDepth={3} rounded={false}>
+          <div style={styles.container}>
+            <div style={styles.field}>
+              <span>Parliament: {parliament_case.parliament_session}</span>
+            </div>
+            <div style={styles.field}>
+              <span>Parliament session: {parliament_case.parliament_session}</span>
+            </div>
+            <div style={styles.field}>
+              <span>Type: {parliament_case.case_type}</span>
+            </div>
           </div>
-          <div style={styles.field}>
-            <span>Parliament session: {parliament_case.parliament_session.name}</span>
+          <div style={styles.container}>
+            <div style={styles.field}>
+              <span>Status: {parliament_case.status}</span>
+            </div>
+            <div style={styles.field}>
+              <span>
+                Created on {moment(parliament_case.created).format('MMM Mo YYYY')}
+              </span>
+            </div>
+            <div style={styles.field}>
+              <span>
+                Last Modified on {moment(parliament_case.modified).format('MMM Mo YYYY')}
+              </span>
+            </div>
           </div>
-          <div style={styles.field}>
-            <span>Type: {parliament_case.case_type}</span>
-          </div>
-        </div>
-        <div style={styles.container}>
-          <div style={styles.field}>
-            <span>Status: {parliament_case.case_status}</span>
-          </div>
-          <div style={styles.field}>
-            <span>
-              Created on {moment(parliament_case.created).format('MMM Mo YYYY')}
-            </span>
-          </div>
-          <div style={styles.field}>
-            <span>
-              Last Modified on {moment(parliament_case.modified).format('MMM Mo YYYY')}
-            </span>
-          </div>
-        </div>
+        </Paper>
       </CardText>
     </Card>
   );

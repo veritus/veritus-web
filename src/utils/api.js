@@ -109,6 +109,15 @@ export const getParliamentCases = () => {
     .catch(error => ({ error }));
 };
 
+export const getParliamentCaseById = (id: number) => {
+  return fetch(`${serverBaseUrl}/v1/cases/${id}`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .catch(error => ({ error }));
+};
+
 export const getPromises = (): DataResponse<Array<PromiseType>> => {
   return fetch(`${serverBaseUrl}/v1/promises/`, {
     accept: 'application/json',

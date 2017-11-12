@@ -38,7 +38,7 @@ export class Politicians extends React.Component {
             <PoliticianCard
               key={politician.id}
               name={politician.name}
-              party={politician.party.name}
+              party={politician.party}
               progress={promiseCompletionPercentage(politician.promises)}
               promises={politician.promises}
             />
