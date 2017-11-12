@@ -9,7 +9,7 @@ const initialState = {
   error: null,
 };
 
-const politiciansReducer = (state: State = initialState, action: Action): State => {
+const commonReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case 'COMMON_CLEAR_ERROR':
       return { ...state, error: null };
@@ -20,4 +20,4 @@ const politiciansReducer = (state: State = initialState, action: Action): State 
   }
 };
 
-export default politiciansReducer;
+export default commonReducer;
