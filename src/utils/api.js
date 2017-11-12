@@ -54,13 +54,18 @@ export const parseJSON = (response: Response) => {
   return response.json();
 };
 
+export const mapData = (json: JSON) => {
+  const data = json.results ? json.results : json;
+  return { data };
+};
+
 export const getDistricts = () => {
   return fetch(`${serverBaseUrl}/v1/districts/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -70,7 +75,7 @@ export const getPoliticalParties = () => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -80,7 +85,7 @@ export const getPromisesByPoliticalParty = (partyId: PartyId) => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -90,7 +95,7 @@ export const getPoliticians = (): DataResponse<Array<PoliticianType>> => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -100,7 +105,7 @@ export const getParliamentCases = () => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -110,7 +115,7 @@ export const getPromises = (): DataResponse<Array<PromiseType>> => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -120,7 +125,7 @@ export const getSubjects = (): DataResponse<Array<Subject>> => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -153,7 +158,7 @@ export const createPromise = (
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -176,7 +181,7 @@ export const linkSubjectPromise = (promiseId: PromiseId, subjectId: SubjectId) =
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -198,7 +203,7 @@ export const createSubject = (subject: string): DataResponse<Subject> => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -217,7 +222,7 @@ export const signUp = (username: string, password: string) => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
 
@@ -235,6 +240,6 @@ export const login = (username: string, password: string) => {
   })
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
+    .then(mapData)
     .catch(error => ({ error }));
 };
