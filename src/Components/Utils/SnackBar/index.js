@@ -20,6 +20,9 @@ class SnackBar extends React.Component {
 
   render() {
     const { message, clearMessage } = this.props;
+    if (!message) {
+      return null;
+    }
 
     return (
       <MaterialSnackBar
