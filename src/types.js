@@ -40,7 +40,7 @@ export type PoliticianType = {
   name: string,
   initials: string,
   districtNumber: number,
-  party: number,
+  party: PartyId,
   district: DistrictType,
   promises: Array<PromiseType>,
 };
@@ -74,7 +74,7 @@ export type DistrictPoliticianType = {
   id: PoliticianId,
   name: string,
   initials: string,
-  party: number,
+  party: PartyId,
   promises: Array<DistrictPromiseType>,
 };
 
