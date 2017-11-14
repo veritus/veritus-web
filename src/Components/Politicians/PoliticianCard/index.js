@@ -7,7 +7,7 @@ import type { PromiseType } from '../../../types';
 
 export type Props = {
   name: string,
-  party: string,
+  party: number,
   progress: number,
   promises: Array<PromiseType>,
 };

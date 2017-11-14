@@ -7,8 +7,12 @@ export type PoliticianId = number;
 export type DistrictId = number;
 export type SubjectId = number;
 
-export type MatchTypeCaseId = {
+export type CaseIdParam = {
   caseId: number,
+};
+
+export type MatchTypeCaseId = {
+  params: CaseIdParam,
 };
 
 export type PromiseType = {
@@ -35,7 +39,7 @@ export type PoliticianType = {
   name: string,
   initials: string,
   districtNumber: number,
-  party: PartyType,
+  party: number,
   district: DistrictType,
   promises: Array<PromiseType>,
 };
@@ -69,7 +73,7 @@ export type DistrictPoliticianType = {
   id: PoliticianId,
   name: string,
   initials: string,
-  party: PartyType,
+  party: number,
   promises: Array<DistrictPromiseType>,
 };
 
