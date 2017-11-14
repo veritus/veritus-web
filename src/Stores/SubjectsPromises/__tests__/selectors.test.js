@@ -26,6 +26,8 @@ describe('SubjectsPromises Selector', () => {
       },
     };
 
+    deepFreeze(loadedState);
+
     expect(subjectsPromisesSelector(loadedState)).toEqual(subjectsPromises);
   });
 });
