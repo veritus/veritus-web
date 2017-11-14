@@ -3,12 +3,12 @@ import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import Paper from 'material-ui/Paper';
 
-import type { CaseType } from '../../../types';
+import type { Case } from '../types';
 
 const moment = require('moment');
 
 export type Props = {
-  parliament_case: CaseType,
+  parliament_case: Case,
 };
 
 const styles = {

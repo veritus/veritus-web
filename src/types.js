@@ -5,7 +5,6 @@ export type ParliamentId = number;
 export type PromiseId = number;
 export type PoliticianId = number;
 export type DistrictId = number;
-export type CaseId = number;
 export type SubjectId = number;
 
 export type MatchTypeCaseId = {
@@ -50,17 +49,6 @@ export type ParliamentSessionType = {
 export type ParliamentType = {
   id: number,
   name: string,
-};
-
-export type CaseType = {
-  id: CaseId,
-  name: string,
-  number: number,
-  case_type: string,
-  case_status: string,
-  parliament_session: ParliamentSessionType,
-  created: string,
-  modified: string,
 };
 
 export type DistrictType = {

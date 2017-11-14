@@ -1,6 +1,6 @@
 /* @flow */
 import React from 'react';
-import CircularProgress from 'material-ui/CircularProgress';
+import CaseDetail from '../CaseDetail';
 import { getParliamentCaseById } from '../../../utils/api';
 import type { MatchTypeCaseId } from '../../../types';
 
@@ -20,14 +20,7 @@ export class CaseDetailContainer extends React.Component {
     });
   }
   render() {
-    if (!this.state.case.id) {
-      return <CircularProgress />;
-    }
-    return (
-      <div>
-        {this.state.case.name}
-      </div>
-    );
+    return <CaseDetail case={this.state.case} />;
   }
 }
 export default CaseDetailContainer;
