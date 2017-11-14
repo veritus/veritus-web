@@ -1,5 +1,11 @@
 /* @flow */
-import type { Dispatch, Subject, SubjectId, PromiseId } from '../../types';
+import type {
+  Dispatch,
+  Subject,
+  SubjectId,
+  PromiseId,
+  SubjectPromise,
+} from '../../types';
 import {
   getSubjects as apiGetSubjects,
   linkSubjectPromise as apiLinkSubjectPromise,
@@ -28,9 +34,9 @@ export const fetchSubjects = () => (dispatch: Dispatch) => {
 
 const linkSubjectPromise = () => ({ type: 'SUBJECT_PROMISE_LINK' });
 
-const linkSubjectPromiseSuccess = resp => ({
+const linkSubjectPromiseSuccess = (payload: SubjectPromise) => ({
   type: 'SUBJECT_PROMISE_LINK_SUCCESS',
-  resp,
+  payload,
 });
 
 const linkSubjectPromiseFailure = error => ({
