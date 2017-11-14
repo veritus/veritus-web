@@ -454,6 +454,11 @@ export const initialState: State = {
     error: null,
     loading: false,
   },
+  subjectsPromises: {
+    subjectsPromises: null,
+    error: null,
+    loading: false,
+  },
   feedback: {
     message: null,
   },

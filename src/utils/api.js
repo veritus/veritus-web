@@ -197,6 +197,25 @@ export const linkSubjectPromise = (promiseId: PromiseId, subjectId: SubjectId) =
     .catch(error => ({ error }));
 };
 
+export const getSubjectsPromises = () => {
+  const token = getToken();
+  if (!token) {
+    throw new Error('Unauthorized action');
+  }
+
+  return fetch(`${serverBaseUrl}/v1/promises/subjects/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
 export const createSubject = (subject: string): DataResponse<Subject> => {
   const token = getToken();
   if (!token) {
