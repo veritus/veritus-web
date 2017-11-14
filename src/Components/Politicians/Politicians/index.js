@@ -35,6 +35,7 @@ export class Politicians extends React.Component {
       display: 'flex',
       justifyContent: 'space-around',
       flexWrap: 'wrap',
+      alignItems: 'center',
     };
     return (
       <div style={politicianContainerStyles}>
