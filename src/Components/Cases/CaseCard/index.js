@@ -29,7 +29,7 @@ const CaseCard = (props: Props) => {
     <Card key={parliament_case.id}>
       <CardHeader
         title={parliament_case.name}
-        subtitle={parliament_case.parliament_session.name}
+        subtitle={parliament_case.parliament_session}
         actAsExpander={true}
         showExpandableButton={true}
       />

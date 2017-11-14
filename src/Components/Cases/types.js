@@ -1,5 +1,5 @@
 /* @flow */
-import type { ParliamentSessionType } from '../../types';
+import type { ParliamentSessionId } from '../../types';
 export type CaseId = number;
 
 export type Case = {
@@ -8,7 +8,7 @@ export type Case = {
   number: number,
   case_type: string,
   status: string,
-  parliament_session: ParliamentSessionType,
+  parliament_session: ParliamentSessionId,
   created: string,
   modified: string,
 };

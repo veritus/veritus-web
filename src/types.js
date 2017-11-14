@@ -6,6 +6,7 @@ export type PromiseId = number;
 export type PoliticianId = number;
 export type DistrictId = number;
 export type SubjectId = number;
+export type ParliamentSessionId = number;
 
 export type CaseIdParam = {
   caseId: number,
@@ -45,7 +46,7 @@ export type PoliticianType = {
 };
 
 export type ParliamentSessionType = {
-  id: ParliamentId,
+  id: ParliamentSessionId,
   name: string,
   parliament: ParliamentType,
 };
