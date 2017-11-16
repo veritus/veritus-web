@@ -3,8 +3,7 @@ import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 import PoliticianItem from '../PoliticianItem';
 import { getPoliticianById } from '../../../utils/api';
-import type { MatchTypePoliticianId } from '../../../types';
-import type { PoliticianType } from '../../../types';
+import type { PoliticianType, MatchTypePoliticianId } from '../../../types';
 
 export type Props = {
   match: MatchTypePoliticianId,

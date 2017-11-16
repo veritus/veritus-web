@@ -1,6 +1,5 @@
 /* @flow */
 import React from 'react';
-import { ListItem } from 'material-ui/List';
 import type { PoliticianType } from '../../../types';
 
 export type Props = {
