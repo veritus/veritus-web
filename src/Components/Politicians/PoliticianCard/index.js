@@ -4,7 +4,6 @@ import { Card, CardHeader } from 'material-ui/Card';
 
 export type Props = {
   name: string,
-  party: string,
 };
 
 const PoliticianCard = (props: Props) => {

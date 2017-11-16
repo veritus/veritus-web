@@ -9,6 +9,8 @@ import type {
   SubjectId,
 } from '../types';
 
+import type { Case } from '../Components/Cases/types.js';
+
 export type ApiError = {
   message: string,
   response: {
@@ -101,6 +103,16 @@ export const getPoliticians = (): DataResponse<Array<PoliticianType>> => {
 
 export const getParliamentCases = () => {
   return fetch(`${serverBaseUrl}/v1/cases/`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
+export const getParliamentCaseById = (id: number): DataResponse<Case> => {
+  return fetch(`${serverBaseUrl}/v1/cases/${id}`, {
     accept: 'application/json',
   })
     .then(checkStatus)

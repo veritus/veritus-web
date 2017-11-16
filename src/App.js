@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Politicians from './Components/Politicians/Politicians';
 import CaseContainer from './Components/Cases/Case';
+import CaseDetailContainer from './Components/Cases/CaseDetailContainer';
 import PromiseFormContainer from './Components/Promises/PromiseFormContainer';
 import SignUpContainer from './Components/User/SignUpContainer';
 import LoginContainer from './Components/User/LoginContainer';
@@ -29,7 +30,8 @@ class App extends Component {
             <SnackBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseFormContainer} />
-            <Route path="/cases" component={CaseContainer} />
+            <Route exact path="/cases/:caseId" component={CaseDetailContainer} />
+            <Route exact path="/cases" component={CaseContainer} />
             <Route path="/districts" component={DistrictContainer} />
             <Route path="/login" component={LoginContainer} />
             <Route path="/parties" component={PartyContainer} />
