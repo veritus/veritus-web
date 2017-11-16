@@ -5,8 +5,16 @@ export type ParliamentId = number;
 export type PromiseId = number;
 export type PoliticianId = number;
 export type DistrictId = number;
-export type CaseId = number;
 export type SubjectId = number;
+export type ParliamentSessionId = number;
+
+export type CaseIdParam = {
+  caseId: number,
+};
+
+export type MatchTypeCaseId = {
+  params: CaseIdParam,
+};
 
 export type PromiseType = {
   id: PromiseId,
@@ -32,13 +40,13 @@ export type PoliticianType = {
   name: string,
   initials: string,
   districtNumber: number,
-  party: PartyType,
+  party: PartyId,
   district: DistrictType,
   promises: Array<PromiseType>,
 };
 
 export type ParliamentSessionType = {
-  id: ParliamentId,
+  id: ParliamentSessionId,
   name: string,
   parliament: ParliamentType,
 };
@@ -46,17 +54,6 @@ export type ParliamentSessionType = {
 export type ParliamentType = {
   id: number,
   name: string,
-};
-
-export type CaseType = {
-  id: CaseId,
-  name: string,
-  number: number,
-  case_type: string,
-  case_status: string,
-  parliament_session: ParliamentSessionType,
-  created: string,
-  modified: string,
 };
 
 export type DistrictType = {
@@ -77,7 +74,7 @@ export type DistrictPoliticianType = {
   id: PoliticianId,
   name: string,
   initials: string,
-  party: PartyType,
+  party: PartyId,
   promises: Array<DistrictPromiseType>,
 };
 

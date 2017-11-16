@@ -10,7 +10,7 @@ storiesOf('Politican Card', module)
   .add('Default', () =>
     <PoliticianCard
       name={politicians[0].name}
-      party={politicians[0].party.name}
+      party={politicians[0].party}
       progress={53}
       promises={politicians[0].promises}
     />
