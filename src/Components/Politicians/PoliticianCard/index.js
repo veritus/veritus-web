@@ -13,11 +13,10 @@ export type Props = {
 
 const PoliticianCard = (props: Props) => {
   const { politician, progress } = props;
-
   if (!politician) return <div />;
   return (
     <Link style={styles.container} to={`/politicians/${politician.id}`}>
-      <Paper style={{ flex: '1 1 100%', display: 'flex', flexWrap: 'wrap' }}>
+      <Paper style={styles.paper}>
         <img
           src="http://lorempixel.com/200/200/"
           alt="Politician"
