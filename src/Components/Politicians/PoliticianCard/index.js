@@ -1,18 +1,35 @@
 /* @flow */
 import React from 'react';
-import { Card, CardHeader } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+import { Link } from 'react-router-dom';
+import type { PoliticianType } from '../../../types';
 
 export type Props = {
-  name: string,
+  politician: PoliticianType,
 };
 
 const PoliticianCard = (props: Props) => {
-  const { name } = props;
-  const cardStyle = { flex: '1 1 0', margin: '1%' };
+  const { politician } = props;
+  const containerStyle = {
+    flex: '0 1 20%',
+    margin: '1%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    textDecoration: 'none',
+  };
+  if (!politician) return <div />;
   return (
-    <Card style={cardStyle}>
-      <CardHeader title={name} avatar="http://lorempixel.com/200/200/" />
-    </Card>
+    <Link style={containerStyle} to={`/politicians/${politician.id}`}>
+      <Paper style={{ flex: '1 1 100%', display: 'flex', flexWrap: 'wrap' }}>
+        <img
+          src="http://lorempixel.com/200/200/"
+          alt="Politician"
+          style={{ flex: '1 1 100%' }}
+        />
+        <p style={{ flex: '1 1 100%', textAlign: 'center' }}>{politician.name}</p>
+      </Paper>
+    </Link>
   );
 };
 

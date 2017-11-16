@@ -33,7 +33,7 @@ export class Politicians extends React.Component {
     const { politicians } = this.props;
     const politicianContainerStyles = {
       display: 'flex',
-      justifyContent: 'space-around',
+      justifyContent: 'center',
       flexWrap: 'wrap',
       alignItems: 'center',
     };
@@ -43,8 +43,7 @@ export class Politicians extends React.Component {
           politicians.map((politician: PoliticianType) =>
             <PoliticianCard
               key={politician.id}
-              name={politician.name}
-              party={politician.party}
+              politician={politician}
               progress={promiseCompletionPercentage(politician.promises)}
             />
           )}
