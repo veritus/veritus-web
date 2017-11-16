@@ -2,14 +2,16 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
+import LinearProgress from 'material-ui/LinearProgress';
 import type { PoliticianType } from '../../../types';
 
 export type Props = {
   politician: PoliticianType,
+  progress: number,
 };
 
 const PoliticianCard = (props: Props) => {
-  const { politician } = props;
+  const { politician, progress } = props;
   const containerStyle = {
     flex: '0 1 20%',
     margin: '1%',
@@ -28,6 +30,14 @@ const PoliticianCard = (props: Props) => {
           style={{ flex: '1 1 100%' }}
         />
         <p style={{ flex: '1 1 100%', textAlign: 'center' }}>{politician.name}</p>
+        <span style={{ marginLeft: `${progress}%` }}>
+          {progress}%
+        </span>
+        <LinearProgress
+          style={{ flex: '1 1 100%' }}
+          mode="determinate"
+          value={progress}
+        />
       </Paper>
     </Link>
   );

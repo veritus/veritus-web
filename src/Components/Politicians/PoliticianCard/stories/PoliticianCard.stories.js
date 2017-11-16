@@ -7,11 +7,4 @@ import { politicians } from '../../../../utils/testFixtures';
 
 storiesOf('Politican Card', module)
   .addDecorator(muiTheme())
-  .add('Default', () =>
-    <PoliticianCard
-      name={politicians[0].name}
-      party={politicians[0].party}
-      progress={53}
-      promises={politicians[0].promises}
-    />
-  );
+  .add('Default', () => <PoliticianCard politician={politicians[0]} progress={53} />);
