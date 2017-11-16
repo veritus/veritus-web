@@ -16,4 +16,4 @@ export const name = {
   textAlign: 'center',
 };
 
-export const paper = { flex: '1 1 100%', display: 'flex', flexWrap: 'wrap' };;
+export const paper = { flex: '1 1 100%', display: 'flex', flexWrap: 'wrap' };

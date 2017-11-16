@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import PoliticianCard from '../PoliticianCard';
-import { promiseCompletionPercentage } from '../../../utils/promises';
 import { fetchPoliticians } from '../../../Stores/Politicians/actions';
 import { politiciansLoaded } from '../../../Stores/Politicians/selectors';
 import type { Dispatch, State, PoliticianType } from '../../../types';
@@ -41,11 +40,7 @@ export class Politicians extends React.Component {
       <div style={politicianContainerStyles}>
         {politicians &&
           politicians.map((politician: PoliticianType) =>
-            <PoliticianCard
-              key={politician.id}
-              politician={politician}
-              progress={promiseCompletionPercentage(politician.promises)}
-            />
+            <PoliticianCard key={politician.id} politician={politician} />
           )}
       </div>
     );

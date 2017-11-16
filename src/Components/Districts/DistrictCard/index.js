@@ -1,13 +1,11 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import type { DistrictPoliticianType } from '../../../types';
 import PoliticianItem from '../../Politicians/PoliticianItem';
-import { promiseCompletionPercentage } from '../../../utils/promises';
 
 export type Props = {
   name: string,
-  politicians: Array<DistrictPoliticianType>,
+  politicians: Array<number>,
 };
 
 const DistrictCard = (props: Props) => {
@@ -15,16 +13,7 @@ const DistrictCard = (props: Props) => {
   return (
     <Card>
       <CardHeader title={name} actAsExpander={true} showExpandableButton={true} />
-      <CardText expandable={true}>
-        {politicians.map(politician =>
-          <PoliticianItem
-            key={politician.id}
-            id={politician.id}
-            name={politician.name}
-            progress={promiseCompletionPercentage(politician.promises)}
-          />
-        )}
-      </CardText>
+      <CardText expandable={true} />
     </Card>
   );
 };

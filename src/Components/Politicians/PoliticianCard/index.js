@@ -8,11 +8,10 @@ import * as styles from './styles';
 
 export type Props = {
   politician: PoliticianType,
-  progress: number,
 };
 
 const PoliticianCard = (props: Props) => {
-  const { politician, progress } = props;
+  const { politician } = props;
   if (!politician) return <div />;
   return (
     <Link style={styles.container} to={`/politicians/${politician.id}`}>
@@ -23,10 +22,10 @@ const PoliticianCard = (props: Props) => {
           style={styles.flexItem}
         />
         <p style={styles.name}>{politician.name}</p>
-        <span style={{ marginLeft: `${progress}%` }}>
-          {progress}%
+        <span style={{ marginLeft: `${0}%` }}>
+          {0}%
         </span>
-        <LinearProgress style={styles.flexItem} mode="determinate" value={progress} />
+        <LinearProgress style={styles.flexItem} mode="determinate" value={0} />
       </Paper>
     </Link>
   );

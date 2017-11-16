@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from './Components/NavBar';
 import Politicians from './Components/Politicians/Politicians';
+import PoliticianItemContainer from './Components/Politicians/PoliticianItemContainer';
 import CaseContainer from './Components/Cases/Case';
 import CaseDetailContainer from './Components/Cases/CaseDetailContainer';
 import PromiseFormContainer from './Components/Promises/PromiseFormContainer';
@@ -30,6 +31,11 @@ class App extends Component {
             <SnackBar />
             <Route exact path="/" component={Politicians} />
             <Route path="/add-promise" component={PromiseFormContainer} />
+            <Route
+              exact
+              path="/politicians/:politicianId"
+              component={PoliticianItemContainer}
+            />
             <Route exact path="/cases/:caseId" component={CaseDetailContainer} />
             <Route exact path="/cases" component={CaseContainer} />
             <Route path="/districts" component={DistrictContainer} />
