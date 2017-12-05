@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable */
+/* eslint-disable no-magic-numbers */
 
 import type {
   State,
@@ -23,19 +23,7 @@ export const districts: Array<DetailedDistrictType> = [
     name: 'Suðurkjördæmi',
     id: 2,
     abbreviation: 'Suðurk',
-    politicians: [
-      2,
-      3,
-      4,
-      30,
-      39,
-      43,
-      48,
-      49,
-      50,
-      55,
-      57,
-    ],
+    politicians: [2, 3, 4, 30, 39, 43, 48, 49, 50, 55, 57],
     created: '2017-04-25T17:41:28Z',
     modified: '2017-04-25T17:41:28Z',
   },
@@ -133,10 +121,7 @@ export const politicians: Array<PoliticianType> = [
       created: '2017-04-25T17:41:28Z',
       modified: '2017-04-25T17:41:28Z',
     },
-    promises: [
-      4,
-      5,
-    ],
+    promises: [4, 5],
   },
   {
     name: 'Óttarr Proppé',
@@ -151,10 +136,7 @@ export const politicians: Array<PoliticianType> = [
       created: '2017-04-25T17:41:28Z',
       modified: '2017-04-25T17:41:28Z',
     },
-    promises: [
-      4,
-      5,
-    ],
+    promises: [4, 5],
   },
   {
     name: 'Unnur Brá Konráðsdóttir',
