@@ -16,6 +16,14 @@ export type MatchTypeCaseId = {
   params: CaseIdParam,
 };
 
+export type PoliticianIdParam = {
+  politicianId: number,
+};
+
+export type MatchTypePoliticianId = {
+  params: PoliticianIdParam,
+};
+
 export type PromiseType = {
   id: PromiseId,
   name: string,
@@ -42,7 +50,7 @@ export type PoliticianType = {
   districtNumber: number,
   party: PartyId,
   district: DistrictType,
-  promises: Array<PromiseType>,
+  promises: Array<PromiseId>,
 };
 
 export type ParliamentSessionType = {
@@ -70,19 +78,11 @@ export type DistrictPromiseType = {
   fulfilled: boolean,
 };
 
-export type DistrictPoliticianType = {
-  id: PoliticianId,
-  name: string,
-  initials: string,
-  party: PartyId,
-  promises: Array<DistrictPromiseType>,
-};
-
 export type DetailedDistrictType = {
   id: DistrictId,
   name: string,
   abbreviation: string,
-  politicians: Array<DistrictPoliticianType>,
+  politicians: Array<number>,
   created: string,
   modified: string,
 };

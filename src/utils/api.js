@@ -121,6 +121,16 @@ export const getParliamentCaseById = (id: number): DataResponse<Case> => {
     .catch(error => ({ error }));
 };
 
+export const getPoliticianById = (id: number): DataResponse<PoliticianType> => {
+  return fetch(`${serverBaseUrl}/v1/politicians/${id}`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
 export const getPromises = (): DataResponse<Array<PromiseType>> => {
   return fetch(`${serverBaseUrl}/v1/promises/`, {
     accept: 'application/json',

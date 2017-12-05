@@ -1,16 +1,18 @@
 /* @flow */
 import React from 'react';
-import { ListItem } from 'material-ui/List';
+import type { PoliticianType } from '../../../types';
 
 export type Props = {
-  id: number,
-  name: string,
-  progress: number,
+  politician: PoliticianType,
 };
 
 const PoliticianItem = (props: Props) => {
-  const { name, progress } = props;
-  return <ListItem primaryText={name} secondaryText={`${progress}%`} />;
+  const { politician } = props;
+  return (
+    <div>
+      <p>{politician.name}</p>
+    </div>
+  );
 };
 
 export default PoliticianItem;

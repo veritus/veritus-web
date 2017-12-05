@@ -28,11 +28,7 @@ export class DistrictContainer extends React.Component {
     return (
       <div>
         {districts.map(district =>
-          <DistrictCard
-            key={district.id}
-            name={district.name}
-            politicians={district.politicians}
-          />
+          <DistrictCard key={district.id} name={district.name} />
         )}
       </div>
     );

@@ -1,35 +1,29 @@
 /* @flow */
 import React from 'react';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+import { Link } from 'react-router-dom';
 import LinearProgress from 'material-ui/LinearProgress';
-import PromiseList from '../../Promises/PromiseList';
-import type { PromiseType } from '../../../types';
+import type { PoliticianType } from '../../../types';
+import * as styles from './styles';
 
 export type Props = {
-  name: string,
-  party: number,
-  progress: number,
-  promises: Array<PromiseType>,
+  politician: PoliticianType,
 };
 
 const PoliticianCard = (props: Props) => {
-  const { name, party, progress, promises } = props;
+  const { politician } = props;
+  if (!politician) return <div />;
   return (
-    <Card>
-      <CardHeader
-        title={name}
-        subtitle={party}
-        actAsExpander={true}
-        showExpandableButton={true}
-        avatar="http://lorempixel.com/200/200/"
-      >
-        {progress}%
-        <LinearProgress mode="determinate" value={progress} />
-      </CardHeader>
-      <CardText expandable={true}>
-        <PromiseList promises={promises} />
-      </CardText>
-    </Card>
+    <Link style={styles.container} to={`/politicians/${politician.id}`}>
+      <Paper style={styles.paper}>
+        <img src="http://lorempixel.com/200/200/" alt="Politician" style={styles.image} />
+        <p style={styles.name}>{politician.name}</p>
+        <span style={{ marginLeft: `${0}%` }}>
+          {0}%
+        </span>
+        <LinearProgress style={styles.progress} mode="determinate" value={0} />
+      </Paper>
+    </Link>
   );
 };
 
