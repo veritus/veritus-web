@@ -48,4 +48,5 @@ export class PoliticianItemContainer extends React.Component<void, Props, State>
     return <PoliticianItem politician={politician} district={district} party={party} />;
   }
 }
+
 export default PoliticianItemContainer;
