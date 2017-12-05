@@ -30,6 +30,7 @@ class App extends Component {
             <NavBar />
             <SnackBar />
             <Route exact path="/" component={Politicians} />
+            <Route exact path="/politicians" component={Politicians} />
             <Route path="/add-promise" component={PromiseFormContainer} />
             <Route
               exact
