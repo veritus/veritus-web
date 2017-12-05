@@ -17,10 +17,22 @@ export class CaseContainer extends React.Component {
     });
   }
   render() {
+    const styles = {
+      container: {
+        display: 'flex',
+        flexDirection: 'column',
+      },
+      item: {
+        flex: '0 0 30%',
+        margin: 10,
+      },
+    };
     return (
-      <div>
+      <div style={styles.container}>
         {this.state.cases.map(parliament_case =>
-          <CaseCard key={parliament_case.id} parliament_case={parliament_case} />
+          <div key={parliament_case.id} style={styles.item}>
+            <CaseCard parliament_case={parliament_case} />
+          </div>
         )}
       </div>
     );
