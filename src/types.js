@@ -1,10 +1,11 @@
 /* @flow */
 
+import type { DistrictId, District } from 'Components/Districts/types.js';
+
 export type PartyId = number;
 export type ParliamentId = number;
 export type PromiseId = number;
 export type PoliticianId = number;
-export type DistrictId = number;
 export type SubjectId = number;
 export type ParliamentSessionId = number;
 
@@ -49,7 +50,7 @@ export type PoliticianType = {
   initials: string,
   districtNumber: number,
   party: PartyId,
-  district: DistrictType,
+  district: District,
   promises: Array<PromiseId>,
 };
 
@@ -62,14 +63,6 @@ export type ParliamentSessionType = {
 export type ParliamentType = {
   id: number,
   name: string,
-};
-
-export type DistrictType = {
-  id: DistrictId,
-  name: string,
-  abbreviation: string,
-  created: string,
-  modified: string,
 };
 
 export type DistrictPromiseType = {
