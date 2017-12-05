@@ -4,21 +4,10 @@ import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 
 import type { Case } from '../types';
+import styles from './styles';
 
 export type Props = {
   parliament_case: Case,
-};
-
-const styles = {
-  container: {
-    padding: 10,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  link: {
-    textDecoration: 'none',
-  },
 };
 
 const CaseCard = (props: Props) => {
