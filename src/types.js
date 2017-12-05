@@ -50,7 +50,7 @@ export type PoliticianType = {
   districtNumber: number,
   party: PartyId,
   district: DistrictType,
-  promises: Array<number>,
+  promises: Array<PromiseId>,
 };
 
 export type ParliamentSessionType = {
