@@ -7,5 +7,5 @@ import { politicians } from '../../../../utils/testFixtures';
 
 storiesOf('Politician Item', module)
   .addDecorator(muiTheme())
-  .add('Politician 1', () => <PoliticianItem politician={politicians[0]} />)
-  .add('Politician 2', () => <PoliticianItem politician={politicians[1]} />);
+  .add('Andrés Ingi', () => <PoliticianItem politician={politicians[0]} />)
+  .add('Óttarr Proppé', () => <PoliticianItem politician={politicians[1]} />);
