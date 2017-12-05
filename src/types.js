@@ -1,7 +1,7 @@
 /* @flow */
 
-import type { DistrictId, District } from 'Components/Districts/types';
-import type { PartyId } from 'Components/Parties/types';
+import type { DistrictId, District } from './Components/Districts/types';
+import type { PartyId } from './Components/Parties/types';
 
 export type ParliamentId = number;
 export type PromiseId = number;
