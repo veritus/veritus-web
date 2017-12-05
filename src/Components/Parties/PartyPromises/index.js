@@ -2,7 +2,8 @@
 import React from 'react';
 import PromiseList from '../../Promises/PromiseList';
 import { getPromisesByPoliticalParty } from '../../../utils/api';
-import type { PartyId, PromiseType } from '../../../types';
+import type { PromiseType } from '../../../types';
+import type { PartyId } from '../types';
 
 export type Props = {
   partyId: PartyId,
