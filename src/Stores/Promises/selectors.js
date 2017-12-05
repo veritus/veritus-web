@@ -12,7 +12,11 @@ export const promisesSelector = (state: State): ?Array<PromiseType> => {
   return promises;
 };
 
-export const promiseSubjectsSelector = createSelector(
+export const promiseSubjectsSelector: (
+  state: State
+) => ?Array<
+  PromiseType
+> = createSelector(
   promisesSelector,
   subjectsSelector,
   subjectsPromisesSelector,
