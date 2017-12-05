@@ -4,8 +4,10 @@ import CircularProgress from 'material-ui/CircularProgress';
 import PoliticianItem from '../PoliticianItem';
 import { getPoliticianById } from '../../../utils/api';
 import { getDistrictById } from '../../Districts/api';
+import { getPartyById } from '../../Parties/api';
 import type { PoliticianType, MatchTypePoliticianId } from '../../../types';
 import type { District } from '../../Districts/types';
+import type { Party } from '../../Parties/types';
 
 export type Props = {
   match: MatchTypePoliticianId,
@@ -14,6 +16,7 @@ export type Props = {
 export type State = {
   politician: ?PoliticianType,
   district: ?District,
+  party: ?Party,
 };
 
 export class PoliticianItemContainer extends React.Component<void, Props, State> {
@@ -21,6 +24,7 @@ export class PoliticianItemContainer extends React.Component<void, Props, State>
   state = {
     politician: null,
     district: null,
+    party: null,
   };
   componentDidMount() {
     const { match: { params: { politicianId } } } = this.props;
@@ -31,12 +35,16 @@ export class PoliticianItemContainer extends React.Component<void, Props, State>
         const district = districtResp.data;
         this.setState({ district });
       });
+      getPartyById(politician.party).then(partyResp => {
+        const party = partyResp.data;
+        this.setState({ party });
+      });
     });
   }
   render() {
-    const { politician, district } = this.state;
-    if (!politician || !district) return <CircularProgress />;
-    return <PoliticianItem politician={politician} district={district} />;
+    const { politician, district, party } = this.state;
+    if (!politician || !district || !party) return <CircularProgress />;
+    return <PoliticianItem politician={politician} district={district} party={party} />;
   }
 }
 export default PoliticianItemContainer;

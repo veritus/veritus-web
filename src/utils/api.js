@@ -61,16 +61,6 @@ export const mapData = (json: JSON) => {
   return { data };
 };
 
-export const getPoliticalParties = () => {
-  return fetch(`${serverBaseUrl}/v1/parties/`, {
-    accept: 'application/json',
-  })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(mapData)
-    .catch(error => ({ error }));
-};
-
 export const getPromisesByPoliticalParty = (partyId: PartyId) => {
   return fetch(`${serverBaseUrl}/v1/promises?parliament=${partyId}`, {
     accept: 'application/json',

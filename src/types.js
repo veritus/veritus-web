@@ -1,8 +1,8 @@
 /* @flow */
 
-import type { DistrictId, District } from 'Components/Districts/types.js';
+import type { DistrictId, District } from 'Components/Districts/types';
+import type { PartyId } from 'Components/Parties/types';
 
-export type PartyId = number;
 export type ParliamentId = number;
 export type PromiseId = number;
 export type PoliticianId = number;
@@ -36,12 +36,6 @@ export type PromiseType = {
   politician: *,
   party: PartyId,
   fulfilled: boolean,
-};
-
-export type PartyType = {
-  id: PartyId,
-  name: string,
-  website: string,
 };
 
 export type PoliticianType = {
