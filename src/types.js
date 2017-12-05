@@ -2,7 +2,7 @@
 
 export type PartyId = number;
 export type ParliamentId = number;
-export type PromiseId = number;
+export type SomeId = number;
 export type PoliticianId = number;
 export type DistrictId = number;
 export type SubjectId = number;
