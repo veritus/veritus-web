@@ -1,11 +1,12 @@
 /* @flow */
+
 import { serverBaseUrl } from '../../config';
 import { checkStatus, parseJSON, mapData } from '../../utils/api';
-import type { DistrictId, District } from './types';
+import type { PartyId, Party } from './types';
 import type { DataResponse } from '../../utils/api';
 
-export const getDistrictById = (id: DistrictId): DataResponse<District> => {
-  return fetch(`${serverBaseUrl}/v1/districts/${id}`, {
+export const getPoliticalParties = () => {
+  return fetch(`${serverBaseUrl}/v1/parties/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -14,8 +15,8 @@ export const getDistrictById = (id: DistrictId): DataResponse<District> => {
     .catch(error => ({ error }));
 };
 
-export const getDistricts = () => {
-  return fetch(`${serverBaseUrl}/v1/districts/`, {
+export const getPartyById = (id: PartyId): DataResponse<Party> => {
+  return fetch(`${serverBaseUrl}/v1/parties/${id}`, {
     accept: 'application/json',
   })
     .then(checkStatus)
