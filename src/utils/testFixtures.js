@@ -6,9 +6,9 @@ import type {
   DetailedDistrictType,
   PromiseType,
   PoliticianType,
-  PartyType,
   Subject,
 } from '../types';
+import type { Party } from '../Components/Parties/types.js';
 
 export const districts: Array<DetailedDistrictType> = [
   {
@@ -155,7 +155,7 @@ export const politicians: Array<PoliticianType> = [
   },
 ];
 
-export const parties: Array<PartyType> = [
+export const parties: Array<Party> = [
   {
     name: 'Sjálfstæðisflokkur',
     id: 1,
