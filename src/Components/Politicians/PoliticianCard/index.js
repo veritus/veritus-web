@@ -16,16 +16,12 @@ const PoliticianCard = (props: Props) => {
   return (
     <Link style={styles.container} to={`/politicians/${politician.id}`}>
       <Paper style={styles.paper}>
-        <img
-          src="http://lorempixel.com/200/200/"
-          alt="Politician"
-          style={styles.flexItem}
-        />
+        <img src="http://lorempixel.com/200/200/" alt="Politician" style={styles.image} />
         <p style={styles.name}>{politician.name}</p>
         <span style={{ marginLeft: `${0}%` }}>
           {0}%
         </span>
-        <LinearProgress style={styles.flexItem} mode="determinate" value={0} />
+        <LinearProgress style={styles.progress} mode="determinate" value={0} />
       </Paper>
     </Link>
   );

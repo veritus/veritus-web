@@ -7,12 +7,16 @@ export const container = {
   textDecoration: 'none',
 };
 
-export const flexItem = {
+export const image = {
+  flex: '1 1 100%',
+};
+
+export const progress = {
   flex: '1 1 100%',
 };
 
 export const name = {
-  ...flexItem,
+  flex: '1 1 100%',
   textAlign: 'center',
 };
 
