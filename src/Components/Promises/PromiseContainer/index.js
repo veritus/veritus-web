@@ -8,13 +8,20 @@ import {
   promiseSubjectsSelector,
   promisesLoaded,
 } from '../../../Stores/Promises/selectors';
-import type { Dispatch, State, PromiseType, PromiseId, SubjectId } from '../../../types';
+import type {
+  Dispatch,
+  State,
+  PromiseType,
+  PromiseId,
+  SubjectId,
+  LinkedPromise,
+} from '../../../types';
 import PromiseTable from '../PromiseTable';
 
 type OwnProps = {};
 
 type ReduxProps = {
-  promises: ?Array<PromiseType>,
+  promises: ?Array<LinkedPromise>,
   hasLoadedPromises: boolean,
   error: ?string,
   fetchPromises: () => void,

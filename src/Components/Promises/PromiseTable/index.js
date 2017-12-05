@@ -12,10 +12,10 @@ import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
 import CompleteIcon from 'material-ui/svg-icons/navigation/check';
 import { red500, green500 } from 'material-ui/styles/colors';
 import PromiseTableAdminPanel from '../PromiseTableAdminPanel';
-import type { PromiseType, PromiseId, SubjectId } from '../../../types';
+import type { PromiseType, PromiseId, SubjectId, LinkedPromise } from '../../../types';
 
 export type Props = {
-  promises: Array<PromiseType>,
+  promises: Array<LinkedPromise>,
   linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) => void,
 };
 
@@ -65,6 +65,7 @@ export class PromiseTable extends React.Component {
         <TableRowColumn>{promise.politician}</TableRowColumn>
         <TableRowColumn>{promise.small_description}</TableRowColumn>
         <TableRowColumn>{getIcon(promise.fulfilled)}</TableRowColumn>
+        <TableRowColumn>{getIcon(promise)}</TableRowColumn>
       </TableRow>
     );
 

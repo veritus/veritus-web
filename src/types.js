@@ -30,6 +30,8 @@ export type PromiseType = {
   fulfilled: boolean,
 };
 
+export type LinkedPromise = PromiseType & { subjects: Array<Subject> };
+
 export type PartyType = {
   id: PartyId,
   name: string,
