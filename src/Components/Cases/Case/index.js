@@ -22,15 +22,14 @@ export class CaseContainer extends React.Component {
         display: 'flex',
         flexDirection: 'column',
       },
-      item: {
-        flex: '0 0 30%',
+      case: {
         margin: 10,
       },
     };
     return (
       <div style={styles.container}>
         {this.state.cases.map(parliament_case =>
-          <div key={parliament_case.id} style={styles.item}>
+          <div key={parliament_case.id} style={styles.case}>
             <CaseCard parliament_case={parliament_case} />
           </div>
         )}
