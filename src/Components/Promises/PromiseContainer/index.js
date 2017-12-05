@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   };
 };
 
-const connector: Connector<OwnProps, Props> = connect(
+const connector: Connector<OwnProps, ReduxProps> = connect(
   mapStateToProps,
   mapDispatchToProps
 );
