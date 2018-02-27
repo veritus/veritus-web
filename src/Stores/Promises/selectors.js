@@ -4,13 +4,8 @@ import { subjectsSelector } from '../Subjects/selectors';
 import { subjectsPromisesSelector } from '../SubjectsPromises/selectors';
 import { createSelector } from 'reselect';
 
-export const promisesSelector = (state: State): ?Array<PromiseType> => {
-  const promises = state.promises.promises;
-
-  if (!promises) return null;
-
-  return promises;
-};
+export const promisesSelector = (state: State): ?Array<PromiseType> =>
+  state.promises.promises ? state.promises.promises : null;
 
 export const promiseSubjectsSelector: (
   state: State
