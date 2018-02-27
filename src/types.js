@@ -1,10 +1,11 @@
 /* @flow */
 
-export type PartyId = number;
+import type { DistrictId, District } from './Components/Districts/types';
+import type { PartyId } from './Components/Parties/types';
+
 export type ParliamentId = number;
 export type PromiseId = number;
 export type PoliticianId = number;
-export type DistrictId = number;
 export type SubjectId = number;
 export type ParliamentSessionId = number;
 export type SubjectPromiseId = number;
@@ -38,19 +39,13 @@ export type PromiseType = {
   fulfilled: boolean,
 };
 
-export type PartyType = {
-  id: PartyId,
-  name: string,
-  website: string,
-};
-
 export type PoliticianType = {
   id: PoliticianId,
   name: string,
   initials: string,
   districtNumber: number,
   party: PartyId,
-  district: DistrictType,
+  district: District,
   promises: Array<PromiseId>,
 };
 
@@ -63,14 +58,6 @@ export type ParliamentSessionType = {
 export type ParliamentType = {
   id: number,
   name: string,
-};
-
-export type DistrictType = {
-  id: DistrictId,
-  name: string,
-  abbreviation: string,
-  created: string,
-  modified: string,
 };
 
 export type DistrictPromiseType = {

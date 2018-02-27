@@ -6,7 +6,8 @@ import MenuItem from 'material-ui/MenuItem';
 import Formsy from 'formsy-react';
 import { FormsyText, FormsySelect } from 'formsy-material-ui/lib';
 import type { PromiseFormType } from '../../../utils/api';
-import type { PartyType, PoliticianType } from '../../../types';
+import type { PoliticianType } from '../../../types';
+import type { Party } from '../../Parties/types';
 
 const styles = {
   container: {
@@ -20,7 +21,7 @@ const styles = {
 
 export type PropTypes = {
   onSubmit: (data: PromiseFormType) => void,
-  parties: Array<PartyType>,
+  parties: Array<Party>,
   politicians: Array<PoliticianType>,
 };
 

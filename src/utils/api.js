@@ -23,7 +23,7 @@ type BaseApiResponse = {
   error?: ApiError,
 };
 
-type DataResponse<D> = Promise<BaseApiResponse & { data?: D }>;
+export type DataResponse<D> = Promise<BaseApiResponse & { data?: D }>;
 
 export type LoginType = {
   email: string,
@@ -59,26 +59,6 @@ export const parseJSON = (response: Response) => {
 export const mapData = (json: JSON) => {
   const data = json.results ? json.results : json;
   return { data };
-};
-
-export const getDistricts = () => {
-  return fetch(`${serverBaseUrl}/v1/districts/`, {
-    accept: 'application/json',
-  })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(mapData)
-    .catch(error => ({ error }));
-};
-
-export const getPoliticalParties = () => {
-  return fetch(`${serverBaseUrl}/v1/parties/`, {
-    accept: 'application/json',
-  })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(mapData)
-    .catch(error => ({ error }));
 };
 
 export const getPromisesByPoliticalParty = (partyId: PartyId) => {

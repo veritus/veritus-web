@@ -1,11 +1,11 @@
 /* @flow */
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import type { PartyType } from '../../../types';
+import type { Party } from '../types';
 import PartyPromises from '../PartyPromises';
 
 export type Props = {
-  party: PartyType,
+  party: Party,
 };
 
 const PartyCard = (props: Props) => {

@@ -1,7 +1,8 @@
 /* @flow */
 import React from 'react';
 import PromiseForm from '../PromiseForm';
-import { createPromise, getPoliticians, getPoliticalParties } from '../../../utils/api';
+import { createPromise, getPoliticians } from '../../../utils/api';
+import { getPoliticalParties } from '../../Parties/api';
 import type { PromiseFormType } from '../../../utils/api';
 
 const submit = (data: PromiseFormType) => {

@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import PartyCard from '../PartyCard';
-import { getPoliticalParties } from '../../../utils/api';
+import { getPoliticalParties } from '../api';
 export class CaseContainer extends React.Component {
   state = {
     parties: [],
