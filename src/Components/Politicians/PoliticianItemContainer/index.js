@@ -26,13 +26,14 @@ export class PoliticianItemContainer extends React.Component<void, Props, State>
     district: null,
     party: null,
   };
-  componentDidMount = async () => {
+  // $FlowFixMe, fixed in a later version
+  async componentDidMount() {
     const { match: { params: { politicianId } } } = this.props;
     const politicianResp = await getPoliticianById(politicianId);
     if (politicianResp.data) {
       const politician = politicianResp.data;
       this.setState({ politician });
-      getDistrictById(politician.district).then(districtResp => {
+      getDistrictById(politician.district.id).then(districtResp => {
         const district = districtResp.data;
         this.setState({ district });
       });
@@ -41,7 +42,7 @@ export class PoliticianItemContainer extends React.Component<void, Props, State>
         this.setState({ party });
       });
     }
-  };
+  }
   render() {
     const { politician, district, party } = this.state;
     if (!politician || !district || !party) return <CircularProgress />;
