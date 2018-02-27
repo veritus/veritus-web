@@ -5,7 +5,7 @@ export const STATUS_TO_DESCRIPTION = {
   Answered: 'This request has been answered',
   'Has not been answered': 'This request has not been answered',
   Withdrawn: 'This case was withdrawn',
-  Passed: 'Nice! This was passed!',
+  Passed: 'This case has been passed.',
 };
 
 export const red = 'rgb(245,14,30)';
