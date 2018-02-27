@@ -5,7 +5,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 import type { Case } from '../types';
-import { STATUS_TO_BACKGROUND_COLOR, STATUS_TO_DESCRIPTION, gray } from '../constants';
+import { STATUS_TO_BACKGROUND_COLOR, STATUS_TO_DESCRIPTION, unknown } from '../constants';
 import styles from './styles';
 
 export type Props = {
@@ -35,7 +35,7 @@ export class CaseDetail extends React.Component {
               style={{
                 ...styles.statusContainer,
                 backgroundColor:
-                  STATUS_TO_BACKGROUND_COLOR[parliamentCase.status] || gray,
+                  STATUS_TO_BACKGROUND_COLOR[parliamentCase.status] || unknown,
               }}
             >
               {STATUS_TO_DESCRIPTION[parliamentCase.status] ||
