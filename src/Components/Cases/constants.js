@@ -8,18 +8,18 @@ export const STATUS_TO_DESCRIPTION = {
   Passed: 'This case has been passed.',
 };
 
-export const red = 'rgb(245,14,30)';
-export const blue = 'rgb(27,79,251)';
-export const green = 'rgb(75,181,67)';
-export const gray = 'gray';
-export const yellow = 'rgb(255, 204, 0)';
+export const rejected = 'rgb(245,14,30)';
+export const unknown = 'rgb(27,79,251)';
+export const completed = 'rgb(75,181,67)';
+export const withdrawn = 'gray';
+export const inProgress = 'rgb(255, 204, 0)';
 
 export const STATUS_TO_BACKGROUND_COLOR = {
-  Unknown: blue,
-  'In progress': yellow,
-  Rejected: red,
-  Answered: green,
-  'Has not been answered': yellow,
-  Withdrawn: gray,
-  Passed: green,
+  Unknown: unknown,
+  'In progress': inProgress,
+  Rejected: rejected,
+  Answered: completed,
+  'Has not been answered': inProgress,
+  Withdrawn: withdrawn,
+  Passed: completed,
 };
