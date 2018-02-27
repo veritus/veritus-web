@@ -1,10 +1,12 @@
 /* @flow */
 import React from 'react';
 import moment from 'moment';
-
 import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+
 import type { Case } from '../types';
+import { STATUS_TO_BACKGROUND_COLOR, STATUS_TO_DESCRIPTION, gray } from '../constants';
+import styles from './styles';
 
 export type Props = {
   parliamentCase: ?Case,
@@ -23,42 +25,47 @@ export class CaseDetail extends React.Component {
         />
       );
     }
-    const style = {
-      width: '80%',
-      margin: 'auto',
-      padding: '1%',
-    };
+
     return (
-      <Card style={style}>
-        <CardTitle title={parliamentCase.name} />
+      <Card style={styles.card}>
+        <CardTitle title={`${parliamentCase.name} - ${parliamentCase.case_type}`} />
         <CardText>
-          <div>
-            <div>
-              {parliamentCase.case_type}
-              {parliamentCase.status}
+          <div style={styles.contentContainer}>
+            <div
+              style={{
+                ...styles.statusContainer,
+                backgroundColor:
+                  STATUS_TO_BACKGROUND_COLOR[parliamentCase.status] || gray,
+              }}
+            >
+              {STATUS_TO_DESCRIPTION[parliamentCase.status] ||
+                STATUS_TO_DESCRIPTION.Unknown}
             </div>
-            <div>
-              <a href={parliamentCase.althingi_link}>
-                Althingi
+            <div style={styles.althingiContainer}>
+              <a
+                href={parliamentCase.althingi_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See on althingi.is - {parliamentCase.althingi_status}
               </a>
-              {parliamentCase.althingi_status}
-            </div>
-            <div>
-              Creators:
-              {parliamentCase.case_creators}
-            </div>
-            <div>
-              <div>
-                Created:
-                {moment(parliamentCase.created).format('D MMM YYYY')}
-
-              </div>
-              <div>
-                Last Modified:
-                {moment(parliamentCase.modified).format('D MMM YYYY')}
-              </div>
             </div>
 
+            <div style={styles.dateContainer}>
+              <div style={styles.date}>
+                <div style={styles.dateLabel}>Created</div>
+                <div>
+                  {moment(parliamentCase.created).format('D MMM YYYY')}
+                </div>
+
+              </div>
+              <div style={styles.date}>
+                <div style={styles.dateLabel}>Last Modified</div>
+                <div>
+                  {moment(parliamentCase.modified).format('D MMM YYYY')}
+                </div>
+              </div>
+            </div>
           </div>
         </CardText>
       </Card>
