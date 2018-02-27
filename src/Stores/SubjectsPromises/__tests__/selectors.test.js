@@ -22,7 +22,7 @@ describe('SubjectsPromises Selector', () => {
       ...initialState,
       subjectsPromises: {
         ...initialState.subjectsPromises,
-        subjectsPromises,
+        data: subjectsPromises,
       },
     };
 

@@ -231,7 +231,7 @@ export const initialState: State = {
     loading: false,
   },
   subjectsPromises: {
-    subjectsPromises: null,
+    data: null,
     error: null,
     loading: false,
   },

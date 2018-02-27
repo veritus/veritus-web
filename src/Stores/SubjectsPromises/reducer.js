@@ -2,13 +2,13 @@
 import type { SubjectPromise, Action } from '../../types';
 
 export type State = {
-  +subjectsPromises: ?Array<SubjectPromise>,
+  +data: ?Array<SubjectPromise>,
   +loading: boolean,
   +error: *,
 };
 
 const initialState = {
-  subjectsPromises: null,
+  data: null,
   loading: false,
   error: null,
 };
@@ -16,14 +16,14 @@ const initialState = {
 const subjectsPromisesReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case 'SUBJECTS_PROMISES_LOAD':
-      return { ...state, loading: true, subjectsPromises: null, error: null };
+      return { ...state, loading: true, data: null, error: null };
     case 'SUBJECTS_PROMISES_LOAD_SUCCESS':
-      return { ...state, loading: false, subjectsPromises: action.subjects };
+      return { ...state, loading: false, data: action.subjects };
     case 'SUBJECTS_PROMISES_LOAD_FAILURE':
       return { ...state, loading: false, error: action.error };
     case 'SUBJECT_PROMISE_LINK_SUCCESS': {
-      const nullGuard = state.subjectsPromises || [];
-      return { ...state, subjectsPromises: [...nullGuard, action.payload] };
+      const nullGuard = state.data || [];
+      return { ...state, data: [...nullGuard, action.payload] };
     }
     default:
       return state;

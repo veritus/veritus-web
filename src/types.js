@@ -133,7 +133,7 @@ export type State = {
   subjectsPromises: {
     error: ?string,
     loading: boolean,
-    subjectsPromises: ?Array<SubjectPromise>,
+    data: ?Array<SubjectPromise>,
   },
   feedback: {
     message: ?string,

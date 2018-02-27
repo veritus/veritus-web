@@ -4,8 +4,8 @@ import { getSubjectsPromises as apiGetSubjectsPromises } from '../../utils/api';
 
 const getSubjectsPromises = () => ({ type: 'SUBJECTS_PROMISES_LOAD' });
 
-const getSubjectsPromisesSuccess = (subjectsPromises: Array<SubjectPromise>) => ({
-  subjectsPromises,
+const getSubjectsPromisesSuccess = (data: Array<SubjectPromise>) => ({
+  data,
   type: 'SUBJECTS_PROMISES_LOAD_SUCCESS',
 });
 
