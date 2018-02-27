@@ -1,5 +1,7 @@
 /* @flow */
 import type { SubjectPromise, Action } from '../../types';
+import { ActionTypes } from './actions';
+import { ActionTypes as SubjectActionTypes } from '../Subjects/actions';
 
 export type State = {
   +data: ?Array<SubjectPromise>,
@@ -15,13 +17,13 @@ const initialState = {
 
 const subjectsPromisesReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
-    case 'SUBJECTS_PROMISES_LOAD':
+    case ActionTypes.SUBJECTS_PROMISES_LOAD:
       return { ...state, loading: true, data: null, error: null };
-    case 'SUBJECTS_PROMISES_LOAD_SUCCESS':
+    case ActionTypes.SUBJECTS_PROMISES_LOAD_SUCCESS:
       return { ...state, loading: false, data: action.subjects };
-    case 'SUBJECTS_PROMISES_LOAD_FAILURE':
+    case ActionTypes.SUBJECTS_PROMISES_LOAD_FAILURE:
       return { ...state, loading: false, error: action.error };
-    case 'SUBJECT_PROMISE_LINK_SUCCESS': {
+    case SubjectActionTypes.SUBJECT_PROMISE_LINK_SUCCESS: {
       const nullGuard = state.data || [];
       return { ...state, data: [...nullGuard, action.payload] };
     }

@@ -11,16 +11,24 @@ import {
   linkSubjectPromise as apiLinkSubjectPromise,
 } from '../../utils/api';
 
-const getSubjects = () => ({ type: 'SUBJECTS_LOAD' });
+export const ActionTypes = {
+  SUBJECTS_LOAD: 'SUBJECTS_LOAD',
+  SUBJECTS_LOAD_SUCCESS: 'SUBJECTS_LOAD_SUCCESS',
+  SUBJECTS_LOAD_FAILURE: 'SUBJECTS_LOAD_FAILURE',
+  SUBJECT_PROMISE_LINK: 'SUBJECT_PROMISE_LINK',
+  SUBJECT_PROMISE_LINK_SUCCESS: 'SUBJECT_PROMISE_LINK_SUCCESS',
+  SUBJECT_PROMISE_LINK_FAILURE: 'SUBJECT_PROMISE_LINK_FAILURE',
+};
+const getSubjects = () => ({ type: ActionTypes.SUBJECTS_LOAD });
 
 const getSubjectsSuccess = (subjects: Array<Subject>) => ({
   subjects,
-  type: 'SUBJECTS_LOAD_SUCCESS',
+  type: ActionTypes.SUBJECTS_LOAD_SUCCESS,
 });
 
 const getSubjectsFailure = (error: *) => ({
   error,
-  type: 'SUBJECTS_LOAD_FAILURE',
+  type: ActionTypes.SUBJECTS_LOAD_FAILURE,
 });
 
 export const fetchSubjects = () => (dispatch: Dispatch) => {
@@ -32,15 +40,15 @@ export const fetchSubjects = () => (dispatch: Dispatch) => {
   );
 };
 
-const linkSubjectPromise = () => ({ type: 'SUBJECT_PROMISE_LINK' });
+const linkSubjectPromise = () => ({ type: ActionTypes.SUBJECT_PROMISE_LINK });
 
 const linkSubjectPromiseSuccess = (payload: SubjectPromise) => ({
-  type: 'SUBJECT_PROMISE_LINK_SUCCESS',
+  type: ActionTypes.SUBJECT_PROMISE_LINK_SUCCESS,
   payload,
 });
 
 const linkSubjectPromiseFailure = error => ({
-  type: 'SUBJECT_PROMISE_LINK_FAILURE',
+  type: ActionTypes.SUBJECT_PROMISE_LINK_FAILURE,
   error,
 });
 
