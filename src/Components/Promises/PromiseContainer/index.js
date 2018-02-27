@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import { fetchPromises } from '../../../Stores/Promises/actions';
 import { linkSubjectToPromisesThunk } from '../../../Stores/Subjects/actions';
-import { promisesLoaded } from '../../../Stores/Promises/selectors';
+import {
+  promiseSubjectsSelector,
+  promisesLoaded,
+} from '../../../Stores/Promises/selectors';
 import type { Dispatch, State, PromiseType, PromiseId, SubjectId } from '../../../types';
 import PromiseTable from '../PromiseTable';
 
@@ -44,7 +47,7 @@ const mapStateToProps = (state: State) => {
   return {
     error: state.promises.error,
     hasLoadedPromises: promisesLoaded(state),
-    promises: state.promises.promises,
+    promises: promiseSubjectsSelector(state),
   };
 };
 
@@ -58,7 +61,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   };
 };
 
-const connector: Connector<OwnProps, Props> = connect(
+const connector: Connector<OwnProps, ReduxProps> = connect(
   mapStateToProps,
   mapDispatchToProps
 );

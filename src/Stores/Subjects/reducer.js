@@ -1,6 +1,6 @@
 /* @flow */
 import type { Subject, Action } from '../../types';
-
+import { ActionTypes } from './actions';
 export type State = {
   +subjects: ?Array<Subject>,
   +loading: boolean,
@@ -15,11 +15,11 @@ const initialState = {
 
 const subjectsReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
-    case 'SUBJECTS_LOAD':
+    case ActionTypes.SUBJECTS_LOAD:
       return { ...state, loading: true, subjects: null, error: null };
-    case 'SUBJECTS_LOAD_SUCCESS':
+    case ActionTypes.SUBJECTS_LOAD_SUCCESS:
       return { ...state, loading: false, subjects: action.subjects };
-    case 'SUBJECTS_LOAD_FAILURE':
+    case ActionTypes.SUBJECTS_LOAD_FAILURE:
       return { ...state, loading: false, error: action.error };
     default:
       return state;

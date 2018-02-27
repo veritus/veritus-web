@@ -8,6 +8,7 @@ export type PromiseId = number;
 export type PoliticianId = number;
 export type SubjectId = number;
 export type ParliamentSessionId = number;
+export type SubjectPromiseId = number;
 
 export type CaseIdParam = {
   caseId: number,
@@ -85,6 +86,14 @@ export type Subject = {
   parent: ?string,
 };
 
+export type SubjectPromise = {
+  id: SubjectPromiseId,
+  subject: SubjectId,
+  promise: PromiseId,
+  created: string,
+  modified: string,
+};
+
 // Redux
 
 export type Dispatch = (action: Action | ThunkAction | PromiseAction) => *;
@@ -107,6 +116,11 @@ export type State = {
     error: ?string,
     loading: boolean,
     subjects: ?Array<Subject>,
+  },
+  subjectsPromises: {
+    error: ?string,
+    loading: boolean,
+    data: ?Array<SubjectPromise>,
   },
   feedback: {
     message: ?string,

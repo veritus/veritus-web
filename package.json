@@ -20,6 +20,7 @@
   "devDependencies": {
     "@storybook/react": "3.0.0",
     "babel-eslint": "^7.2.1",
+    "deep-freeze": "^0.0.1",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-prettier": "^1.6.0",
