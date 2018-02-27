@@ -11,23 +11,24 @@ export type Props = {
 };
 
 export type State = {
-  case: ?Case,
+  parliamentCase: ?Case,
 };
 
 export class CaseDetailContainer extends React.Component<void, Props, State> {
   props: Props;
   state = {
-    case: null,
+    parliamentCase: null,
   };
   componentDidMount() {
     const { match: { params: { caseId } } } = this.props;
     getParliamentCaseById(caseId).then(resp => {
-      this.setState({ case: resp.data });
+      this.setState({ parliamentCase: resp.data });
     });
   }
   render() {
-    if (!this.state.case) return <CircularProgress />;
-    return <CaseDetail case={this.state.case} />;
+    const { parliamentCase } = this.state;
+    if (!parliamentCase) return <CircularProgress />;
+    return <CaseDetail parliamentCase={parliamentCase} />;
   }
 }
 export default CaseDetailContainer;

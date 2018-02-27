@@ -13,11 +13,14 @@ const defaultCase = {
   parliament_session: 2,
   created: 'created',
   modified: 'modified',
+  althingi_status: 'althingi_status',
+  althingi_link: 'althingi_link',
+  case_creators: [1, 2],
 };
 
 const loadingCase = null;
 
 storiesOf('CaseDetail Card', module)
   .addDecorator(muiTheme())
-  .add('Default', () => <CaseDetail case={defaultCase} />)
-  .add('Loading', () => <CaseDetail case={loadingCase} />);
+  .add('Default', () => <CaseDetail parliamentCase={defaultCase} />)
+  .add('Loading', () => <CaseDetail parliamentCase={loadingCase} />);

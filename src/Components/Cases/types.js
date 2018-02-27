@@ -11,4 +11,7 @@ export type Case = {
   parliament_session: ParliamentSessionId,
   created: string,
   modified: string,
+  althingi_link: string,
+  althingi_status: string,
+  case_creators: Array<number>,
 };
