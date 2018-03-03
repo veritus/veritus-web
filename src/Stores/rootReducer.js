@@ -5,6 +5,7 @@ import PromisesReducer from './Promises/reducer';
 import SubjectsReducer from './Subjects/reducer';
 import SubjectsPromisesReducer from './SubjectsPromises/reducer';
 import FeedbackReducer from './Feedback/reducer';
+import cases from './Cases/reducer';
 
 const reducer = combineReducers({
   politicians: PoliticiansReducer,
@@ -12,6 +13,7 @@ const reducer = combineReducers({
   subjects: SubjectsReducer,
   subjectsPromises: SubjectsPromisesReducer,
   feedback: FeedbackReducer,
+  cases,
 });
 
 export default reducer;
