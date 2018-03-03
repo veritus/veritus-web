@@ -31,7 +31,6 @@ export class CaseDetail extends React.Component {
 
     return (
       <div>
-
         <Card style={styles.card}>
           <CardTitle title={`${parliamentCase.name} - ${parliamentCase.case_type}`} />
           <CardText>

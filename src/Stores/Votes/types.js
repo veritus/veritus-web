@@ -4,7 +4,6 @@ export type VoteRecordId = number;
 export type VoteId = number;
 
 export type VoteRecord = {
-  id: VoteRecordId,
   case: CaseId,
   althingi_id: number,
   no: number,

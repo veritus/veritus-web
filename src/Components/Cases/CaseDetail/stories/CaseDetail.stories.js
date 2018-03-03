@@ -18,9 +18,23 @@ const defaultCase = {
   case_creators: [1, 2],
 };
 
+const defaultVoteRecord = {
+  yes: 2,
+  no: 34,
+  didNotVote: 10,
+  althingi_result: 'Fellt',
+  votes: [1, 2],
+  case: 2,
+  althingi_id: 34553,
+};
+
 const loadingCase = null;
 
 storiesOf('CaseDetail Card', module)
   .addDecorator(muiTheme())
-  .add('Default', () => <CaseDetail parliamentCase={defaultCase} />)
-  .add('Loading', () => <CaseDetail parliamentCase={loadingCase} />);
+  .add('Default', () =>
+    <CaseDetail parliamentCase={defaultCase} voteRecord={defaultVoteRecord} />
+  )
+  .add('Loading', () =>
+    <CaseDetail parliamentCase={loadingCase} voteRecord={defaultVoteRecord} />
+  );
