@@ -29,7 +29,7 @@ export const districts: Array<DetailedDistrictType> = [
   },
 ];
 
-export const promises: Array<PromiseType> = [
+export const promises = [
   {
     name: 'Some title',
     small_description: 'Another title',

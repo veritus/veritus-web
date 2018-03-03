@@ -12,10 +12,15 @@ import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
 import CompleteIcon from 'material-ui/svg-icons/navigation/check';
 import { red500, green500 } from 'material-ui/styles/colors';
 import PromiseTableAdminPanel from '../PromiseTableAdminPanel';
-import type { PromiseType, PromiseId, SubjectId } from '../../../types';
+import type {
+  DecoratedPromise,
+  PromiseId,
+  SubjectId,
+  DecoratedSubject,
+} from '../../../types';
 
 export type Props = {
-  promises: Array<PromiseType>,
+  promises: Array<DecoratedPromise>,
   linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) => void,
 };
 
