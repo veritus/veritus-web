@@ -20,7 +20,7 @@ const subjectsPromisesReducer = (state: State = initialState, action: Action): S
     case ActionTypes.SUBJECTS_PROMISES_LOAD:
       return { ...state, loading: true, data: null, error: null };
     case ActionTypes.SUBJECTS_PROMISES_LOAD_SUCCESS:
-      return { ...state, loading: false, data: action.subjects };
+      return { ...state, loading: false, data: action.data };
     case ActionTypes.SUBJECTS_PROMISES_LOAD_FAILURE:
       return { ...state, loading: false, error: action.error };
     case SubjectActionTypes.SUBJECT_PROMISE_LINK_SUCCESS: {
