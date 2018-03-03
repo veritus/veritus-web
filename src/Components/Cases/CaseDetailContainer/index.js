@@ -8,9 +8,8 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 import CaseDetail from '../CaseDetail';
 import { fetchCaseById } from '../../../Stores/Cases/actions';
-import type { MatchTypeCaseId } from '../../../types';
 import type { Case } from '../../../Stores/Cases/types';
-import type { Dispatch, State } from '../../../types';
+import type { Dispatch, State, MatchTypeCaseId } from '../../../types';
 import { caseById } from '../../../Stores/Cases/selectors';
 import { voteRecordByCaseId } from '../../../Stores/Votes/selectors';
 import type { VoteRecord } from '../../../Stores/Votes/types';

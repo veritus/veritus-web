@@ -14,7 +14,7 @@ import { getVoteRecordByCaseId as apiGetVoteRecordByCaseId } from './api';
 const getVoteRecordByCaseId = () => ({ type: actionTypes.GET_VOTES_BY_CASE_REQUEST });
 
 const getVoteRecordByCaseIdSuccess = (voteRecord: VoteRecord) => ({
-  case: voteRecord,
+  voteRecord,
   type: actionTypes.GET_VOTES_BY_CASE_SUCCESS,
 });
 
