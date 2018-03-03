@@ -4,6 +4,7 @@ import moment from 'moment';
 import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
+import VoteRecordComponent from '../../Votes/VoteRecord';
 import type { Case } from '../../../Stores/Cases/types';
 import type { VoteRecord } from '../../../Stores/Votes/types';
 
@@ -73,26 +74,7 @@ export class CaseDetail extends React.Component {
             </div>
           </CardText>
         </Card>
-        {voteRecord &&
-          <Card style={styles.card}>
-            <CardTitle title={'Votes'} />
-            <CardText>
-              <div>
-                <div>
-                  Yes: {voteRecord.yes}
-                </div>
-                <div>
-                  No: {voteRecord.no}
-                </div>
-                <div>
-                  Did not vote: {voteRecord.didNotVote}
-                </div>
-                <div>
-                  Result: {voteRecord.althingi_result}
-                </div>
-              </div>
-            </CardText>
-          </Card>}
+        {voteRecord && <VoteRecordComponent voteRecord={voteRecord} />}
       </div>
     );
   }
