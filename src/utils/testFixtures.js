@@ -238,4 +238,9 @@ export const initialState: State = {
   feedback: {
     message: null,
   },
+  cases: {
+    data: null,
+    error: null,
+    loading: false,
+  },
 };

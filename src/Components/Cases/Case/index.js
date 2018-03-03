@@ -1,12 +1,13 @@
 /* @flow */
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import type { ActionCreator } from 'redux';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 
 import type { Case } from '../../../Stores/Cases/types';
 import CaseCard from '../CaseCard';
-import CaseActions from '../../../Stores/Cases/actions';
+import { fetchCases } from '../../../Stores/Cases/actions';
 import type { Dispatch, State } from '../../../types';
 
 type OwnProps = {};
@@ -15,7 +16,7 @@ type ReduxProps = {
   cases: ?Array<Case>,
   hasLoadedCases: boolean,
   error: ?string,
-  fetchCases: () => void,
+  fetchCases: ActionCreator<*, *>,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -59,7 +60,7 @@ const mapStateToProps = (state: State) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({ ...CaseActions }, dispatch);
+  bindActionCreators({ fetchCases }, dispatch);
 
 const connector: Connector<OwnProps, Props> = connect(
   mapStateToProps,
