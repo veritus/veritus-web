@@ -2,6 +2,7 @@
 
 import type { DistrictId, District } from './Components/Districts/types';
 import type { PartyId } from './Components/Parties/types';
+import type { Case } from './Stores/Cases/types';
 
 export type ParliamentId = number;
 export type PromiseId = number;
@@ -124,6 +125,11 @@ export type State = {
   },
   feedback: {
     message: ?string,
+  },
+  cases: {
+    data: ?Array<Case>,
+    loading: boolean,
+    error: ?string,
   },
 };
 
