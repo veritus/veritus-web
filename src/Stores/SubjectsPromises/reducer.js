@@ -23,6 +23,13 @@ const subjectsPromisesReducer = (state: State = initialState, action: Action): S
       return { ...state, loading: false, data: action.data };
     case ActionTypes.SUBJECTS_PROMISES_LOAD_FAILURE:
       return { ...state, loading: false, error: action.error };
+    case ActionTypes.SUBJECT_PROMISE_UNLINK_SUCCESS: {
+      const filteredSPs = state.data && state.data.filter(sp => sp.id !== action.id);
+      return { ...state, loading: false, data: filteredSPs };
+    }
+    case ActionTypes.SUBJECT_PROMISE_UNLINK_FAILURE:
+      return { ...state, loading: false, error: action.error };
+
     case SubjectActionTypes.SUBJECT_PROMISE_LINK_SUCCESS: {
       const nullGuard = state.data || [];
       return { ...state, data: [...nullGuard, action.payload] };
