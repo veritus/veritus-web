@@ -12,6 +12,9 @@ import type { MatchTypeCaseId } from '../../../types';
 import type { Case } from '../../../Stores/Cases/types';
 import type { Dispatch, State } from '../../../types';
 import { caseById } from '../../../Stores/Cases/selectors';
+import { voteRecordByCaseId } from '../../../Stores/Votes/selectors';
+import type { VoteRecord } from '../../../Stores/Votes/types';
+import { fetchVoteRecordByCaseId } from '../../../Stores/Votes/actions';
 
 export type OwnProps = {
   match: MatchTypeCaseId,
@@ -19,9 +22,11 @@ export type OwnProps = {
 
 type ReduxProps = {
   parliamentCase: ?Case,
+  voteRecord: ?VoteRecord,
   hasLoadedCases: boolean,
   error: ?string,
   fetchCaseById: ActionCreator<*, *>,
+  fetchVoteRecordByCaseId: ActionCreator<*, *>,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -30,15 +35,18 @@ export class CaseDetailContainer extends React.Component {
   props: Props;
 
   componentDidMount() {
-    const { parliamentCase, match: { params: { caseId } } } = this.props;
+    const { parliamentCase, voteRecord, match: { params: { caseId } } } = this.props;
     if (!parliamentCase) {
       this.props.fetchCaseById(caseId);
     }
+    if (!voteRecord) {
+      this.props.fetchVoteRecordByCaseId(caseId);
+    }
   }
   render() {
-    const { parliamentCase } = this.props;
+    const { parliamentCase, voteRecord } = this.props;
     if (!parliamentCase) return <CircularProgress />;
-    return <CaseDetail parliamentCase={parliamentCase} />;
+    return <CaseDetail parliamentCase={parliamentCase} voteRecord={voteRecord} />;
   }
 }
 
@@ -47,11 +55,12 @@ const mapStateToProps = (state: State, ownProps: OwnProps) => {
     error: state.cases.error,
     hasLoadedCases: state.cases.loading,
     parliamentCase: caseById(state, ownProps.match.params.caseId),
+    voteRecord: voteRecordByCaseId(state, ownProps.match.params.caseId),
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({ fetchCaseById }, dispatch);
+  bindActionCreators({ fetchCaseById, fetchVoteRecordByCaseId }, dispatch);
 
 const connector: Connector<OwnProps, Props> = connect(
   mapStateToProps,
