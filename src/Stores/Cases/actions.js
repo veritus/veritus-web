@@ -60,4 +60,5 @@ export const fetchCases = () => (dispatch: Dispatch) => {
 
 export default {
   fetchCaseById,
+  fetchCases,
 };
