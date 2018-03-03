@@ -3,22 +3,39 @@ import React from 'react';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import { fetchPromises } from '../../../Stores/Promises/actions';
-import { linkSubjectToPromisesThunk } from '../../../Stores/Subjects/actions';
+import {
+  fetchSubjects,
+  linkSubjectToPromisesThunk,
+} from '../../../Stores/Subjects/actions';
+import {
+  fetchSubjectsPromises,
+  unlinkSubjectPromiseThunk,
+} from '../../../Stores/SubjectsPromises/actions';
 import {
   promiseSubjectsSelector,
   promisesLoaded,
 } from '../../../Stores/Promises/selectors';
-import type { Dispatch, State, PromiseType, PromiseId, SubjectId } from '../../../types';
+import type {
+  Dispatch,
+  State,
+  DecoratedPromise,
+  PromiseId,
+  SubjectId,
+  SubjectPromiseId,
+} from '../../../types';
 import PromiseTable from '../PromiseTable';
 
 type OwnProps = {};
 
 type ReduxProps = {
-  promises: ?Array<PromiseType>,
+  promises: ?Array<DecoratedPromise>,
   hasLoadedPromises: boolean,
   error: ?string,
-  fetchPromises: () => void,
+  getPromises: () => void,
+  getSubjects: () => void,
+  getSubjectsPromises: () => void,
   linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) => void,
+  unlinkSubjectPromise: (subjectPromiseId: SubjectPromiseId) => void,
 };
 
 type Props = OwnProps & ReduxProps;
@@ -27,18 +44,30 @@ export class PromiseContainer extends React.Component {
   props: Props;
 
   componentDidMount() {
-    const { hasLoadedPromises } = this.props;
+    const {
+      hasLoadedPromises,
+      getPromises,
+      getSubjects,
+      getSubjectsPromises,
+    } = this.props;
     if (!hasLoadedPromises) {
-      this.props.fetchPromises();
+      getPromises();
     }
+
+    getSubjects();
+    getSubjectsPromises();
   }
 
   render() {
-    const { promises, linkSubjectToPromises } = this.props;
+    const { promises, linkSubjectToPromises, unlinkSubjectPromise } = this.props;
     if (!promises) return null;
 
     return (
-      <PromiseTable promises={promises} linkSubjectToPromises={linkSubjectToPromises} />
+      <PromiseTable
+        promises={promises}
+        linkSubjectToPromises={linkSubjectToPromises}
+        unlinkSubjectPromise={unlinkSubjectPromise}
+      />
     );
   }
 }
@@ -53,11 +82,19 @@ const mapStateToProps = (state: State) => {
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    fetchPromises: () => {
+    getPromises: () => {
       dispatch(fetchPromises());
+    },
+    getSubjects: () => {
+      dispatch(fetchSubjects());
+    },
+    getSubjectsPromises: () => {
+      dispatch(fetchSubjectsPromises());
     },
     linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) =>
       dispatch(linkSubjectToPromisesThunk(promiseIds, subjectId)),
+    unlinkSubjectPromise: (subjectPromiseId: SubjectPromiseId) =>
+      dispatch(unlinkSubjectPromiseThunk(subjectPromiseId)),
   };
 };
 

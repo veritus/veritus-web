@@ -28,5 +28,6 @@ storiesOf('Promise Table', module)
     <PromiseTable
       promises={decoratedPromises}
       linkSubjectToPromises={action('link subject to promises')}
+      unlinkSubjectPromise={action('unlink subject to promise')}
     />
   );
