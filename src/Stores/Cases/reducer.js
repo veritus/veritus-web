@@ -29,7 +29,7 @@ const casesReducer = (state: State = initialState, action: Action): State => {
     case actionTypes.GET_CASE_BY_ID_SUCCESS: {
       const exists =
         state.data &&
-        state.data.some((parliamentCase: *) => parliamentCase.id === action.case.id);
+        state.data.some((parliamentCase: Case) => parliamentCase.id === action.case.id);
       let data = state.data || [];
       if (exists) {
         // If case exists, we update it
