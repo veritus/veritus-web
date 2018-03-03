@@ -4,7 +4,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import CaseDetail from '../CaseDetail';
 import { getParliamentCaseById } from '../../../utils/api';
 import type { MatchTypeCaseId } from '../../../types';
-import type { Case } from '../types';
+import type { Case } from '../../../Stores/Cases/types';
 
 export type Props = {
   match: MatchTypeCaseId,
