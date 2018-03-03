@@ -4,7 +4,7 @@ import moment from 'moment';
 import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
-import type { Case } from '../types';
+import type { Case } from '../../../Stores/Cases/types';
 import { STATUS_TO_BACKGROUND_COLOR, STATUS_TO_DESCRIPTION, unknown } from '../constants';
 import styles from './styles';
 

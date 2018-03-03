@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 
-import type { Case } from '../types';
+import type { Case } from '../../../Stores/Cases/types';
 import styles from './styles';
 
 export type Props = {
