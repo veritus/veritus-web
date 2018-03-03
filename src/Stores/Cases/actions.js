@@ -3,12 +3,19 @@ import type { Dispatch } from '../../types';
 import type { Case, CaseId } from './types';
 import actionTypes from './actionTypes';
 
-import { getParliamentCaseById as apiGetParliamentCaseById } from '../../utils/api';
+import {
+  getParliamentCaseById as apiGetParliamentCaseById,
+  getParliamentCases as apiGetParliamentCases,
+} from '../../utils/api';
+
+/* 
+    GET CASE BY ID
+*/
 
 const getCaseById = () => ({ type: actionTypes.GET_CASE_BY_ID_REQUEST });
 
-const getCaseByIdSuccess = (politicians: Array<Case>) => ({
-  politicians,
+const getCaseByIdSuccess = (parliamentCase: Case) => ({
+  case: parliamentCase,
   type: actionTypes.GET_CASE_BY_ID_SUCCESS,
 });
 
@@ -26,9 +33,31 @@ export const fetchCaseById = (id: CaseId) => (dispatch: Dispatch) => {
   );
 };
 
+/* 
+    GET ALL CASES
+*/
+
+const getCases = () => ({ type: actionTypes.GET_CASES_REQUEST });
+
+const getCasesSuccess = (cases: Array<Case>) => ({
+  cases,
+  type: actionTypes.GET_CASES_SUCCESS,
+});
+
+const getCasesFailure = (error: *) => ({
+  error,
+  type: actionTypes.GET_CASES_FAILURE,
+});
+
+export const fetchCases = () => (dispatch: Dispatch) => {
+  dispatch(getCases());
+
+  return apiGetParliamentCases().then(
+    resp => resp.data && dispatch(getCasesSuccess(resp.data)),
+    error => dispatch(getCasesFailure(error.message))
+  );
+};
+
 export default {
-  getCaseById,
-  getCaseByIdSuccess,
-  getCaseByIdFailure,
   fetchCaseById,
 };
