@@ -25,6 +25,10 @@ type BaseApiResponse = {
 
 export type DataResponse<D> = Promise<BaseApiResponse & { data?: D }>;
 
+export type LoginResponse = {
+  key: string,
+};
+
 export type LoginType = {
   email: string,
   password: string,
@@ -228,7 +232,10 @@ export const createSubject = (subject: string): DataResponse<Subject> => {
     .catch(error => ({ error }));
 };
 
-export const signUp = (username: string, password: string) => {
+export const signUp = (
+  username: string,
+  password: string
+): DataResponse<LoginResponse> => {
   return fetch(`${serverBaseUrl}/v1/rest-auth/registration/`, {
     method: 'POST',
     headers: {
@@ -247,7 +254,10 @@ export const signUp = (username: string, password: string) => {
     .catch(error => ({ error }));
 };
 
-export const login = (username: string, password: string) => {
+export const login = (
+  username: string,
+  password: string
+): DataResponse<LoginResponse> => {
   return fetch(`${serverBaseUrl}/v1/rest-auth/login/`, {
     method: 'POST',
     headers: {
