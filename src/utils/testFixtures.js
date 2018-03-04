@@ -215,6 +215,11 @@ export const subjects: Array<Subject> = [
 // Redux
 
 export const initialState: State = {
+  user: {
+    data: null,
+    error: null,
+    loading: false,
+  },
   politicians: {
     politicians: null,
     error: null,

@@ -11,6 +11,10 @@ export type SubjectId = number;
 export type ParliamentSessionId = number;
 export type SubjectPromiseId = number;
 
+export type User = {
+  email: string,
+};
+
 export type CaseIdParam = {
   caseId: number,
 };
@@ -103,6 +107,11 @@ export type ThunkAction = (dispatch: Dispatch, getState: GetState) => *;
 type PromiseAction = Promise<Action>;
 
 export type State = {
+  user: {
+    error: ?string,
+    loading: boolean,
+    data: ?User,
+  },
   politicians: {
     error: ?string,
     loading: boolean,
