@@ -51,7 +51,7 @@ const mapStateToProps = (state: State) => {
   return {
     error: state.politicians.error,
     hasLoadedPoliticians: politiciansLoaded(state),
-    politicians: state.politicians.politicians,
+    politicians: state.politicians.data,
   };
 };
 

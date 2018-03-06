@@ -1,9 +1,14 @@
 /* @flow */
 import React from 'react';
+import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
+
 import PromiseForm from '../PromiseForm';
 import { createPromise } from '../../../utils/api';
 import { getPoliticalParties } from '../../Parties/api';
 import type { PromiseFormType } from '../../../utils/api';
+import { fetchPoliticians } from '../../../Stores/Politicians/actions';
+import type { Dispatch, State } from '../../../types';
 
 const submit = (data: PromiseFormType) => {
   createPromise(
@@ -50,4 +55,24 @@ export class PromiseFormContainer extends React.Component {
     );
   }
 }
-export default PromiseFormContainer;
+
+const mapStateToProps = (state: State) => {
+  return {
+    politicians: state.politicians.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    fetchSubjects: () => {
+      dispatch(fetchPoliticians());
+    },
+  };
+};
+
+const connector: Connector<OwnProps, Props> = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default connector(PromiseFormContainer);

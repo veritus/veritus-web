@@ -1,8 +1,7 @@
 /* @flow */
-import type { Dispatch } from '../../types';
 
-export const fetchPoliticians = () => (dispatch: Dispatch) => {
-  return dispatch({
+export const fetchPoliticians = () => {
+  return {
     endpoint: '/v1/politicians/',
     method: 'GET',
     types: {
@@ -10,7 +9,7 @@ export const fetchPoliticians = () => (dispatch: Dispatch) => {
       success: 'POLITICIANS_LOAD_SUCCESS',
       failure: 'POLITICIANS_LOAD_FAILURE',
     },
-  });
+  };
 };
 
 export default {

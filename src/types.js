@@ -115,7 +115,7 @@ export type State = {
   politicians: {
     error: ?string,
     loading: boolean,
-    politicians: ?Array<PoliticianType>,
+    data: ?Array<PoliticianType>,
   },
   promises: {
     error: ?string,
