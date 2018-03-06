@@ -75,16 +75,6 @@ export const getPromisesByPoliticalParty = (partyId: PartyId) => {
     .catch(error => ({ error }));
 };
 
-export const getPoliticians = (): DataResponse<Array<PoliticianType>> => {
-  return fetch(`${serverBaseUrl}/v1/politicians/`, {
-    accept: 'application/json',
-  })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(mapData)
-    .catch(error => ({ error }));
-};
-
 export const getParliamentCases = () => {
   return fetch(`${serverBaseUrl}/v1/cases/`, {
     accept: 'application/json',

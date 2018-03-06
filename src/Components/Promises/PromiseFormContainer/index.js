@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import PromiseForm from '../PromiseForm';
-import { createPromise, getPoliticians } from '../../../utils/api';
+import { createPromise } from '../../../utils/api';
 import { getPoliticalParties } from '../../Parties/api';
 import type { PromiseFormType } from '../../../utils/api';
 
@@ -29,13 +29,7 @@ export class PromiseFormContainer extends React.Component {
   };
 
   componentDidMount() {
-    getPoliticians().then(resp => {
-      if (resp.error) {
-        console.log('getPoliticians error > ', resp.error); // eslint-disable-line
-      } else if (resp.data) {
-        this.setState({ politicians: resp.data });
-      }
-    });
+    // this.props.fetchPoliticians
 
     getPoliticalParties().then(resp => {
       if (resp.error) {
