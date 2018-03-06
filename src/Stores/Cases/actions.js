@@ -27,10 +27,9 @@ const getCaseByIdFailure = (error: String) => ({
 export const fetchCaseById = (id: CaseId) => (dispatch: Dispatch) => {
   dispatch(getCaseById());
 
-  return apiGetParliamentCaseById(id).then(
-    resp => resp.data && dispatch(getCaseByIdSuccess(resp.data)),
-    error => dispatch(getCaseByIdFailure(error.message))
-  );
+  return apiGetParliamentCaseById(id)
+    .then(resp => resp.data && dispatch(getCaseByIdSuccess(resp.data)))
+    .catch(error => dispatch(getCaseByIdFailure(error.message)));
 };
 
 /* 
@@ -52,10 +51,9 @@ const getCasesFailure = (error: String) => ({
 export const fetchCases = () => (dispatch: Dispatch) => {
   dispatch(getCases());
 
-  return apiGetParliamentCases().then(
-    resp => resp.data && dispatch(getCasesSuccess(resp.data)),
-    error => dispatch(getCasesFailure(error.message))
-  );
+  return apiGetParliamentCases()
+    .then(resp => resp.data && dispatch(getCasesSuccess(resp.data)))
+    .catch(error => dispatch(getCasesFailure(error.message)));
 };
 
 export default {
