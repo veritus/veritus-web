@@ -7,8 +7,10 @@ import SubjectsPromisesReducer from './SubjectsPromises/reducer';
 import FeedbackReducer from './Feedback/reducer';
 import cases from './Cases/reducer';
 import voteRecords from './Votes/reducer';
+import UserReducer from './User/reducer';
 
 const reducer = combineReducers({
+  user: UserReducer,
   politicians: PoliticiansReducer,
   promises: PromisesReducer,
   subjects: SubjectsReducer,

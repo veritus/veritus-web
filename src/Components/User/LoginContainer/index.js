@@ -1,21 +1,26 @@
 /* @flow */
 import React from 'react';
+import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
 import { LoginForm } from '../LoginForm';
-import { login } from '../../../utils/api';
 import type { LoginType } from '../../../utils/api';
-import { saveToken } from '../../../utils/tokenStorage';
+import { loginUserThunk } from '../../../Stores/User/actions';
 
-const submit = (data: LoginType) => {
-  login(data.email, data.password).then(resp => {
-    if (resp.error) {
-      console.log('Login failed ', resp.error); //eslint-disable-line
-    } else if (resp.data) {
-      const token = resp.data.key;
-      saveToken(token);
-    }
-  });
+type OwnProps = {};
+type ReduxProps = {
+  submit: (data: LoginType) => void,
 };
 
-const LoginContainer = () => <LoginForm onSubmit={submit} />;
+type Props = OwnProps & ReduxProps;
 
-export default LoginContainer;
+const LoginContainer = (props: Props) => <LoginForm onSubmit={props.submit} />;
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    submit: (data: LoginType) => dispatch(loginUserThunk(data.email, data.password)),
+  };
+};
+
+const connector: Connector<OwnProps, ReduxProps> = connect(null, mapDispatchToProps);
+
+export default connector(LoginContainer);

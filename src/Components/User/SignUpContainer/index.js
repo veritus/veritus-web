@@ -1,25 +1,30 @@
 /* @flow */
 import React from 'react';
-import { signUp } from '../../../utils/api';
-import { saveToken } from '../../../utils/tokenStorage';
+import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
 import { SignUpForm } from '../SignUpForm';
+import { signUpUserThunk } from '../../../Stores/User/actions';
 
 export type SignUpType = {
   email: string,
   password: string,
 };
 
-const submit = (data: SignUpType) => {
-  signUp(data.email, data.password).then(resp => {
-    if (resp.error) {
-      console.log('signUp failed ', resp.error); //eslint-disable-line
-    } else if (resp.data) {
-      const token = resp.data.key;
-      saveToken(token);
-    }
-  });
+type OwnProps = {};
+type ReduxProps = {
+  submit: (data: SignUpType) => void,
 };
 
-const SignUpContainer = () => <SignUpForm onSubmit={submit} />;
+type Props = OwnProps & ReduxProps;
 
-export default SignUpContainer;
+const SignUpContainer = (props: Props) => <SignUpForm onSubmit={props.submit} />;
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    submit: (data: SignUpType) => dispatch(signUpUserThunk(data.email, data.password)),
+  };
+};
+
+const connector: Connector<OwnProps, ReduxProps> = connect(null, mapDispatchToProps);
+
+export default connector(SignUpContainer);
