@@ -19,7 +19,7 @@ const getCaseByIdSuccess = (parliamentCase: Case) => ({
   type: actionTypes.GET_CASE_BY_ID_SUCCESS,
 });
 
-const getCaseByIdFailure = (error: *) => ({
+const getCaseByIdFailure = (error: String) => ({
   error,
   type: actionTypes.GET_CASE_BY_ID_FAILURE,
 });
