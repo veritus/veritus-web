@@ -14,29 +14,27 @@ export class VoteRecordComponent extends React.Component {
   props: Props;
   render() {
     const { voteRecord } = this.props;
+    if (!voteRecord) return null;
     return (
-      <div>
-        {voteRecord &&
-          <Card style={styles.card}>
-            <CardTitle title={'Votes'} />
-            <CardText>
-              <div>
-                <div>
-                  Yes: {voteRecord.yes}
-                </div>
-                <div>
-                  No: {voteRecord.no}
-                </div>
-                <div>
-                  Did not vote: {voteRecord.didNotVote}
-                </div>
-                <div>
-                  Result: {voteRecord.althingi_result}
-                </div>
-              </div>
-            </CardText>
-          </Card>}
-      </div>
+      <Card style={styles.card}>
+        <CardTitle title={'Votes'} />
+        <CardText>
+          <div>
+            <div>
+              Yes: {voteRecord.yes}
+            </div>
+            <div>
+              No: {voteRecord.no}
+            </div>
+            <div>
+              Did not vote: {voteRecord.didNotVote}
+            </div>
+            <div>
+              Result: {voteRecord.althingi_result}
+            </div>
+          </div>
+        </CardText>
+      </Card>
     );
   }
 }

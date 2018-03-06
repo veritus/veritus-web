@@ -44,7 +44,7 @@ const getCasesSuccess = (cases: Array<Case>) => ({
   type: actionTypes.GET_CASES_SUCCESS,
 });
 
-const getCasesFailure = (error: *) => ({
+const getCasesFailure = (error: String) => ({
   error,
   type: actionTypes.GET_CASES_FAILURE,
 });
