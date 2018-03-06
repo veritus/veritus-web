@@ -9,7 +9,7 @@ import type {
   SubjectId,
 } from '../types';
 
-import type { Case } from '../Components/Cases/types.js';
+import type { Case } from '../Stores/Cases/types';
 
 export type ApiError = {
   message: string,

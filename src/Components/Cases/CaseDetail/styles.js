@@ -3,6 +3,7 @@ export default {
     width: '80%',
     margin: 'auto',
     padding: '1%',
+    marginTop: 20,
   },
   contentContainer: {
     display: 'flex',
