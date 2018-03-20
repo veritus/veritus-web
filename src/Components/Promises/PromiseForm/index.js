@@ -22,7 +22,7 @@ const styles = {
 export type PropTypes = {
   onSubmit: (data: PromiseFormType) => void,
   parties: Array<Party>,
-  politicians: Array<PoliticianType>,
+  politicians: ?Array<PoliticianType>,
 };
 
 export class PromiseForm extends React.Component {
@@ -65,6 +65,7 @@ export class PromiseForm extends React.Component {
 
   render() {
     const { parties, politicians } = this.props;
+    if (!politicians) return null;
     return (
       <div>
         <Paper zDepth={2} style={styles.container}>
