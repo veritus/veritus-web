@@ -1,27 +1,57 @@
 /* @flow */
 import React from 'react';
+import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
+import { fetchParties } from '../../../Stores/Parties/actions';
+import type { Party } from '../../../types';
 import PartyCard from '../PartyCard';
-import { getPoliticalParties } from '../api';
-export class CaseContainer extends React.Component {
-  state = {
-    parties: [],
-  };
+
+type OwnProps = {};
+
+type ReduxProps = {
+  parties: ?Array<Party>,
+  error: ?string,
+  fetchParties: () => void,
+};
+
+type Props = OwnProps & ReduxProps;
+
+export class PartyContainer extends React.Component {
+  props: Props;
+
   componentDidMount() {
-    getPoliticalParties().then(resp => {
-      if (resp.error) {
-        console.log('getPoliticalParties error > ', resp.error); // eslint-disable-line
-      } else if (resp.data) {
-        this.setState({ parties: resp.data });
-      }
-    });
+    this.props.fetchParties();
   }
 
   render() {
+    const { parties } = this.props;
+    if (!parties) return null;
     return (
       <div>
-        {this.state.parties.map(party => <PartyCard key={party.id} party={party} />)}
+        {parties.map(party => <PartyCard key={party.id} party={party} />)}
       </div>
     );
   }
 }
-export default CaseContainer;
+
+const mapStateToProps = (state: State) => {
+  return {
+    error: state.parties.error,
+    parties: state.parties.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    fetchParties: () => {
+      dispatch(fetchParties());
+    },
+  };
+};
+
+const connector: Connector<OwnProps, Props> = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default connector(PartyContainer);

@@ -77,6 +77,16 @@ export const getPromisesByPoliticalParty = (partyId: PartyId) => {
     .catch(error => ({ error }));
 };
 
+export const getPoliticiansByPoliticalParty = (partyId: PartyId) => {
+  return fetch(`${serverBaseUrl}/v1/politicians/?parliament=${partyId}`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
 export const getParliamentCases = () => {
   return fetch(`${serverBaseUrl}/v1/cases/`, {
     accept: 'application/json',
@@ -99,6 +109,26 @@ export const getParliamentCaseById = (id: number): DataResponse<Case> => {
 
 export const getPoliticianById = (id: number): DataResponse<PoliticianType> => {
   return fetch(`${serverBaseUrl}/v1/politicians/${id}`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
+export const getPoliticalParties = () => {
+  return fetch(`${serverBaseUrl}/v1/parties/`, {
+    accept: 'application/json',
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
+export const getPartyById = (id: PartyId): DataResponse<Party> => {
+  return fetch(`${serverBaseUrl}/v1/parties/${id}`, {
     accept: 'application/json',
   })
     .then(checkStatus)

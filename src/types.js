@@ -1,15 +1,18 @@
 /* @flow */
 
 import type { DistrictId, District } from './Components/Districts/types';
-import type { PartyId } from './Components/Parties/types';
+import type { PartyId as _PartyId, Party as _Party } from './Components/Parties/types';
 import type { Case } from './Stores/Cases/types';
 
 export type ParliamentId = number;
+export type PartyId = _PartyId;
 export type PromiseId = number;
 export type PoliticianId = number;
 export type SubjectId = number;
 export type ParliamentSessionId = number;
 export type SubjectPromiseId = number;
+
+export type Party = _Party;
 
 export type User = {
   email: string,
@@ -127,6 +130,11 @@ export type State = {
     error: ?string,
     loading: boolean,
     data: ?User,
+  },
+  parties: {
+    error: ?string,
+    loading: bolean,
+    data: ?Array<Party>,
   },
   politicians: {
     error: ?string,

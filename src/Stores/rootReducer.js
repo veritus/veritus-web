@@ -1,5 +1,6 @@
 /* @flow */
 import { combineReducers } from 'redux';
+import parties from './Parties/reducer';
 import PoliticiansReducer from './Politicians/reducer';
 import PromisesReducer from './Promises/reducer';
 import SubjectsReducer from './Subjects/reducer';
@@ -11,6 +12,7 @@ import UserReducer from './User/reducer';
 
 const reducer = combineReducers({
   user: UserReducer,
+  parties,
   politicians: PoliticiansReducer,
   promises: PromisesReducer,
   subjects: SubjectsReducer,
