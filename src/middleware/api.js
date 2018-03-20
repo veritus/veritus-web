@@ -5,7 +5,7 @@ const STATUS_CODES = {
   UNAUTHORIZED: 401,
 };
 
-export default () => dispatch => action => {
+export default () => dispatch => async action => {
   const { endpoint, method, types, content } = action;
   if (typeof types === 'undefined') {
     // So the middleware doesn't get applied to every single action
@@ -38,29 +38,27 @@ export default () => dispatch => action => {
     config.body = JSON.stringify(content);
   }
 
-  return fetch(serverBaseUrl + endpoint, config)
-    .then(response => (response ? response.json() : null))
-    .then(response => {
-      if (!response.ok) {
-        if (response.status === STATUS_CODES.UNAUTHORIZED) {
-          // redirect to login
-        }
+  const response = await fetch(serverBaseUrl + endpoint, config);
 
-        return dispatch({
-          errors: response && response.errors ? response.errors : [],
-          type: errorType,
-          ...action,
-        });
-      }
+  const { status, ok } = response;
 
-      return dispatch({
-        data: response.results ? response.results : response,
-        type: successType,
-        ...action,
-      });
-    })
-    .catch(err => {
-      // Do we want to do something specific for errors?
-      throw err;
+  const payload = await response.json();
+
+  if (!ok) {
+    if (status === STATUS_CODES.UNAUTHORIZED) {
+      // redirect to login
+    }
+
+    return dispatch({
+      errors: payload && payload.errors ? payload.errors : [],
+      type: errorType,
+      ...action,
     });
+  }
+
+  return dispatch({
+    data: payload.results ? payload.results : payload,
+    type: successType,
+    ...action,
+  });
 };
