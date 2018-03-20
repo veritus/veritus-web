@@ -1,4 +1,5 @@
 import { serverBaseUrl } from '../config';
+import { getToken } from '../utils/tokenStorage';
 
 const STATUS_CODES = {
   UNAUTHORIZED: 401,
@@ -27,7 +28,7 @@ export default () => dispatch => action => {
     },
   };
 
-  const token = localStorage.getItem('token');
+  const token = getToken();
   if (token) {
     config.headers.Authorization = `Token ${token}`;
   }
