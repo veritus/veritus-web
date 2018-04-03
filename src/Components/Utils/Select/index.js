@@ -1,6 +1,5 @@
 /* @flow */
 import React from 'react';
-import { HOC as hoc } from 'formsy-react';
 import ReactSelect, { Creatable } from 'react-select';
 import 'react-select/dist/react-select.css';
 import classnames from 'classnames';
@@ -67,4 +66,4 @@ class Select extends React.Component {
   }
 }
 
-export default hoc(Select);
+export default Select;

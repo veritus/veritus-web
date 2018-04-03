@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import SubjectSelector from '../../Subjects/SubjectSelector';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/Button';
 import type { SubjectId } from '../../../types';
 import { createSubject } from '../../../utils/api';
 
@@ -64,7 +64,8 @@ export class PromiseTableAdminPanel extends React.Component<void, Props, State> 
           <SubjectSelector styles={styles.select} onSelectSubject={this.updateSubject} />
         </div>
         <div style={styles.buttonContainer}>
-          <RaisedButton
+          <Button
+            variant="raised"
             type="submit"
             label="Add tags"
             onClick={() => {

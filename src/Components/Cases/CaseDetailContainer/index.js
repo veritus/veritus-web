@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import type { ActionCreator } from 'redux';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
-import CircularProgress from 'material-ui/CircularProgress';
+import { CircularProgress } from 'material-ui/Progress';
 
 import CaseDetail from '../CaseDetail';
 import { fetchCaseById } from '../../../Stores/Cases/actions';

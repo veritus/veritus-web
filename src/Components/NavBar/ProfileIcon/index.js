@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'material-ui/Button';
 import type { User } from '../../../types';
 type Props = {
   user: ?User,
@@ -26,6 +26,6 @@ export const ProfileIcon = (props: Props) =>
     {props.user
       ? props.user.email
       : <Link to="/login">
-          <FlatButton label="Login" labelStyle={styles.label} />
+          <Button label="Login" labelStyle={styles.label} />
         </Link>}
   </div>;

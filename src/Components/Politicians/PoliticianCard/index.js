@@ -2,7 +2,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import { Link } from 'react-router-dom';
-import LinearProgress from 'material-ui/LinearProgress';
+import { LinearProgress } from 'material-ui/Progress';
 import type { PoliticianType } from '../../../types';
 import * as styles from './styles';
 

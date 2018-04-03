@@ -1,10 +1,9 @@
 /* @flow */
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import Formsy from 'formsy-react';
-import { FormsyText } from 'formsy-material-ui/lib';
+import Button from 'material-ui/Button';
 import type { LoginType } from '../../../utils/api';
+import TextField from 'material-ui/TextField';
 
 export type PropTypes = {
   onSubmit: (data: LoginType) => void,
@@ -38,29 +37,20 @@ export class LoginForm extends React.Component {
     return (
       <div>
         <Paper zDepth={2}>
-          <Formsy.Form
-            onValid={() => this.enableButton()}
-            onInvalid={() => this.disableButton()}
-            onSubmit={this.props.onSubmit}
-          >
-            <FormsyText
-              name="email"
-              validations="isEmail"
-              required
-              floatingLabelText="Email"
-              className="qa-login-email"
-            />
-            <br />
-            <FormsyText
-              name="password"
-              required
-              floatingLabelText="Password"
-              type="password"
-              className="qa-login-password"
-            />
-            <br />
-            <RaisedButton type="submit" label="Login" disabled={!this.state.canSubmit} />
-          </Formsy.Form>
+          <TextField required id="email" label="Email" margin="normal" />
+          <TextField
+            required
+            id="password"
+            label="Password"
+            type="password"
+            margin="normal"
+          />
+          <Button
+            variant="raised"
+            type="submit"
+            label="Login"
+            disabled={!this.state.canSubmit}
+          />
         </Paper>
       </div>
     );

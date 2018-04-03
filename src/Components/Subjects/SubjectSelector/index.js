@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
-import Formsy from 'formsy-react';
 import { fetchSubjects } from '../../../Stores/Subjects/actions';
 import { subjectsLoaded } from '../../../Stores/Subjects/selectors';
 import Select from '../../Utils/Select';
@@ -40,19 +39,17 @@ export class SubjectSelector extends React.Component {
         }))
       : [];
     return (
-      <Formsy.Form>
-        <Select
-          allowCreate
-          multiple
-          isLoading={!subjects}
-          name="subject"
-          options={subjectOptions}
-          onChange={onSelectSubject}
-          openOnFocus
-          onBlurResetsInput={false}
-          placeholder="Select subject or add a new one by typing..."
-        />
-      </Formsy.Form>
+      <Select
+        allowCreate
+        multiple
+        isLoading={!subjects}
+        name="subject"
+        options={subjectOptions}
+        onChange={onSelectSubject}
+        openOnFocus
+        onBlurResetsInput={false}
+        placeholder="Select subject or add a new one by typing..."
+      />
     );
   }
 }
