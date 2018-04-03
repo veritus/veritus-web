@@ -4,13 +4,13 @@ import type { PoliticianType, Action } from '../../types';
 export type State = {
   +data: ?Array<PoliticianType>,
   +loading: boolean,
-  +error: *,
+  +errors: *,
 };
 
 const initialState = {
   data: null,
   loading: false,
-  error: null,
+  errors: null,
 };
 
 const politiciansReducer = (state: State = initialState, action: Action): State => {
@@ -20,7 +20,7 @@ const politiciansReducer = (state: State = initialState, action: Action): State 
     case 'POLITICIANS_LOAD_SUCCESS':
       return { ...state, loading: false, data: action.data };
     case 'POLITICIANS_LOAD_FAILURE':
-      return { ...state, loading: false, error: action.errors };
+      return { ...state, loading: false, errors: action.errors };
     default:
       return state;
   }

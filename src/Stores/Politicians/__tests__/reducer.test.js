@@ -5,9 +5,9 @@ import { politicians } from '../../../utils/testFixtures';
 describe('Politicians reducer', () => {
   it('should return initial state', () => {
     expect(reducer(undefined, {})).toEqual({
-      error: null,
+      errors: null,
       loading: false,
-      politicians: null,
+      data: null,
     });
   });
 
@@ -17,35 +17,35 @@ describe('Politicians reducer', () => {
     };
 
     expect(reducer(undefined, action)).toEqual({
-      error: null,
+      errors: null,
       loading: true,
-      politicians: null,
+      data: null,
     });
   });
 
   it('should error on fail', () => {
     const action = {
       type: 'POLITICIANS_LOAD_FAILURE',
-      error: 'Couldnt get politicians',
+      errors: 'Couldnt get politicians',
     };
 
     expect(reducer(undefined, action)).toEqual({
-      error: 'Couldnt get politicians',
+      errors: 'Couldnt get politicians',
       loading: false,
-      politicians: null,
+      data: null,
     });
   });
 
   it('should load data on success', () => {
     const action = {
       type: 'POLITICIANS_LOAD_SUCCESS',
-      politicians,
+      data: politicians,
     };
 
     expect(reducer(undefined, action)).toEqual({
-      error: null,
+      errors: null,
       loading: false,
-      politicians,
+      data: politicians,
     });
   });
 });
