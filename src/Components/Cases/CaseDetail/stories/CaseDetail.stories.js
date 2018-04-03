@@ -23,7 +23,46 @@ const defaultVoteRecord = {
   no: 34,
   didNotVote: 10,
   althingi_result: 'Fellt',
-  votes: [1, 2],
+  votes: [
+    {
+      vote_record: 1,
+      althingi_result: 'já',
+      parliament_member: {
+        id: 1,
+        name: 'One',
+        district: {
+          id: 1,
+          abbreviation: '',
+          created: '',
+          modified: '',
+          name: 'District',
+        },
+        districtNumber: 1,
+        initials: 'O',
+        party: 1,
+        promises: [],
+      },
+    },
+    {
+      vote_record: 1,
+      althingi_result: 'nei',
+      parliament_member: {
+        id: 2,
+        name: 'Two',
+        district: {
+          id: 1,
+          abbreviation: '',
+          created: '',
+          modified: '',
+          name: 'District',
+        },
+        districtNumber: 2,
+        initials: 'T',
+        party: 2,
+        promises: [],
+      },
+    },
+  ],
   case: 2,
   althingi_id: 34553,
 };

@@ -4,7 +4,7 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 import type { VoteRecord } from '../../../Stores/Votes/types';
 import PoliticianCard from '../../Politicians/PoliticianCard';
-
+import { VOTE_STATUS_TO_COLOR } from '../../../Stores/Votes/constants';
 import styles from './styles';
 
 export type Props = {
@@ -16,11 +16,7 @@ export class VoteRecordComponent extends React.Component {
   render() {
     const { voteRecord } = this.props;
     if (!voteRecord) return null;
-    const VOTE_STATUS_TO_COLOR = {
-      'greiðir ekki atkvæði': '#F4E842',
-      já: '#40EF75',
-      nei: '#EF4040',
-    };
+
     return (
       <Card style={styles.card}>
         <CardTitle title={'Votes'} />

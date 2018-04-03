@@ -8,7 +8,7 @@ import * as styles from './styles';
 
 export type Props = {
   politician: PoliticianType,
-  style: *,
+  style?: InlineStyle,
 };
 
 const PoliticianCard = (props: Props) => {
