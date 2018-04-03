@@ -1,5 +1,7 @@
 /* @flow */
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+
 import PoliticiansReducer from './Politicians/reducer';
 import PromisesReducer from './Promises/reducer';
 import SubjectsReducer from './Subjects/reducer';
@@ -10,6 +12,7 @@ import voteRecords from './Votes/reducer';
 import UserReducer from './User/reducer';
 
 const reducer = combineReducers({
+  router: routerReducer,
   user: UserReducer,
   politicians: PoliticiansReducer,
   promises: PromisesReducer,
