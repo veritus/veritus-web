@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import moment from 'moment';
-import CircularProgress from 'material-ui/CircularProgress';
+import { CircularProgress } from 'material-ui/Progress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
 import VoteRecordComponent from '../../Votes/VoteRecord';
@@ -22,11 +22,7 @@ export class CaseDetail extends React.Component {
     const { parliamentCase, voteRecord } = this.props;
     if (!parliamentCase || !parliamentCase.id) {
       return (
-        <CircularProgress
-          style={{ position: 'absolute', top: '50%', left: '50%' }}
-          size={80}
-          thickness={5}
-        />
+        <CircularProgress style={{ position: 'absolute', top: '50%', left: '50%' }} />
       );
     }
 

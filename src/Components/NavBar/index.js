@@ -5,7 +5,6 @@ import type { Connector } from 'react-redux';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
 import { NavLink } from 'react-router-dom';
 
 import { userSelector } from '../../Stores/User/selectors';
@@ -56,44 +55,44 @@ export class NavBar extends React.Component {
         />
         <Drawer open={this.state.open} docked={false} onRequestChange={this.handleToggle}>
           <NavLink to="/login" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Login
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/sign-up" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Sign up
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/add-promise" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Add Promise
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/cases" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Cases
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/parties" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Party
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/politicians" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Politicians
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/promises" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Promises
-            </MenuItem>
+            </div>
           </NavLink>
           <NavLink to="/districts" onClick={this.handleToggle} style={styles.link}>
-            <MenuItem>
+            <div>
               Districts
-            </MenuItem>
+            </div>
           </NavLink>
         </Drawer>
       </div>
