@@ -248,4 +248,9 @@ export const initialState: State = {
     error: null,
     loading: false,
   },
+  voteRecords: {
+    data: null,
+    error: null,
+    loading: false,
+  },
 };

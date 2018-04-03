@@ -1,5 +1,6 @@
 /* @flow */
 import type { CaseId } from '../Cases/types';
+import type { PoliticianType } from '../../types';
 export type VoteRecordId = number;
 export type VoteId = number;
 
@@ -10,11 +11,11 @@ export type VoteRecord = {
   yes: number,
   didNotVote: number,
   althingi_result: string,
-  votes: Array<VoteId>,
+  votes: Array<Vote>,
 };
 
 export type Vote = {
-  parliament_member: number,
+  parliament_member: PoliticianType,
   althingi_result: string,
   vote_record: VoteRecordId,
 };

@@ -3,6 +3,7 @@
 import type { DistrictId, District } from './Components/Districts/types';
 import type { PartyId } from './Components/Parties/types';
 import type { Case } from './Stores/Cases/types';
+import type { VoteRecord } from './Stores/Votes/types';
 
 export type ParliamentId = number;
 export type PromiseId = number;
@@ -153,6 +154,11 @@ export type State = {
   },
   cases: {
     data: ?Array<Case>,
+    loading: boolean,
+    error: ?string,
+  },
+  voteRecords: {
+    data: ?Array<VoteRecord>,
     loading: boolean,
     error: ?string,
   },

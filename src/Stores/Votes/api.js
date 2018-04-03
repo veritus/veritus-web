@@ -7,7 +7,7 @@ import { checkStatus, parseJSON, mapData } from '../../utils/api';
 import type { DataResponse } from '../../utils/api';
 
 export const getVoteRecordByCaseId = (caseId: CaseId): DataResponse<VoteRecord> => {
-  return fetch(`${serverBaseUrl}/v1/voteRecord?case=${caseId}`, {
+  return fetch(`${serverBaseUrl}/v1/voteRecord/?case=${caseId}`, {
     accept: 'application/json',
   })
     .then(checkStatus)
