@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 
 import PromiseForm from '../PromiseForm';
-import { createPromise } from '../../../utils/api';
-import { getPoliticalParties } from '../../Parties/api';
+import { createPromise, getPoliticalParties } from '../../../utils/api';
 import type { PromiseFormType } from '../../../utils/api';
 import { fetchPoliticians } from '../../../Stores/Politicians/actions';
 import type { Dispatch, State, PoliticianType } from '../../../types';

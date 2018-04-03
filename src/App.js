@@ -10,6 +10,7 @@ import Politicians from './Components/Politicians/Politicians';
 import PoliticianItemContainer from './Components/Politicians/PoliticianItemContainer';
 import CaseContainer from './Components/Cases/Case';
 import CaseDetailContainer from './Components/Cases/CaseDetailContainer';
+import { PartyDetail } from './Components/Parties/PartyDetail';
 import PromiseFormContainer from './Components/Promises/PromiseFormContainer';
 import SignUpContainer from './Components/User/SignUpContainer';
 import LoginContainer from './Components/User/LoginContainer';
@@ -41,7 +42,8 @@ class App extends Component {
             <Route exact path="/cases" component={CaseContainer} />
             <Route path="/districts" component={DistrictContainer} />
             <Route path="/login" component={LoginContainer} />
-            <Route path="/parties" component={PartyContainer} />
+            <Route exact path="/parties" component={PartyContainer} />
+            <Route exact path="/parties/:partyId" component={PartyDetail} />
             <Route path="/party/:partyId" component={PartyPromisesContainer} />
             <Route path="/promises" component={PromiseContainer} />
             <Route path="/sign-up" component={SignUpContainer} />

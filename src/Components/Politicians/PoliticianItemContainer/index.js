@@ -2,9 +2,8 @@
 import React from 'react';
 import CircularProgress from 'material-ui/CircularProgress';
 import PoliticianItem from '../PoliticianItem';
-import { getPoliticianById } from '../../../utils/api';
+import { getPoliticianById, getPartyById } from '../../../utils/api';
 import { getDistrictById } from '../../Districts/api';
-import { getPartyById } from '../../Parties/api';
 import type { PoliticianType, MatchTypePoliticianId } from '../../../types';
 import type { District } from '../../Districts/types';
 import type { Party } from '../../Parties/types';

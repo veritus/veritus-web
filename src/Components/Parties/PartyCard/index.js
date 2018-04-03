@@ -1,26 +1,33 @@
 /* @flow */
 import React from 'react';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import Paper from 'material-ui/Paper';
+import { Link } from 'react-router-dom';
 import type { Party } from '../types';
-import PartyPromises from '../PartyPromises';
 
-export type Props = {
+const styles = {
+  container: {
+    padding: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  link: { textDecoration: 'none' },
+};
+
+type Props = {
   party: Party,
 };
 
 const PartyCard = (props: Props) => {
   const { party } = props;
   return (
-    <Card key={party.id}>
-      <CardHeader title={party.name} actAsExpander={true} showExpandableButton={true} />
-      <CardText expandable={true}>
-        <a href={party.website} rel="noopener noreferrer" target="_blank">
-          {party.website}
-        </a>
-        <h2>Promises</h2>
-        <PartyPromises partyId={party.id} />
-      </CardText>
-    </Card>
+    <Link to={`/parties/${party.id}`} style={styles.link}>
+      <Paper zDepth={1} rounded={false} style={styles.container}>
+        <div>
+          <h2>{party.name}</h2>
+        </div>
+      </Paper>
+    </Link>
   );
 };
 
