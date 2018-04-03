@@ -1,13 +1,7 @@
 /* @flow */
 /* eslint-disable no-magic-numbers */
 
-import type {
-  State,
-  DetailedDistrictType,
-  PromiseType,
-  PoliticianType,
-  Subject,
-} from '../types';
+import type { State, DetailedDistrictType, PoliticianType, Subject } from '../types';
 import type { Party } from '../Components/Parties/types.js';
 
 export const districts: Array<DetailedDistrictType> = [
