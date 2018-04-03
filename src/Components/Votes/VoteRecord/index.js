@@ -17,7 +17,7 @@ export class VoteRecordComponent extends React.Component {
     const { voteRecord } = this.props;
     if (!voteRecord) return null;
     const VOTE_STATUS_TO_COLOR = {
-      'greiðir ekki atkvæði': '#4286F4',
+      'greiðir ekki atkvæði': '#F4E842',
       já: '#40EF75',
       nei: '#EF4040',
     };
