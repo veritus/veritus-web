@@ -38,7 +38,7 @@ export class VoteRecordComponent extends React.Component {
               {voteRecord.votes.map(vote =>
                 <PoliticianCard
                   key={vote.parliament_member.id}
-                  style={{ backgroundColor: VOTE_STATUS_TO_COLOR[vote.althingi_result] }}
+                  backgroundColor={VOTE_STATUS_TO_COLOR[vote.althingi_result]}
                   politician={vote.parliament_member}
                 />
               )}

@@ -8,15 +8,15 @@ import * as styles from './styles';
 
 export type Props = {
   politician: PoliticianType,
-  style?: InlineStyle,
+  backgroundColor?: string,
 };
 
 const PoliticianCard = (props: Props) => {
-  const { politician, style } = props;
+  const { politician, backgroundColor } = props;
   if (!politician) return <div />;
   return (
     <Link style={styles.container} to={`/politicians/${politician.id}`}>
-      <Paper style={{ ...styles.paper, ...style }}>
+      <Paper style={{ ...styles.paper, backgroundColor }}>
         <img src="http://lorempixel.com/200/200/" alt="Politician" style={styles.image} />
         <p style={styles.name}>{politician.name}</p>
         <span style={{ marginLeft: `${0}%` }}>
