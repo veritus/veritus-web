@@ -1,5 +1,6 @@
 import { serverBaseUrl } from '../config';
 import { getToken } from '../utils/tokenStorage';
+import { push } from 'react-router-redux';
 
 const STATUS_CODES = {
   UNAUTHORIZED: 401,
@@ -47,7 +48,7 @@ export default () => dispatch => async action => {
 
   if (!ok) {
     if (status === STATUS_CODES.UNAUTHORIZED) {
-      // redirect to login
+      return dispatch(push('/login'));
     }
 
     return dispatch({
