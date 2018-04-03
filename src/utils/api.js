@@ -44,6 +44,9 @@ export type PromiseFormType = {
 };
 
 export type PartyId = number;
+const STATUS_CODES = {
+  NO_CONTENT: 204,
+};
 
 export const checkStatus = (response: Response) => {
   /* eslint-disable no-magic-numbers */
@@ -56,27 +59,16 @@ export const checkStatus = (response: Response) => {
   throw error;
 };
 
-export const parseJSON = (response: Response) => {
-  return response.json();
-};
+export const parseJSON = (response: Response) =>
+  response.status === STATUS_CODES.NO_CONTENT ? null : response.json();
 
-export const mapData = (json: JSON) => {
-  const data = json.results ? json.results : json;
+export const mapData = (json: ?JSON) => {
+  const data = json && json.results ? json.results : json;
   return { data };
 };
 
 export const getPromisesByPoliticalParty = (partyId: PartyId) => {
   return fetch(`${serverBaseUrl}/v1/promises?parliament=${partyId}`, {
-    accept: 'application/json',
-  })
-    .then(checkStatus)
-    .then(parseJSON)
-    .then(mapData)
-    .catch(error => ({ error }));
-};
-
-export const getPoliticians = (): DataResponse<Array<PoliticianType>> => {
-  return fetch(`${serverBaseUrl}/v1/politicians/`, {
     accept: 'application/json',
   })
     .then(checkStatus)
@@ -199,6 +191,25 @@ export const getSubjectsPromises = () => {
 
   return fetch(`${serverBaseUrl}/v1/promises/subjects/`, {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  })
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(mapData)
+    .catch(error => ({ error }));
+};
+
+export const deleteSubjectPromise = (subjectId: SubjectId) => {
+  const token = getToken();
+  if (!token) {
+    throw new Error('Unauthorized action');
+  }
+
+  return fetch(`${serverBaseUrl}/v1/promises/subjects/${subjectId}`, {
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Token ${token}`,

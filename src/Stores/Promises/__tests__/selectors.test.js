@@ -68,6 +68,17 @@ describe('Promises selector', () => {
       },
     ];
 
+    const decoratedSubjects = [
+      {
+        ...testSubjects[0],
+        subjectPromiseId: 1,
+      },
+      {
+        ...testSubjects[1],
+        subjectPromiseId: 2,
+      },
+    ];
+
     const combinedPromise = {
       name: 'Some title',
       small_description: 'Another title',
@@ -82,7 +93,7 @@ describe('Promises selector', () => {
       politician: politician,
       party: 1,
       fulfilled: true,
-      subjects: testSubjects,
+      subjects: decoratedSubjects,
     };
 
     const subjectsPromises = [

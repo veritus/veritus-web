@@ -1,9 +1,14 @@
 /* @flow */
 import React from 'react';
+import { connect } from 'react-redux';
+import type { Connector } from 'react-redux';
+
 import PromiseForm from '../PromiseForm';
-import { createPromise, getPoliticians } from '../../../utils/api';
+import { createPromise } from '../../../utils/api';
 import { getPoliticalParties } from '../../Parties/api';
 import type { PromiseFormType } from '../../../utils/api';
+import { fetchPoliticians } from '../../../Stores/Politicians/actions';
+import type { Dispatch, State, PoliticianType } from '../../../types';
 
 const submit = (data: PromiseFormType) => {
   createPromise(
@@ -22,20 +27,24 @@ const submit = (data: PromiseFormType) => {
   });
 };
 
+export type OwnProps = {};
+
+export type PropTypes = {
+  fetchPoliticians: () => void,
+  politicians: ?Array<PoliticianType>,
+};
+
+type Props = OwnProps & PropTypes;
+
 export class PromiseFormContainer extends React.Component {
+  props: Props;
+
   state = {
-    politicians: [],
     parties: [],
   };
 
   componentDidMount() {
-    getPoliticians().then(resp => {
-      if (resp.error) {
-        console.log('getPoliticians error > ', resp.error); // eslint-disable-line
-      } else if (resp.data) {
-        this.setState({ politicians: resp.data });
-      }
-    });
+    this.props.fetchPoliticians();
 
     getPoliticalParties().then(resp => {
       if (resp.error) {
@@ -50,10 +59,30 @@ export class PromiseFormContainer extends React.Component {
     return (
       <PromiseForm
         onSubmit={submit}
-        politicians={this.state.politicians}
+        politicians={this.props.politicians}
         parties={this.state.parties}
       />
     );
   }
 }
-export default PromiseFormContainer;
+
+const mapStateToProps = (state: State) => {
+  return {
+    politicians: state.politicians.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  return {
+    fetchPoliticians: () => {
+      dispatch(fetchPoliticians());
+    },
+  };
+};
+
+const connector: Connector<OwnProps, PropTypes> = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export default connector(PromiseFormContainer);
