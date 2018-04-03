@@ -5,4 +5,9 @@ export default {
     padding: '1%',
     marginTop: 20,
   },
+  politiciansContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
 };

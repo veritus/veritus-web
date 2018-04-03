@@ -34,13 +34,7 @@ export class VoteRecordComponent extends React.Component {
             <div>
               Result: {voteRecord.althingi_result}
             </div>
-            <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'space-between',
-              }}
-            >
+            <div style={styles.politiciansContainer}>
               {voteRecord.votes.map(vote =>
                 <PoliticianCard
                   key={vote.parliament_member.id}
