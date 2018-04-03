@@ -2,25 +2,25 @@
 import type { PoliticianType, Action } from '../../types';
 
 export type State = {
-  +politicians: ?Array<PoliticianType>,
+  +data: ?Array<PoliticianType>,
   +loading: boolean,
-  +error: *,
+  +errors: *,
 };
 
 const initialState = {
-  politicians: null,
+  data: null,
   loading: false,
-  error: null,
+  errors: null,
 };
 
 const politiciansReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case 'POLITICIANS_LOAD':
-      return { ...state, loading: true, politicians: null, error: null };
+      return { ...state, loading: true, data: null, errors: null };
     case 'POLITICIANS_LOAD_SUCCESS':
-      return { ...state, loading: false, politicians: action.politicians };
+      return { ...state, loading: false, data: action.data };
     case 'POLITICIANS_LOAD_FAILURE':
-      return { ...state, loading: false, error: action.error };
+      return { ...state, loading: false, errors: action.errors };
     default:
       return state;
   }

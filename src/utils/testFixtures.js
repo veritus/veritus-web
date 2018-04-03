@@ -221,7 +221,7 @@ export const initialState: State = {
     loading: false,
   },
   politicians: {
-    politicians: null,
+    data: null,
     error: null,
     loading: false,
   },

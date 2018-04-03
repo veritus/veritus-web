@@ -17,7 +17,7 @@ describe('Politicians selector', () => {
       ...initialState,
       politicians: {
         ...initialState.politicians,
-        politicians: [],
+        data: [],
       },
     };
     expect(politiciansLoaded(loadedEmptyState)).toEqual(true);
@@ -28,7 +28,7 @@ describe('Politicians selector', () => {
       ...initialState,
       politicians: {
         ...initialState.politicians,
-        politicians,
+        data: politicians,
       },
     };
     expect(politiciansSelector(loadedState)).toEqual(politicians);

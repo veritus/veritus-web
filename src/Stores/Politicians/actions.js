@@ -1,31 +1,17 @@
 /* @flow */
-import type { Dispatch, PoliticianType } from '../../types';
-import { getPoliticians as apiGetPoliticians } from '../../utils/api';
 
-const getPoliticians = () => ({ type: 'POLITICIANS_LOAD' });
-
-const getPoliticiansSuccess = (politicians: Array<PoliticianType>) => ({
-  politicians,
-  type: 'POLITICIANS_LOAD_SUCCESS',
-});
-
-const getPoliticiansFailure = (error: *) => ({
-  error,
-  type: 'POLITICIANS_LOAD_FAILURE',
-});
-
-export const fetchPoliticians = () => (dispatch: Dispatch) => {
-  dispatch(getPoliticians());
-
-  return apiGetPoliticians().then(
-    resp => resp.data && dispatch(getPoliticiansSuccess(resp.data)),
-    error => dispatch(getPoliticiansFailure(error.message))
-  );
+export const fetchPoliticians = () => {
+  return {
+    endpoint: '/v1/politicians/',
+    method: 'GET',
+    types: {
+      request: 'POLITICIANS_LOAD',
+      success: 'POLITICIANS_LOAD_SUCCESS',
+      failure: 'POLITICIANS_LOAD_FAILURE',
+    },
+  };
 };
 
 export default {
-  getPoliticians,
-  getPoliticiansSuccess,
-  getPoliticiansFailure,
   fetchPoliticians,
 };
