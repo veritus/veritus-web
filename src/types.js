@@ -44,6 +44,22 @@ export type PromiseType = {
   fulfilled: boolean,
 };
 
+export type DecoratedPromise = {
+  ...PromiseType,
+  subjects: Array<DecoratedSubject>,
+};
+
+export type DecoratedSubject = {
+  ...Subject,
+  subjectPromiseId: SubjectPromiseId,
+};
+
+export type PartyType = {
+  id: PartyId,
+  name: string,
+  website: string,
+};
+
 export type PoliticianType = {
   id: PoliticianId,
   name: string,
