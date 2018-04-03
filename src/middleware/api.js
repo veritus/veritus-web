@@ -5,6 +5,9 @@ const STATUS_CODES = {
   UNAUTHORIZED: 401,
 };
 
+const UNHANDLED_ERROR =
+  'Something unexpected has happened. Please try again later. If this happens again, please contact support';
+
 export default () => dispatch => async action => {
   const { endpoint, method, types, content } = action;
   if (typeof types === 'undefined') {
@@ -48,7 +51,7 @@ export default () => dispatch => async action => {
     }
 
     return dispatch({
-      errors: payload && payload.errors ? payload.errors : [],
+      errors: payload && payload.errors ? payload.errors : [UNHANDLED_ERROR],
       type: failure,
       ...action,
     });
