@@ -220,6 +220,11 @@ export const initialState: State = {
     error: null,
     loading: false,
   },
+  parties: {
+    data: null,
+    error: null,
+    loading: false,
+  },
   politicians: {
     data: null,
     error: null,

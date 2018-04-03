@@ -2,7 +2,8 @@
 
 import type { DistrictId, District } from './Components/Districts/types';
 import type { PartyId as _PartyId, Party as _Party } from './Components/Parties/types';
-import type { Case } from './Stores/Cases/types';
+import type { Case as _Case } from './Stores/Cases/types';
+import type { VoteRecord as _VoteRecord } from './Stores/Votes/types';
 
 export type ParliamentId = number;
 export type PartyId = _PartyId;
@@ -11,6 +12,8 @@ export type PoliticianId = number;
 export type SubjectId = number;
 export type ParliamentSessionId = number;
 export type SubjectPromiseId = number;
+export type Case = _Case;
+export type VoteRecord = _VoteRecord;
 
 export type Party = _Party;
 
@@ -133,7 +136,7 @@ export type State = {
   },
   parties: {
     error: ?string,
-    loading: bolean,
+    loading: boolean,
     data: ?Array<Party>,
   },
   politicians: {

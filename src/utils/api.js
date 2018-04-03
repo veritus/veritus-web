@@ -2,6 +2,7 @@
 import { getToken } from './tokenStorage';
 import { serverBaseUrl } from '../config';
 import type {
+  Party,
   PoliticianType,
   PromiseType,
   PromiseId,

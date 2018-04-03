@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import { fetchParties } from '../../../Stores/Parties/actions';
-import type { Party } from '../../../types';
+import type { Party, State } from '../../../types';
 import PartyCard from '../PartyCard';
 
 type OwnProps = {};

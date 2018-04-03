@@ -1,14 +1,14 @@
 /* @flow */
-import { createSelector } from 'reselect';
-import type { State } from '../../types';
+import type { PartyId, State } from '../../types';
 
 export const partiesSelector = (state: State) => state.parties.data;
 
 export const partiesLoaded = (state: State) => state.parties.data !== null;
 
-export const selectParty = (state: State, partyId: PartyId) =>
-  createSelector(partiesSelector, parties => {
-    console.log('selecting party');
-    if (!parties) return null;
-    return parties.find(party => party.id === partyId);
-  });
+export const selectParty = (state: State, partyId: PartyId) => {
+  const { data } = state.parties;
+
+  if (!data) return null;
+  const foundParty = data.find(party => party.id === partyId);
+  return foundParty;
+};

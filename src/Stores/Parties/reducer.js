@@ -1,8 +1,8 @@
 /* @flow */
-import type { PartiesType, Action } from '../../types';
+import type { PartyType, Action } from '../../types';
 
 export type State = {
-  +data: ?Array<PartiesType>,
+  +data: ?Array<PartyType>,
   +loading: boolean,
   +error: *,
 };

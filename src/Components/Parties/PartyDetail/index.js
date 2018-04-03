@@ -1,43 +1,65 @@
 /* @flow */
 import React from 'react';
-import moment from 'moment';
 import { connect } from 'react-redux';
 import type { Connector } from 'react-redux';
 import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 
-import type { PoliticianType, PromiseType } from '../../../types';
+import type {
+  PartyId,
+  Party,
+  PoliticianType,
+  PromiseType,
+  Case,
+  VoteRecord,
+  State,
+} from '../../../types';
 import { selectParty } from '../../../Stores/Parties/selectors';
 import {
   getPromisesByPoliticalParty,
   getPoliticiansByPoliticalParty,
-  PartyId,
 } from '../../../utils/api';
+
 import styles from './styles';
 import { fetchParties } from '../../../Stores/Parties/actions';
 
-export type Props = {
+type OwnProps = {
   parliamentCase: ?Case,
   voteRecord: ?VoteRecord,
   styles: StyleSheet,
+  match: {
+    params: {
+      partyId: string,
+    },
+  },
 };
-type State = {
+
+type ReduxProps = {
+  getParties: () => void,
+  party: Party,
+};
+
+type Props = OwnProps & ReduxProps;
+
+type OwnState = {
   promises: ?Array<PromiseType>,
   politicians: ?Array<PoliticianType>,
 };
 
-export class PartyDetail extends React.Component<void, Props, State> {
+export class PartyDetail extends React.Component<void, Props, OwnState> {
   props: Props;
   state = {
     promises: null,
     politicians: null,
   };
-  // $FlowFixMe, async is fixed in a later version
-  componentDidMount() {
-    console.log(this.props);
-    this.props.fetchParties();
-    const { match: { params: { partyId } } } = this.props;
-    // await Promise.all([this.loadPoliticians(partyId), this.loadPromises(partyId)]);
+  // $FlowFixMe fixed in future versions
+  async componentDidMount() {
+    const { getParties, match: { params: { partyId } } } = this.props;
+    getParties();
+    await Promise.all([
+      this.loadPoliticians(parseInt(partyId, 10)),
+      this.loadPromises(parseInt(partyId, 10)),
+    ]);
   }
 
   loadPoliticians = async (partyId: PartyId) => {
@@ -85,25 +107,9 @@ export class PartyDetail extends React.Component<void, Props, State> {
                 }}
               />
               <div style={styles.althingiContainer}>
-                <a href={party.althingi_link} target="_blank" rel="noopener noreferrer">
-                  See on althingi.is - {party.althingi_status}
+                <a href={party.website} target="_blank" rel="noopener noreferrer">
+                  {party.website}
                 </a>
-              </div>
-
-              <div style={styles.dateContainer}>
-                <div style={styles.date}>
-                  <div style={styles.dateLabel}>Created</div>
-                  <div>
-                    {moment(party.created).format('D MMM YYYY')}
-                  </div>
-
-                </div>
-                <div style={styles.date}>
-                  <div style={styles.dateLabel}>Last Modified</div>
-                  <div>
-                    {moment(party.modified).format('D MMM YYYY')}
-                  </div>
-                </div>
               </div>
             </div>
           </CardText>
@@ -115,19 +121,19 @@ export class PartyDetail extends React.Component<void, Props, State> {
 
 const mapStateToProps = (state: State, props: OwnProps) => {
   return {
-    party: selectParty(state, props.params.partyId),
+    party: selectParty(state, parseInt(props.match.params.partyId, 10)),
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    fetchParties: () => {
+    getParties: () => {
       dispatch(fetchParties());
     },
   };
 };
 
-const connector: Connector<OwnProps, ReduxProps> = connect(
+const connector: Connector<OwnProps, Props> = connect(
   mapStateToProps,
   mapDispatchToProps
 );

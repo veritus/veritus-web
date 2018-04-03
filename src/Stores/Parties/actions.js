@@ -1,5 +1,5 @@
 /* @flow */
-import type { Dispatch } from '../../types';
+import type { Dispatch, PoliticianType } from '../../types';
 import { getPoliticalParties as apiGetPoliticalParties } from '../../utils/api';
 
 const getParties = () => ({ type: 'PARTIES_LOAD' });
