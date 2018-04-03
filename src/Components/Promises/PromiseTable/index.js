@@ -10,13 +10,21 @@ import {
 } from 'material-ui/Table';
 import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
 import CompleteIcon from 'material-ui/svg-icons/navigation/check';
-import { red500, green500 } from 'material-ui/styles/colors';
+import Chip from 'material-ui/Chip';
+import { red500, green500, blue300 } from 'material-ui/styles/colors';
 import PromiseTableAdminPanel from '../PromiseTableAdminPanel';
-import type { PromiseType, PromiseId, SubjectId } from '../../../types';
+import type {
+  DecoratedPromise,
+  PromiseId,
+  SubjectId,
+  DecoratedSubject,
+} from '../../../types';
+import { deleteSubjectPromise } from '../../../utils/api';
 
 export type Props = {
-  promises: Array<PromiseType>,
+  promises: Array<DecoratedPromise>,
   linkSubjectToPromises: (promiseIds: Array<PromiseId>, subjectId: SubjectId) => void,
+  unlinkSubjectPromise: (subjectPromiseId: number) => void,
 };
 
 const getIcon = fulfilled =>
@@ -30,13 +38,23 @@ export class PromiseTable extends React.Component {
   };
 
   linkSubjectsCallback = (subjectId: SubjectId) => {
-    const { linkSubjectToPromises } = this.props;
     const { selectedPromises } = this.state;
+    const { linkSubjectToPromises } = this.props;
+    if (selectedPromises.length === 0) {
+      return;
+    }
 
+    // $FlowFixMe: promise.id is not undefined. Shhh flow
     const promiseIds = selectedPromises.map(promise => promise.id);
+    if (!promiseIds) {
+      return;
+    }
     linkSubjectToPromises(promiseIds, subjectId);
   };
 
+  onUnLinkSubject = (subjectId: SubjectId) => {
+    deleteSubjectPromise(subjectId);
+  };
   onRowSelect = (selection: 'all' | 'none' | Array<number>) => {
     const refine = selection;
     if (refine === 'all') {
@@ -53,6 +71,20 @@ export class PromiseTable extends React.Component {
     }
   };
 
+  renderSubjects = (subjects?: Array<DecoratedSubject>) => {
+    if (!subjects) return null;
+    const { unlinkSubjectPromise } = this.props;
+    return subjects.map(subject =>
+      <Chip
+        key={subject.id}
+        backgroundColor={blue300}
+        onRequestDelete={() => unlinkSubjectPromise(subject.subjectPromiseId)}
+      >
+        {subject.name}
+      </Chip>
+    );
+  };
+
   render() {
     const { promises } = this.props;
     if (!promises) {
@@ -65,6 +97,7 @@ export class PromiseTable extends React.Component {
         <TableRowColumn>{promise.politician}</TableRowColumn>
         <TableRowColumn>{promise.small_description}</TableRowColumn>
         <TableRowColumn>{getIcon(promise.fulfilled)}</TableRowColumn>
+        <TableRowColumn>{this.renderSubjects(promise.subjects)}</TableRowColumn>
       </TableRow>
     );
 
@@ -86,6 +119,7 @@ export class PromiseTable extends React.Component {
             <TableHeaderColumn>Politician id</TableHeaderColumn>
             <TableHeaderColumn>Short description</TableHeaderColumn>
             <TableHeaderColumn>Fulfilled</TableHeaderColumn>
+            <TableHeaderColumn>Subjects</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody deselectOnClickaway={false}>{promiseRows}</TableBody>
