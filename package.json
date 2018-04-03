@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "downshift": "^1.31.2",
+    "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.18.1",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",

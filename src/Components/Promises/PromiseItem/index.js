@@ -1,9 +1,9 @@
 /* @flow */
 import React from 'react';
 import { ListItem } from 'material-ui/List';
-import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
-import CompleteIcon from 'material-ui/svg-icons/navigation/check';
-import { red500, green500 } from 'material-ui/styles/colors';
+import InCompleteIcon from 'material-ui-icons/Close';
+import CompleteIcon from 'material-ui-icons/Check';
+import { red500, green500 } from 'material-ui/colors';
 
 export type Props = {
   id: number,

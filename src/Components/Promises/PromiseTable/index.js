@@ -8,10 +8,10 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import InCompleteIcon from 'material-ui/svg-icons/navigation/close';
-import CompleteIcon from 'material-ui/svg-icons/navigation/check';
+import InCompleteIcon from 'material-ui-icons/Close';
+import CompleteIcon from 'material-ui-icons/Check';
 import Chip from 'material-ui/Chip';
-import { red500, green500, blue300 } from 'material-ui/styles/colors';
+import { red500, green500, blue300 } from 'material-ui/colors';
 import PromiseTableAdminPanel from '../PromiseTableAdminPanel';
 import type {
   DecoratedPromise,
