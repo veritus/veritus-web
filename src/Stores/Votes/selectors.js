@@ -1,9 +1,13 @@
+/* @flow */
+
+import type { State } from '../../types';
+
 /**
  * We find the vote record for the case id that has the highest althingi_id (newest)
  * @param {Object} state 
  * @param {Integer} id 
  */
-export const voteRecordByCaseId = (state, id) =>
+export const voteRecordByCaseId = (state: State, id: number) =>
   state.voteRecords.data &&
   state.voteRecords.data.reduce(
     (currentVoteRecord, voteRecord) =>
