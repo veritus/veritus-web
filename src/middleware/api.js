@@ -12,12 +12,10 @@ export default () => dispatch => async action => {
     return dispatch(action);
   }
 
-  const requestType = types.request;
-  const successType = types.success;
-  const errorType = types.failure;
+  const { request, success, failure } = types;
 
   dispatch({
-    type: requestType,
+    type: request,
     ...action,
   });
 
@@ -51,14 +49,14 @@ export default () => dispatch => async action => {
 
     return dispatch({
       errors: payload && payload.errors ? payload.errors : [],
-      type: errorType,
+      type: failure,
       ...action,
     });
   }
 
   return dispatch({
     data: payload.results ? payload.results : payload,
-    type: successType,
+    type: success,
     ...action,
   });
 };
